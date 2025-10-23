@@ -1,29 +1,35 @@
-﻿# Next.js
+﻿# See https://github.com/github/gitignore/blob/main/Next.js.gitignore
+
+# Next.js
 .next/
 out/
 
 # Dependencies
-node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+
+# UI Components (80+ files - TOO MUCH)
+**/components/ui/
+
+# Production
+/dist
+/build
 
 # Environment
 .env*
 
-# Blog Images (300+ files - TOO BIG)
+# ALL public/assets except ESSENTIALS
 public/blog_images/
-
-# Blog Data (183 posts - hosted externally)
 public/data/
-
-# Content JSON (host on GitHub Raw)
 public/content/
-
-# Docs (PDFs, guides)
+public/videos/
+public/pdfs/
 Docs/
-
-# Scripts
 scripts/
-remove_empty_spans.js
 
-# Logs & Temp
+# Logs
 *.log
+
+# OS
 .DS_Store
