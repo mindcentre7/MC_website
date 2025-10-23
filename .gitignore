@@ -1,55 +1,29 @@
-﻿# See https://github.com/github/gitignore/blob/main/Next.js.gitignore
-
-# Next.js
-/.next/
-/out/
+﻿# Next.js
 .next/
 out/
 
 # Dependencies
 node_modules/
-.pnp
-.pnp.js
-pnpm-lock.yaml
 
-# Production Build
-/dist
-/build
-*.tgz
+# Environment
+.env*
 
-# Environment Variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Blog Images (300+ files - TOO BIG)
+public/blog_images/
 
-# Testing
-/coverage
-/coverage-shanghai
+# Blog Data (183 posts - hosted externally)
+public/data/
 
-# Logs
+# Content JSON (host on GitHub Raw)
+public/content/
+
+# Docs (PDFs, guides)
+Docs/
+
+# Scripts
+scripts/
+remove_empty_spans.js
+
+# Logs & Temp
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# IDE
-.vscode/settings.json
-.idea/
-*.swp
-*.swo
-
-# Temporary
-*.tmp
-*.temp
