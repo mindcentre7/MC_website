@@ -1,0 +1,46 @@
+```typescript
+import { NextApiRequest, NextApiResponse } from 'next';
+import fs from 'fs/promises';
+import path from 'path';
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const { id } = req.body;
+
+  if (!id) {
+    return res.status(400).json({ error: 'Post ID is required' });
+  }
+
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
+    let allPosts: any[] = [];
+    try {
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+      allPosts = JSON.parse(fileContent);
+    } catch (error) {
+      console.error('Error reading clean-blog-data.json:', error);
+    }
+
+    const updatedPosts = allPosts.filter((post) => post.id !== id);
+
+    await fs.writeFile(filePath, JSON.stringify(updatedPosts, null, 2), 'utf-8');
+
+    return res.status(200).json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    return res.status(500).json({ error: 'Failed to delete post' });
+  }
+}
+```
+
+1. New blog can be created now but when saving it, it displatyed Edit 'Post #1761126552771' instead of 'Blog saved'. After saving the new blog, the new data shows up in clean-blog-data.json. Delete function is working.  
+2. In Edit Blog, the content field must have the old data and not left blank. After saving the editing, the new data shows up in clean-blog-data.json.   
+3. When View Blog, the Content field is missing and there is no button to return to the Blog management page. The video field to display thumbnail view of the video(s) which are clickable to play the video in a new tag. 
+4. At the Blog management page level, each existing blog must display the feature_image and also the thumbnail view of the video(s) which are clickable to play the video in a new tag. 
+
+1. When View any blog, clicking on ← Back to Blog button led to the blog page but not the admin/blog managment page. There is also another button called → Back to Blog Management which went to admin/blog managment page which is correct. remove ← Back to Blog button and replace it with → Back to Blog Management button.
+
+

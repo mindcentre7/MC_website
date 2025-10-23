@@ -1,0 +1,217 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Plus, Edit, Trash2, Eye, Image as ImageIcon } from 'lucide-react';
+
+interface BlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  date: string;
+  date_display: string;
+  author: string;
+  content: string;
+  featured_image: string;
+  content_images: string[];
+  videos: string[];
+  url: string;
+}
+
+export default function BlogManagement() {
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  useEffect(() => {
+    loadPosts();
+  }, []);
+
+  const loadPosts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/data/clean-blog-data.json', {
+        cache: 'no-store',
+      });
+      if (!response.ok) throw new Error(`Failed to load posts: ${response.statusText}`);
+      const allPosts: BlogPost[] = await response.json();
+      const sortedPosts = allPosts.sort(
+        (a: BlogPost, b: BlogPost) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      setPosts(sortedPosts);
+    } catch (error) {
+      console.error('Error loading posts:', error);
+      setMessage({ type: 'error', text: 'Failed to load blog posts' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('Are you sure you want to delete this post?')) return;
+
+    try {
+      const response = await fetch('/api/blog/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+
+      if (response.ok) {
+        setMessage({ type: 'success', text: 'Post deleted successfully!' });
+        await loadPosts();
+        setTimeout(() => setMessage(null), 3000);
+      } else {
+        setMessage({ type: 'error', text: 'Failed to delete post' });
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      setMessage({ type: 'error', text: 'Failed to delete post' });
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-gray-500">Loading blog posts...</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <Link href="/admin" className="text-gray-500 hover:text-gray-700 mb-2 inline-flex items-center gap-2">
+                ← Back to Dashboard
+              </Link>
+              <h1 className="text-2xl font-bold text-gray-900">Blog Management</h1>
+              <p className="text-sm text-gray-600">Manage your blog posts (Total: {posts.length})</p>
+            </div>
+            <Link
+              href="/admin/blog/edit/new"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center gap-2"
+            >
+              <Plus className="w-4 h-4" />
+              New Post
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {message && (
+          <div
+            className={`mb-6 p-4 rounded-lg ${
+              message.type === 'success'
+                ? 'bg-green-50 text-green-800 border border-green-200'
+                : 'bg-red-50 text-red-800 border border-red-200'
+            }`}
+          >
+            {message.text}
+          </div>
+        )}
+
+        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-16">
+                  Image
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Author
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Videos
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {posts.map((post) => (
+                <tr key={post.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {post.featured_image ? (
+                      <div className="w-12 h-12 relative">
+                        <Image
+                          src={post.featured_image}
+                          alt={post.title}
+                          fill
+                          className="object-cover rounded"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 bg-gray-200 rounded flex items-center justify-center">
+                        <ImageIcon className="w-6 h-6 text-gray-500" />
+                      </div>
+                    )}
+                  </td>
+                  <td className="px-6 py-4">
+                    <div className="text-sm font-medium text-gray-900 truncate max-w-xs">
+                      {post.title}
+                    </div>
+                    <div className="text-xs text-gray-500">/{post.slug}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {post.date_display}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{post.author}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    {post.videos && post.videos.length > 0 ? (
+                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                        {post.videos.length} video{post.videos.length > 1 ? 's' : ''}
+                      </span>
+                    ) : (
+                      <span className="text-xs text-gray-400">No videos</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      target="_blank"
+                      className="text-indigo-600 hover:text-indigo-900 flex items-center gap-1"
+                    >
+                      <Eye className="w-4 h-4" />
+                      View
+                    </Link>
+                    <Link
+                      href={`/admin/blog/edit/${post.id}`}
+                      className="text-purple-600 hover:text-purple-800 flex items-center gap-1"
+                    >
+                      <Edit className="w-4 h-4" />
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(post.id)}
+                      className="text-red-600 hover:text-red-900 flex items-center gap-1"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {posts.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">No blog posts yet. Create one to get started!</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
