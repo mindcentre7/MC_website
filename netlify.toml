@@ -1,0 +1,10 @@
+# NEXT_PUBLIC_BASE_URL=http://localhost:3000
+# NEXT_PUBLIC_BASE_URL=https://www.mindcentre.com.sg
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "." 
+  functions = ".netlify/functions"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
