@@ -478,7 +478,7 @@ export default function EditBlogPost() {
                     {formData.featured_image.match(/\.(mp4|mov|webm)$/i) ? (
                       <video
                         src={formData.featured_image}
-                        alt="Featured Video"
+                        // alt="Featured Video"
                         className="w-32 h-32 object-cover rounded mx-auto"
                         controls={false}
                       />
