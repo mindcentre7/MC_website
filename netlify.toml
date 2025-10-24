@@ -2,9 +2,13 @@
 # NEXT_PUBLIC_BASE_URL=https://www.mindcentre.com.sg
 # netlify.toml
 # netlify.toml - Alternative simple fix
+# netlify.toml - Use this structure
+
 [build]
   command = "npm run build"
-  # publish = "." # ❌ Remove this line entirely!
+  # Set the publish directory to .next, the standard output for Next.js builds.
+  # This avoids ambiguity and the 'out' directory conflict.
+  publish = ".next" 
   functions = ".netlify/functions"
 
 [[plugins]]
