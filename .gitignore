@@ -20,11 +20,11 @@ out/
 .env*
 
 # ALL public/assets except ESSENTIALS
-public/blog_images/
-public/data/
-public/content/
-public/videos/
-public/pdfs/
+# public/blog_images/  # Commented to allow for Netlify
+# public/data/         # Commented to allow for Netlify
+# public/content/      # Commented to allow for Netlify
+# public/videos/       # Commented to allow for Netlify
+# public/pdfs/         # Commented to allow for Netlify
 Docs/
 scripts/
 
@@ -33,3 +33,6 @@ scripts/
 
 # OS
 .DS_Store
+
+# Local Netlify folder
+.netlify

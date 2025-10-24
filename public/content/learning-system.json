@@ -1,0 +1,52 @@
+{
+  "pageTitle": "Our Learning System",
+  "pageSubtitle": "The MIND System for academic excellence",
+  "mindSystem": {
+    "title": "MIND System",
+    "introduction": "Our success in nurturing your child to academic success, we believe, is largely attributed to our faithful execution of our 'MIND' (Methodology, Inquiry, Nurturing & Diligence) System as follows:",
+    "components": [
+      {
+        "title": "Methodology",
+        "description": "Systematic concept teaching through the use of good summaries and key exam points followed by guided practice of key topical questions"
+      },
+      {
+        "title": "Inquiry",
+        "description": "Teaching students how to develop inquiring minds and finally be independent thinkers and doers. We engage and motivate our students with multimedia teaching, hands-on experience and a high level of interaction (including teacher-student, student-student and student-computer interactions and quizzes and competitions)"
+      },
+      {
+        "title": "Nurturing",
+        "description": "Small class size to allow our teachers to have good focus and attention to each student, understand their strengths and weaknesses and different learning styles"
+      },
+      {
+        "title": "Diligence",
+        "description": "Clarification of the topic and working on good topical questions, test-sheets and mock-exam tests. Use of motivational methods so students enjoy being diligent"
+      }
+    ]
+  },
+  "keyElements": {
+    "title": "The Key Elements of MIND Learning System",
+    "elements": [
+      "Clear, concise and examination-focused summary notes",
+      "Emphasis on concept understanding and their applications",
+      "Motivational teaching with dialogue, quizzes and healthy competition",
+      "Small class size",
+      "Close attention and adaptation to each student's strengths and weaknesses to bring out the best in them",
+      "Regular topical tests and mock midyear and final year examination tests with questions from past year series and top-school papers",
+      "Use of science experiments and observations to interest students in Science",
+      "Computer-based learning to complement teacher-based teaching to vary the learning experience of our students",
+      "Committed and qualified graduate teachers who are registered with MOE",
+      "Intensive exam preparation process to gear students for the months prior to the PSLE / N / O / A level examinations",
+      "Targeting of each student's weak areas to improve their concentration and confidence",
+      "Goal setting, championships and other motivational processes that students enjoy"
+    ]
+  },
+  "examPreparation": {
+    "title": "Exam Preparation",
+    "introduction": "We also have time-tested rigorous process geared towards preparing our students systematically and comprehensively for PSLE, N, O and A level examinations:",
+    "items": [
+      "Regular mock-examination tests for each student according to his/her needs and abilities",
+      "Rigorous tracking of each student's achievement process through our recording system",
+      "Continuous improvement to our repository of top school papers and official examination scripts"
+    ]
+  }
+}

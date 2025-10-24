@@ -1,0 +1,280 @@
+{
+  "hero": {
+    "title": "Serangoon Tuition & Bedok Tuition Centre in Singapore",
+    "subtitle": "Mind Centre – Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore. Proven Fast & Systematic study methodologies.",
+    "ctaButton": {
+      "text": "Explore Our Programs",
+      "link": "/schedules"
+    }
+  },
+  "promotionalBanner": {
+    "enabled": true,
+    "items": [
+      {
+        "title": "🎉 SPECIAL PROMOTION!",
+        "description": "Are you struggling with your studies? Learn our proven **Fast & Systematic** study methodologies which have helped many students excel! Learn the \"secrets\" for success using unique methodologies backed by brain research and enjoy your studies!",
+        "callToAction": "Go to [www.mindcentre.site](https://www.mindcentre.site) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
+        "highlight": "RECOMMEND A FRIEND and BOTH OF YOU will get a Special **$10 discount** when he/she signs up for a term!"
+      }
+    ]
+  },
+  "trackRecord": {
+    "title": "Proven Track Record of Success",
+    "paragraph1": "The owners of Mind Centre, David & Violet Lim, together with their teacher team, have helped hundreds of Primary, Secondary & JC students achieve A's & multiple grade improvements in their examinations over the past 15 years.",
+    "paragraph2": "Using our Fast & Systematic Learning Methodologies, we've had the joy of helping 5 of our past students enter Medical faculty and others enter Law, Pharmacology, Engineering, Accounting, Dentistry, Veterinary Medicine, Science and other University faculties!",
+    "certificateImage": "/images/cert.jpg",
+    "certificateAlt": "Mind Centre Trusted Enterprise Certificate and Achievement",
+    "videoSrc": "/videos/intro.mp4",
+    "videoPoster": "/images/logo.jpg"
+  },
+  "subjectsOffered": {
+    "title": "Subjects We Offer",
+    "description": "We offer Primary, Secondary & JC classes teaching our superior mind-focused techniques for English, Chinese & General Paper covering Composition, Comprehension & Summary writing skills. In addition, we teach 'Fast & Systematic' learning and exam preparation methodologies for Science, Math, Economics & Humanities which help students achieve A's & multiple-grade improvement! (Coverage includes AEIS)"
+  },
+  "methodology": {
+    "title": "Our Methodology",
+    "description": "Mind Centre utilises 'Mind-focused' learning techniques and a 'Fast and Systematic System' that helps students cut down learning time considerably. As opposed to the slower method commonly used, our Fast & Systematic coupled with Mind Research methods for Math, Science, English, Chinese & Humanities help students to learn faster and score better for their exams.",
+    "methods": [
+      {
+        "icon": "book-open",
+        "title": "Superior Writers' Techniques",
+        "description": "Mind-focused techniques for English, General Paper & Chinese Composition writing, Comprehension & Summary writing"
+      },
+      {
+        "icon": "brain",
+        "title": "Critical Mind-focused Learning",
+        "description": "Memory techniques for Science, Math & Humanities that cuts revision time by up to 50% and greatly increases memory retention"
+      },
+      {
+        "icon": "trending-up",
+        "title": "Rapid Application Flooding",
+        "description": "Helps students gain conceptual understanding and application several times faster than the slow method usually used"
+      },
+      {
+        "icon": "target",
+        "title": "Testing and Exam Methodologies",
+        "description": "Proven strategies to increase exam performance and achieve better results"
+      },
+      {
+        "icon": "lightbulb",
+        "title": "Powerful Motivation",
+        "description": "The secret to helping students gain powerful motivation to study the subject"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "TESTIMONIALS",
+    "subtitle": "Hear from our successful students",
+    "ctaButton": {
+      "text": "View More Testimonials & Results",
+      "link": "/results"
+    },
+    "items": [
+      {
+        "name": "Dr. Michelle Lim",
+        "title": "Studied Medicine at NUS",
+        "content": "I have been a student at Mind Centre since I was in Primary School, all the way through Secondary to Junior College for English & GP, Maths and Sciences tuition. For all the excellent grades I achieved in PSLE, 'O' Levels and 'A' Levels, I would like to thank the dedicated teachers at Mind Centre who really helped me to study effectively. What really helped me were the structured techniques that my teachers taught me for each subject, for example, a step by step method to identify key phrases in English comprehensions. I found that these techniques cut down my revision time greatly - this and advice from my teachers helped me identify the areas I really needed to focus on in exams.",
+        "image": "/images/testimonials/michelle.jpg"
+      },
+      {
+        "name": "Dr. Lianne Seow",
+        "title": "Studied Dentistry at NUS",
+        "content": "I owe my solid foundation in Science to Mind Centre. Starting from Primary 5, I was exposed to intriguing science experiments that were not demonstrated in school throughout my time with Mind Centre. These experiments were not just memorable, but they were very related to the syllabus as well. This helped me obtain an A for Science in the PSLE. Continuing onto secondary school, Mind Centre focused on teaching us and enforcing studying methods (mind maps and drilling questions) which I felt was an extremely beneficial skill to have. By sticking to their studying style, I managed to achieve all As for Chemistry, Physics and Biology in the 'O' levels. In my JC years with them, abstract concepts were discussed and made crystal clear. This helped us appreciate the subject instead of merely memorizing facts, and made studying Chemistry and Physics a joy. By using the same study methods I used in secondary school, I managed to obtain an A for both Chemistry and Physics in the 'A' levels. Thank you Mind Centre for helping me Ace in every crucial examination!",
+        "image": "/images/testimonials/lianne.jpg"
+      },
+      {
+        "name": "Dr. Wang Wei Ting",
+        "title": "Studied Medicine at NUS",
+        "content": "I have been attending Math and Science classes at Mind Centre since I was in secondary one and the tutors really helped me to build a strong foundation. Through the years, my interest in these subjects grew and I started to improve. In JC, I attended both Math and Chemistry classes. Both Mr. Low and Mrs. Lim were very helpful and would always be there to guide me through challenging questions. They also helped me reinforce my knowledge and understanding of various concepts. I am very thankful for their help. Wei Ting achieved As for Maths & Chemistry in her 2014 'A' Levels. She attended tuition at Mind Centre from Sec 1 to JC2, while under the Integrated Program(IP) track at Hwa Chong Institution.",
+        "image": "/images/testimonials/wang.jpg"
+      },
+      {
+        "name": "Brenda Wong",
+        "title": "Improved from E to A for Economics (GCE 'A' Levels) - NUS Business School",
+        "content": "Being under the guidance of Mr. Quek has allowed me to not only understand Economics better, but also to build an interest in it. Mr. Quek is a very friendly and approachable tutor who puts his best in ensuring that his students are well prepared. He goes beyond classroom teachings by sharing situations around the world. This allowed me to have a more realistic and global perspective of Economics which benefits me as a current NUS Business undergraduate. With students' hard work and Mr. Quek's guidance, acing the 'A' level Economics paper is definitely possible!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Mathangi",
+        "title": "Scored A for General Paper (GCE 'A' Levels)",
+        "content": "The GP lessons by Mr Lim were very important in helping me secure that A for GP. I liked his methodical approach to the various GP discussions. His dedication to the students by striving to provide the latest news is something which helped me learn a lot about latest updates on world happenings-and that is very important in GP. His model essays also helped me a lot in improving my grammatical errors and formulate sophisticated sentences. Mr Lim also provided timely feedback on my work and motivated me that if I put in hard work and focus on themes that I'm strong at, then there wouldn't be any chance of missing that A!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Dr. Sharon Lim",
+        "title": "Veterinary Surgeon - Studied at Mind Centre from Primary to JC level",
+        "content": "I liked Mind Centre Q&A Method of clarifying concepts using a study guide which can be conveniently carried around for study. This has greatly helped me gain confidence in tackling challenging problems. Mind Centre also taught me to use the Quick approach to work through many tough questions which are provided with good solutions and then take tests to ascertain my mastery of the topic. As a result, I got A1's in Biology & Chemistry, A2 in English & Physics at 'O' level and As in Biology & Literature and Bs in Chemistry, GP & Maths.",
+        "image": "/images/teachers/dr-sharon.jpg"
+      },
+      {
+        "name": "Amos Chan",
+        "title": "A1 for Chemistry & E Maths, A2 for A Maths (2018 GCE O Levels)",
+        "content": "I am very grateful to Teacher Dinah for her dedication in coaching me on my mathematics and chemistry subjects. She helped me flushed out my weak areas and then through her application of the Mind Centre teaching methods helped me convert them into strengths.\n\nCongratulations from Mind Centre:\nAmos is a conscientious student who can manage his time well. As such, he was able to benefit greatly from our teaching methods! Keep up the excellent work!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Etania Rai",
+        "title": "2017 PSLE student",
+        "content": "The descriptive phrases definitely did impress the examiner as, there were a lot of them that I used, and some were not even taught in school! Thanks to the notes for comprehension and composition, as I was hardly able to score below 30 for my compositions. Even my English teacher was impressed!\n\nAs I mentioned, the comprehension notes did help a lot, as, while my teacher was going through the passage, I could easily get everything and do it swiftly. Before anyone in class was done, I would finish and get more than 12, which is difficult due to the standard. Really, Mind Centre did help, as I used to get high B's for English, and since I joined Mind Centre, I have been getting A's! I even scored a high A for English during PSLE! Thank you Mind Centre!!!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Caroline Yap",
+        "title": "B. Accountancy (2nd Upper), NTU (Attended English, Economics & Science tuition at Mind Centre)",
+        "content": "I first joined Mind Centre when I was in Secondary School and continued all through my JC education. I find Mind Centre a very conducive environment to learn. Classes are conducted in groups where learning can be enhanced through questions raised by students and short discussions held in class. Mind Centre also offers tuition services for a variety of subjects, which provided me great convenience and flexibility in attending classes for different subjects on the same day. Mind Centre also has a team of dedicated teachers who are knowledgeable in their field of studies. It was easy for me to approach them when I needed to clarify any doubts in my work. I was taught many valuable techniques for grasping difficult concepts which I continued to apply throughout my University education (e.g. Mind Mapping). After joining Mind Centre, I've seen significant improvements in grades especially for my A level Economics Paper (from a constant borderline pass to achieving an A for finals). I've enjoyed my years in this Centre and highly recommend other students to join.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Xin Quan",
+        "title": "Improved from a C6 to an A2 for Chemistry (GCE 'O' Levels)",
+        "content": "When asked by her tutor, Mrs. Lim, to share what she thought helped her make that big improvement, she stated the following:\n\n\"I think you've helped me strengthen my basic concepts and you kept repeating some of the things in lessons for example keep on asking the same questions I think it made memorising easier. And I feel that the study guide book was a great help too and that you kept on referring back to it made me become more familiar with the facts and improved my self study since I know where are the facts.\"\n\nShe articulated a key 1st step in our Mind Centre method which is the clarifying of concepts using a Question & Answer method using a good study-guide containing key exam answers. Thereafter, students are asked to work through many good questions which have good solutions provided, followed by a short test to ascertain their mastery of the topic. As a result, they gain victory over the subject.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Sneha Mathew",
+        "title": "A1 for English & Chemistry (2018 GCE 'O' Levels)",
+        "content": "I'm very happy attending lessons at Mind Centre Bedok. Thanks to teachers Chris and Dinah for their commitment and flexibility. I could bring challenging questions to class or even message them via WhatsApp. They spared no effort to ensure I understood the lesson and could apply the knowledge.\n\nCongratulations from Mind Centre:\nSneha is very hardworking and hardly missed lessons. She manages her time well and always completes her homework before the next lesson. Congratulations to Sneha on her outstanding results. Good job!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Joshua Mission",
+        "title": "F9/E8 (Sec 3) to A2 for Maths & Chemistry (2018 GCE 'O' Levels)",
+        "content": "I was still not clear about Maths concepts covered in Lower Secondary topics when I joined in Feb 2017. The first thing my MCB teacher did was to make sure I mastered those topics to build a solid foundation for my Upper Secondary topics. Thanks to this strategy, and the dedication of my MCB teacher, I was able to master all the Maths concepts and do very well in my GCE 'O' Level Maths examination.\n\nCongratulations from Mind Centre:\nJoshua is a very hardworking and conscientious student who almost never missed his tuition lessons and worked very diligently in class and on his homework. Well done! And keep up the excellent work!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Kathya",
+        "title": "Improved from D to A (Sec 4 IP Chemistry SA2 2018)",
+        "content": "Teacher Dinah helped me made multiple grades improvement for my Chemistry subject. She quickly assessed my weak areas and tailored her teaching to help me master the essential concepts. I find her explanation clear and easy to understand. Thank you, teacher!\n\nCongratulations from Mind Centre:\nCongratulations! On your success in mastering the concepts of the subject to achieve a high score in your Final Year-end examination. Keep up the good work!",
+        "image": "/images/testimonials/kathya.jpg"
+      },
+      {
+        "name": "Andreia Ko",
+        "title": "IB Math Year 6 student",
+        "content": "\"I hate math\" was a common phrase you would hear me say. I never understood what the point of math was, and being able to grasp all these meaningless mathematical concepts were a challenge for me. I usually always find myself in the lowest band, getting the lowest score in class for math. As much as I would like to say that Math is all about self-practice, I do believe that teachers play an important role in a student's learning process. Sadly, I could sense how my previous tuition teachers were slowly giving up on me, and they made some hurtful remarks that discouraged me deeply, causing me to dislike the subject even more. However, Mr Low was different. He was always very patient with me, explaining things over and over again, never once showing any sign of displeasure or annoyance. He helped me and encouraged me, and even when I told him my lousy scores, expecting to get a look of disappointment or disapproval in his face, he still encouraged me and it motivated me to work harder. From a 2 to a 6 was a miracle for me, and I've been so blessed to be under the care of the teachers and staff of Mind Centre.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Ong Wei",
+        "title": "A2 for Add. Maths (2018 GCE 'O' Levels)",
+        "content": "I want to thank Teacher Chris for teaching me Additional Mathematics during my secondary 3 year and helping me strengthen my understanding of all the fundamental concepts through his easy to understand explanation and exercise drills. This strong foundation enabled me to score A2 for Additional Mathematics in my GCE O Levels Examination. Thank you, teacher!\n\nCongratulations from Mind Centre:\nOng Wei has a good aptitude for Additional Mathematics but was weak in some concepts of the subject when she came to us. Through our coaching and her own hard work, she has made fantastic improvements. Ong Wei's hard work has paid off! Great job, Ong Wei!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Genevieve",
+        "title": "'A' Level student - A's for both GP and Math",
+        "content": "For GP, the newspaper cuttings that Mr. Lim prepared weekly and accumulated by topic was the most important asset given to me to tackle my A level GP paper. Reasons are that these newspaper clippings are relevant, updated and opinionated. As A level students, we ought to have opinions when writing but we often lack the time and knowledge. Hence, the newspapers gave me opinions well thought out or if I disagree, I would be able to craft anti-thesis easily. Additionally, the essays written by Mr. Lim himself were useful in expanding my vocabulary and allowing me to pick up a different writing style which sets me apart from my peers. He also prompts his students and forces us to answer him with claims that are backed up by evidence which gave me confidence in the A level exams.\n\nAs for Math, Teacher Simon was very patient with me as I could not grasp many simple concepts and often get similar questions wrong. He always taught me different methods to solving a problem and got me to drill on topics I'm weaker at so as to build up my foundation. I believe that's why I managed to score both A for Maths and GP.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Benedict Lee",
+        "title": "GCE 'A' Level student - Scored A for GP",
+        "content": "I believe that the best way to improve in GP is to actively participate in Mr Lim's GP lesson. Mr Lim also often provides useful statistics which I consistently try to use while writing short paragraphs on topics tht I am interested in. It is also important to challenge any of Mr Lim's arguments which one disagrees in and to be able to delve further into the topic and understand better the elaborations behind each argument.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Xia Ping",
+        "title": "Scored A for General Paper ('A' Levels)",
+        "content": "Violet: \"Can you whatsapp me what practices/discussions/methods helped you improve your GP? That will really help us help our current students.\"\n\nXia Ping's: \"I think it was the the discussion on the content and structure of different essay questions!\"",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Ivan Lim",
+        "title": "Degree in Accounting & Finance (Honours), University of London (Attended GP, Math & Economics tuition at Mind Centre)",
+        "content": "I joined Mind Centre when I was in Junior College taking tuition for Economics, Math and my General Paper. Within a span of 2 months I've managed to achieve a B for Econs, improved from C to an A for Maths and improved from an E to a C for my General paper.\n\nMind Centre not only focuses on exam results but also guides us through the actual learning process. Not only were the classes interactive, they have helped me tremendously to improve on my subjects. Classes are conducted in small groups where the tutor tries to engage each and every individual and keep up with their progress in class. The tutors update us about current knowledge as well as a lot of side reading, apart from just tackling exam questions. This allows the lessons to be very interesting and helps us want to understand the subjects even more. Overall, its methods of teaching are effective, efficient and most importantly, enjoyable. I would not hesitate to recommend this centre to my friends!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Bridget Lee",
+        "title": "'O' Levels - B3 in POA (jumped by 6 grades)",
+        "content": "Teacher Betty is a compassionate person with a willing heart to teach. She equipped me with the necessary skills that I did not learn in school, skills which were efficient as well as very effective. Those tactics gave me more time to finish sections of the test, and greatly assisted with my issue of time management during the exam. She is extremely flexible; her capability of assisting my class with two chapters of the subject at the same time clearly shows she is very adaptable, and can handle any questions asked.\n\nThe aspect of theory, which involves a lot of memory work, was what she had especially aided me with. Though I had much trouble with POA, she did not give up on me, offering to give me personal, additional lessons to clarify any remaining queries I had before my exam. Thanks to her teaching, effort and constant encouragement, I managed to score a B3 in my O' Levels POA, jumping by 6 grades.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Natalie Goh",
+        "title": "2020 Sec 2 Student - Edusave Scholarship Award",
+        "content": "Pleased to hear that one of our students Natalie has received the Edusave Scholarship Award of $300 (English Language) for the year 2020. She attended English and Math classes at Mind Centre so kudos to our tutors Jessie and Cozy!\n\nFor the record, for English Natalie topped her cohort last year, and for Math she improved from 81% the previous year to 86.75% in 2020. Our hearty congratulations and keep up the good work!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Marc Lim - General Paper",
+        "title": "2020 'A' Level General Paper student - Scored A",
+        "content": "There are a few aspects of Mr Lim's GP lessons that I found to be very helpful.\n\nOne of them would be the opportunity to interact with the teacher. In my view, GP is a subject where many opinions are welcomed but not all opinions are correct. It is important to form your own opinions about current affairs and societal issues so you can write more passionately about them. However, without the validation of a teacher, writing such opinions can be risky as they are not necessarily \"correct\" by GP's standards. I found that sharing my views with Mr Lim (both in and out of class) helped me to develop my opinions and also decide whether it would be appropriate to write them to secure high marks.\n\nPractice is also equally as important. You need to practise in order to do well for any subject and GP is no exception. The problem is that there is no answer sheet when it comes to GP, unlike most of the other subjects, so you would need the aid of a teacher. From my experience, school teachers are much more reluctant to mark and review your essays so it was very hard for me to receive feedback. Coming to tuition really helped me with this because Mr Lim has never refused to mark any of my work despite his busy schedule. I urge you to submit work to him regularly if you want to excel at GP.\n\nThe last aspect of Mr Lim's GP lessons I would like to talk about would be the supply of GP content. Mr Lim mainly provides content by giving us newspaper articles. While it may be unconventional compared to other tuition classes' notes, I find it effective. I think that reading the news is much more effective than reading bullet points and memorising examples on notes because it captures the bigger picture. You will also often read good English and can pick up good writing phrases from news articles as they are written by professionals. They also contain the opinions of experts, which is almost always considered a \"correct\" opinion in GP. Newspaper articles are easy and cheap to access, so what makes it worthwhile to come for Mr Lim's lessons? The answer is that he sieves through the numerous amounts of daily articles for you and handpicks the ones that are worth reading. This helps tremendously as many students do not have the luxury of time to read every single article.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Marc Lim - Chemistry",
+        "title": "2020 'A' Level Chemistry student - Scored A",
+        "content": "I found that the way Mr Ng explained Chemistry concepts to be very solid. He often explains in a way that is easy to understand and if a student still doesn't understand, he would try a different approach until it worked. I have never found myself being unable to understand the concepts he was trying to explain in class. It really helped me get a good foundation for H2 Chemistry when I was in J1, the period where most would find H2 Chemistry the hardest as it is a big jump from O level pure chemistry.\n\nMr Ng's lessons were also helpful because they were interactive. When going through certain questions, he would often ask us further questions to help us think deeper about the concepts being tested in the question. This really helped me become more exposed to the various types of possible questions in the syllabus and it was less likely that I would be caught flat-footed.\n\nMr Ng also never hesitated in taking the time to answer questions outside of class. It really helped me learn and strengthen my concepts a lot quicker because I could ask him something in between lessons and not have to ask him the next lesson. This meant that we would progress faster because I did not have to wait until the next lesson to clarify my doubts.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Marc Lim - Physics",
+        "title": "2020 'A' Level Physics student - Scored A",
+        "content": "I found that the most helpful part about Mr Lim's physics lesson was how he always scrutinised my language. While it isn't exactly intuitive to emphasise English in a physics lesson, I believe it is actually important. A good chunk of A level physics includes explaining concepts and theories and I think that decent sentence structure and clarity can go a long way. Memorising keywords definitely helps, but you cannot always get the full marks for explanation questions because the marker may not understand what you're trying to explain. Mr Lim has helped me improve the clarity of my answers, which I believe played a big part in helping me secure my A.\n\nI also found Mr Lim's real life demonstrations to be helpful. He would use real life examples to help illustrate the theories being thought. It did help me visualise what was going on and prompted me to think about the way these concepts work. For some, it may be better than the traditional way of learning via the whiteboard.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Zheng Run",
+        "title": "2020 'A' Level Maths student",
+        "content": "The tutor's constant encouragement and tips on how to answer certain questions made the revision easier. Also, the method he uses to go through the practice questions were used in the TYS and actual paper, so it was simple to understand and secured marks for me.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Eliav Lim",
+        "title": "'O' Level student - B3 for A Maths (from E8)",
+        "content": "Hi Violet, this is Mrs Lim, Eliav's mum. Just wanted to thank Mind Centre and Eliav's A Maths tutor for your hard work. He got a B3 for A math....a far cry from the E8 he got in April last year!",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Jayven Low",
+        "title": "2020 PSLE Student - 4A* performance",
+        "content": "We are elated to hear of our student, Jayven's excellent 4A* performance in the recent 2020 PSLE examination. Jayven studied English and Science with us.\n\nViolet: Happy 2021 to you and family! I missed and must congratulate Jayven on his A* PSLE results! Which school has he started his sec1 year at? Did he decide to be in the IP tract or O level tract? All the very best to Jayven!\n\nJayven's Mum: Hi Violet, thank you for your best wishes and happy 2021 to you and family too! Jayven is now in Dunman High IP track. Truly appreciate and will take this opportunity to thank you and your teachers for all your guidance and hard work. With all your guidance and Jayven's perseverance that make A* possible for all his 4 subjects. We're happy and proud of him. Hopefully he'll continue to strive and excel in his next 6 years of learning journey.\n\nViolet: Very glad to hear that he is at Dunman High IP track. His 4 A* good results has enabled his happy entry into Dunman High, a top school! He will have the opportunity to work with other very strong students. Sure, if he should later need our help, we would be most glad to help him. Mind Centre is actually strong in Sec and A level subjects. Using our Fast & Systematic cum testing methodologies, we've had the privilege of helping 5 past students enter Medical faculty and others, Law, Vet, Dentistry, Engineering and other University faculties.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Matthias Lam",
+        "title": "Scored A* in English, Maths & Science and A in Chinese (PSLE)",
+        "content": "I have been here for sometime now and my grades improved tremendously to A*. Mr Jonathan Lee makes lessons fun and innovative, making me more eager to learn. He is not monotonous and makes me more often than not want to attend his lessons.",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Esther Ang",
+        "title": "Improved greatly for her P4 Science SA2",
+        "content": "Thank you so much 😊. I would like to update u tat Esther has scored 74.5 for her Science paper. Thank you for your efforts in teaching her. Thank you for your patience and guidance in so short period, she has so much improvement in her science. Thank you🙏..",
+        "image": "/images/logo.jpg"
+      },
+      {
+        "name": "Dave Tham",
+        "title": "2020 P3 Student - Steady improvement in Science",
+        "content": "Congratulations to student Dave who joined us in September 2020 and maintained a steady improvement for his P3 Science grades. Mum has sent us a message to express her gratitude: \"Please convey our thanks to Dave's science teacher, Mrs. Seng that his science marks improved from:\n33 in 1st semester\n53 in 3rd semester\n71 in 4th semester\n65 Overall in P3\"",
+        "image": "/images/logo.jpg"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Mind Centre?",
+    "items": [
+      {
+        "icon": "brain",
+        "title": "Brain-Based Learning",
+        "description": "Our unique methodologies are backed by neuroscience research for faster, more effective learning."
+      },
+      {
+        "icon": "users",
+        "title": "Expert Teachers",
+        "description": "Experienced educators who are passionate about student success and individual growth."
+      },
+      {
+        "icon": "trophy",
+        "title": "Proven Results",
+        "description": "Track record of helping students achieve excellent grades and gain confidence."
+      },
+      {
+        "icon": "map-pin",
+        "title": "Convenient Locations",
+        "description": "Two centres in Serangoon and Bedok, easily accessible by public transport."
+      }
+    ]
+  }
+}
