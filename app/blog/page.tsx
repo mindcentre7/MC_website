@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-// Revalidate every 10 seconds
-export const revalidate = 10;
+import fs from 'fs';
+import path from 'path';
 
 interface BlogPost {
   id: number;
@@ -18,30 +17,21 @@ interface BlogPost {
   url: string;
 }
 
-async function getBlogPosts(): Promise<BlogPost[]> {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-    const response = await fetch(`${baseUrl}/data/clean-blog-data.json`, {
-      cache: 'no-store',
-    });
-    if (!response.ok) {
-      throw new Error(`Failed to fetch blog posts: ${response.statusText}`);
-    }
-    const allPosts: BlogPost[] = await response.json();
-    console.log('Blog posts fetched from clean-blog-data.json:', allPosts.length, allPosts);
-    const sortedPosts = allPosts.sort(
-      (a: BlogPost, b: BlogPost) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    return sortedPosts;
-  } catch (error) {
-    console.error('Error fetching clean-blog-data.json:', error);
-    return [];
-  }
+// Load all posts at build time (static, no fetch)
+let allPosts: BlogPost[] = [];
+try {
+  const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
+  const jsonString = fs.readFileSync(filePath, 'utf8');
+  allPosts = JSON.parse(jsonString).sort(
+    (a: BlogPost, b: BlogPost) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  console.log('Blog posts loaded from clean-blog-data.json:', allPosts.length, allPosts);
+} catch (error) {
+  console.error('Error loading clean-blog-data.json:', error);
+  allPosts = []; // Fallback empty
 }
 
-export default async function BlogPage() {
-  const posts = await getBlogPosts();
-
+export default function BlogPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
@@ -50,7 +40,7 @@ export default async function BlogPage() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
+        {allPosts.map((post) => (
           <article
             key={post.id}
             className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"
@@ -83,7 +73,7 @@ export default async function BlogPage() {
         ))}
       </div>
 
-      {posts.length === 0 && (
+      {allPosts.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">No blog posts available yet.</p>
         </div>
