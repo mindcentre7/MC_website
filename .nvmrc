@@ -1,0 +1,3 @@
+git add .nvmrc
+git commit -m "Configure Netlify/Dev environment to use Node 20 LTS"
+git push
