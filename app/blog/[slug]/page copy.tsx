@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
+
+export const revalidate = 10;
 
 interface BlogPost {
   id: number;
@@ -18,27 +18,30 @@ interface BlogPost {
   url: string;
 }
 
-// Load all posts at build time (static, no fetch)
-let allPosts: BlogPost[] = [];
-try {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
-  const jsonString = fs.readFileSync(filePath, 'utf8');
-  allPosts = JSON.parse(jsonString);
-} catch (error) {
-  console.error('Error loading clean-blog-data.json:', error);
-  allPosts = []; // Fallback empty
-}
-
-function getBlogPost(slug: string): BlogPost | null {
-  return allPosts.find((p) => p.slug === slug) || null;
+async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/data/clean-blog-data.json`, {
+      cache: 'no-store',
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blog post: ${response.statusText}`);
+    }
+    const allPosts: BlogPost[] = await response.json();
+    const post = allPosts.find((p) => p.slug === slug);
+    return post || null;
+  } catch (error) {
+    console.error('Error fetching clean-blog-data.json:', error);
+    return null;
+  }
 }
 
 interface BlogPostPageProps {
   params: { slug: string };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = await getBlogPost(params.slug);
 
   if (!post) {
     return (
@@ -66,6 +69,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-12">
+        {/* FIXED: Back to main Blog page */}
         <Link
           href="/blog"
           className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium mb-8"
@@ -122,6 +126,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           )}
         </article>
 
+        {/* FIXED: Bottom button - Back to main Blog page */}
         <div className="pt-12 border-t">
           <Link
             href="/blog"

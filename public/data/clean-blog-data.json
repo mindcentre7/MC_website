@@ -2243,5 +2243,17 @@
     "featured_image": "/blog_images/blog_70_featured_90388.jpg",
     "content_images": [],
     "videos": []
+  },
+  {
+    "id": "new",
+    "title": "test1",
+    "slug": "test1",
+    "author": "david",
+    "content": "testing",
+    "featured_image": "/blog_images/1761285754726.png",
+    "content_images": [
+      "/blog_images/1761285771717.png"
+    ],
+    "videos": []
   }
 ]
