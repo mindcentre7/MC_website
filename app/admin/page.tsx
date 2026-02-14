@@ -8,6 +8,7 @@ interface ContentFile {
   name: string
   path: string
   description: string
+  previewUrl: string
   isCode?: boolean
 }
 
@@ -24,19 +25,19 @@ interface HeaderData {
 }
 
 const contentFiles: ContentFile[] = [
-  { name: 'Home Page', path: 'home.json', description: 'Hero section, promotional banners, and why choose us' },
-  { name: 'Contact Information', path: 'contact.json', description: 'Branch addresses, phone numbers, operating hours' },
-  { name: 'WhatsApp Widget', path: 'whatsapp.json', description: 'WhatsApp chat representatives, phone numbers, and messages' },
-  { name: 'Site Settings', path: 'site-settings.json', description: 'Logo, social media links, colors, SEO settings' },
-  { name: 'About Us', path: 'about.json', description: 'Mission, vision, values, achievements, founders background' },
-  { name: 'Results & More Testimonials', path: 'results.json', description: 'Exam results PDFs and testimonials link' },
-  { name: 'Class Schedules', path: 'schedules.json', description: 'Class schedule PDFs for Serangoon and Bedok locations' },
-  { name: 'Franchising', path: 'franchising.json', description: 'Franchising opportunity information and contact details' },
-  { name: 'Our Learning System', path: 'learning-system.json', description: 'MIND system components, key elements, and exam preparation' },
-  { name: 'Teachers\' Profiles', path: 'teachers.json', description: 'Teacher profiles, qualifications, and experience' },
-  { name: 'More Testimonials', path: 'testimonials.json', description: 'Additional student success stories and testimonials' },
-  { name: 'Header Settings', path: 'header.json', description: 'Header text, logo path, promotional messages', isCode: false },
-  { name: 'Footer Settings', path: 'footer.json', description: 'Footer links, social media URLs, contact button', isCode: false },
+  { name: 'Home Page', path: 'home.json', description: 'Hero section, promotional banners, and why choose us', previewUrl: '/' },
+  { name: 'Contact Information', path: 'contact.json', description: 'Branch addresses, phone numbers, operating hours', previewUrl: '/contact' },
+  { name: 'WhatsApp Widget', path: 'whatsapp.json', description: 'WhatsApp chat representatives, phone numbers, and messages', previewUrl: '/' },
+  { name: 'Site Settings', path: 'site-settings.json', description: 'Logo, social media links, colors, SEO settings', previewUrl: '/' },
+  { name: 'About Us', path: 'about.json', description: 'Mission, vision, values, achievements, founders background', previewUrl: '/about-us' },
+  { name: 'Results & More Testimonials', path: 'results.json', description: 'Exam results PDFs and testimonials link', previewUrl: '/results' },
+  { name: 'Class Schedules', path: 'schedules.json', description: 'Class schedule PDFs for Serangoon and Bedok locations', previewUrl: '/schedules' },
+  { name: 'Franchising', path: 'franchising.json', description: 'Franchising opportunity information and contact details', previewUrl: '/franchising' },
+  { name: 'Our Learning System', path: 'learning-system.json', description: 'MIND system components, key elements, and exam preparation', previewUrl: '/our-learning-system' },
+  { name: 'Teachers\' Profiles', path: 'teachers.json', description: 'Teacher profiles, qualifications, and experience', previewUrl: '/teachers' },
+  { name: 'More Testimonials', path: 'testimonials.json', description: 'Additional student success stories and testimonials', previewUrl: '/testimonials' },
+  { name: 'Header Settings', path: 'header.json', description: 'Header text, logo path, promotional messages', previewUrl: '/', isCode: false },
+  { name: 'Footer Settings', path: 'footer.json', description: 'Footer links, social media URLs, contact button', previewUrl: '/', isCode: false },
 ]
 
 export default function AdminPage() {
@@ -360,6 +361,18 @@ const loadFile = async (file: ContentFile) => {
                     <p className="text-sm text-gray-600">{selectedFile.description}</p>
                   </div>
                   <div className="flex gap-2">
+                    <button
+                      onClick={() => {
+                        if (selectedFile?.previewUrl) {
+                          window.open(`${selectedFile.previewUrl}?preview=true`, '_blank');
+                        }
+                      }}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all flex items-center gap-2"
+                      title="Preview on live site"
+                    >
+                      <Eye className="w-4 h-4" />
+                      Preview
+                    </button>
                     {hasChanges && (
                       <button
                         onClick={resetChanges}
