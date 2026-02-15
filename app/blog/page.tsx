@@ -19,11 +19,19 @@ interface BlogPost {
 
 // Load all posts at build time (static, no fetch)
 let allPosts: BlogPost[] = [];
+
+// Helper to normalize dates - handle both ISO strings and plain "YYYY-MM-DD"
+const normalizeDate = (dateStr: string): number => {
+  if (!dateStr) return 0;
+  const date = new Date(dateStr);
+  return isNaN(date.getTime()) ? 0 : date.getTime();
+};
+
 try {
   const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
   const jsonString = fs.readFileSync(filePath, 'utf8');
   allPosts = JSON.parse(jsonString).sort(
-    (a: BlogPost, b: BlogPost) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a: BlogPost, b: BlogPost) => normalizeDate(b.date) - normalizeDate(a.date)
   );
   console.log('Blog posts loaded from clean-blog-data.json:', allPosts.length, allPosts);
 } catch (error) {

@@ -5,13 +5,26 @@
     "ctaButton": {
       "text": "Explore Our Programs",
       "link": "/schedules"
+    },
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#1f2937",
+      "subtitleColor": "#4b5563",
+      "buttonColor": "#7c3aed",
+      "buttonTextColor": "#ffffff"
     }
   },
   "promotionalBanner": {
     "enabled": true,
+    "colors": {
+      "backgroundColor": "#dc8add",
+      "titleColor": "#865e3c",
+      "textColor": "#a51d2d",
+      "highlightColor": "#ff7800"
+    },
     "items": [
       {
-        "title": "🎉 SPECIAL PROMOTION!",
+        "title": "🎉 SPECIAL PROMOTION",
         "description": "Are you struggling with your studies? Learn our proven **Fast & Systematic** study methodologies which have helped many students excel! Learn the \"secrets\" for success using unique methodologies backed by brain research and enjoy your studies!",
         "callToAction": "Go to [www.mindcentre.site](https://www.mindcentre.site) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
         "highlight": "RECOMMEND A FRIEND and BOTH OF YOU will get a Special **$10 discount** when he/she signs up for a term!"
@@ -20,6 +33,12 @@
   },
   "trackRecord": {
     "title": "Proven Track Record of Success",
+    "colors": {
+      "backgroundColor": "#99c1f1",
+      "titleColor": "#1f2937",
+      "textColor": "#4b5563",
+      "accentColor": "#e01b24"
+    },
     "paragraph1": "The owners of Mind Centre, David & Violet Lim, together with their teacher team, have helped hundreds of Primary, Secondary & JC students achieve A's & multiple grade improvements in their examinations over the past 15 years.",
     "paragraph2": "Using our Fast & Systematic Learning Methodologies, we've had the joy of helping 5 of our past students enter Medical faculty and others enter Law, Pharmacology, Engineering, Accounting, Dentistry, Veterinary Medicine, Science and other University faculties!",
     "certificateImage": "/images/cert.jpg",
@@ -29,10 +48,23 @@
   },
   "subjectsOffered": {
     "title": "Subjects We Offer",
+    "colors": {
+      "backgroundColor": "#dc8add",
+      "titleColor": "#1f2937",
+      "textColor": "#241f31",
+      "buttonColor": "#2563eb"
+    },
     "description": "We offer Primary, Secondary & JC classes teaching our superior mind-focused techniques for English, Chinese & General Paper covering Composition, Comprehension & Summary writing skills. In addition, we teach 'Fast & Systematic' learning and exam preparation methodologies for Science, Math, Economics & Humanities which help students achieve A's & multiple-grade improvement! (Coverage includes AEIS)"
   },
   "methodology": {
     "title": "Our Methodology",
+    "colors": {
+      "backgroundColor": "#f0fdf4",
+      "titleColor": "#166534",
+      "textColor": "#15803d",
+      "cardBackgroundColor": "#ffffff",
+      "buttonColor": "#f0fdf4"
+    },
     "description": "Mind Centre utilises 'Mind-focused' learning techniques and a 'Fast and Systematic System' that helps students cut down learning time considerably. As opposed to the slower method commonly used, our Fast & Systematic coupled with Mind Research methods for Math, Science, English, Chinese & Humanities help students to learn faster and score better for their exams.",
     "methods": [
       {
@@ -43,7 +75,7 @@
       {
         "icon": "brain",
         "title": "Critical Mind-focused Learning",
-        "description": "Memory techniques for Science, Math & Humanities that cuts revision time by up to 50% and greatly increases memory retention"
+        "description": "aaa Memory techniques for Science, Math & Humanities that cuts revision time by up to 50% and greatly increases memory retention"
       },
       {
         "icon": "trending-up",
@@ -53,7 +85,7 @@
       {
         "icon": "target",
         "title": "Testing and Exam Methodologies",
-        "description": "Proven strategies to increase exam performance and achieve better results"
+        "description": "aaa Proven strategies to increase exam performance and achieve better results"
       },
       {
         "icon": "lightbulb",
@@ -65,6 +97,12 @@
   "testimonials": {
     "title": "TESTIMONIALS",
     "subtitle": "Hear from our successful students",
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#1f2937",
+      "subtitleColor": "#241f31",
+      "buttonColor": "#7c3aed"
+    },
     "ctaButton": {
       "text": "View More Testimonials & Results",
       "link": "/results"
@@ -253,7 +291,14 @@
     ]
   },
   "whyChooseUs": {
-    "title": "Why Choose Mind Centre?",
+    "title": "aaaWhy Choose Mind Centre?",
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#1f2937",
+      "textColor": "#4b5563",
+      "cardBackgroundColor": "#f9fafb",
+      "iconColor": "#7c3aed"
+    },
     "items": [
       {
         "icon": "brain",

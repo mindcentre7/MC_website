@@ -11,9 +11,85 @@
     "email": "all@mindcentre.sg"
   },
   "theme": {
-    "primaryColor": "purple",
-    "secondaryColor": "blue",
-    "accentColor": "yellow"
+    "primaryColor": "#7c3aed",
+    "secondaryColor": "#2563eb",
+    "accentColor": "#fbbf24",
+    "backgroundColor": "#ffffff",
+    "textColor": "#1f2937"
+  },
+  "globalFonts": {
+    "titleFont": {
+      "family": "Georgia, serif",
+      "size": "2.5rem",
+      "weight": "700",
+      "color": "#1f2937"
+    },
+    "bodyFont": {
+      "family": "system-ui, -apple-system, sans-serif",
+      "size": "1rem",
+      "weight": "400",
+      "color": "#1f2937"
+    }
+  },
+  "globalBackground": {
+    "color": "#ffffff",
+    "enableGradient": false,
+    "gradientColors": ["#ffffff", "#f3f4f6"]
+  },
+  "themePresets": [
+    { "name": "Default Light", "backgroundColor": "#ffffff", "primaryColor": "#7c3aed" },
+    { "name": "Warm Cream", "backgroundColor": "#fffbeb", "primaryColor": "#d97706" },
+    { "name": "Ocean Blue", "backgroundColor": "#eff6ff", "primaryColor": "#2563eb" },
+    { "name": "Forest Green", "backgroundColor": "#f0fdf4", "primaryColor": "#16a34a" },
+    { "name": "Elegant Dark", "backgroundColor": "#1f2937", "primaryColor": "#a78bfa" }
+  ],
+  "sectionColors": {
+    "hero": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#1f2937",
+      "buttonColor": "#7c3aed"
+    },
+    "promotionalBanner": {
+      "backgroundColor": "#fef3c7",
+      "textColor": "#92400e",
+      "buttonColor": "#d97706"
+    },
+    "trackRecord": {
+      "backgroundColor": "#f3f4f6",
+      "textColor": "#1f2937",
+      "buttonColor": "#7c3aed"
+    },
+    "subjectsOffered": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#1f2937",
+      "buttonColor": "#2563eb"
+    },
+    "methodology": {
+      "backgroundColor": "#f0fdf4",
+      "textColor": "#166534",
+      "buttonColor": "#16a34a"
+    },
+    "testimonials": {
+      "backgroundColor": "#faf5ff",
+      "textColor": "#1f2937",
+      "buttonColor": "#7c3aed"
+    },
+    "whyChooseUs": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#1f2937",
+      "buttonColor": "#7c3aed"
+    },
+    "footer": {
+      "backgroundColor": "#1f2937",
+      "textColor": "#ffffff",
+      "linkColor": "#9ca3af"
+    },
+    "header": {
+      "backgroundColor": "#ffffff",
+      "textColor": "#1f2937",
+      "linkColor": "#4b5563",
+      "linkHoverColor": "#7c3aed"
+    }
   },
   "seo": {
     "metaDescription": "Mind Centre – Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore. Proven Fast & Systematic study methodologies.",

@@ -5,6 +5,13 @@
   "defaultMessage": "Hi! I would like to enquire about Mind Centre classes.",
   "representatives": [
     {
+      "name": "Mind Centre",
+      "location": "General",
+      "isOnline": true,
+      "phone": "+6586705696",
+      "avatar": "/images/logo.jpg"
+    },
+    {
       "name": "Dinah/Chris",
       "location": "Bedok",
       "isOnline": true,

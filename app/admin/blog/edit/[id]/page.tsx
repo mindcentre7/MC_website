@@ -315,11 +315,36 @@ export default function EditBlogPost() {
     setError('');
 
     try {
-      // 🐛 FIX 4: Use `postId` and check if it can be converted to a number.
-      const postIdAsNumber = isNewPost ? Date.now() : Number(postId);
+      // Check if this is a new post or editing existing
+      const isNew = isNewPost || !postId;
+      
+      // For existing posts, preserve the original date
+      const postIdAsNumber = isNew ? Date.now() : Number(postId);
+      
+      // Load existing post to preserve date if editing
+      let originalDate = new Date().toISOString();
+      let originalDateDisplay = new Date().toLocaleDateString('en-SG', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+      
+      if (!isNew) {
+        try {
+          const response = await fetch('/data/clean-blog-data.json');
+          const allPosts = await response.json();
+          const existingPost = allPosts.find((p: BlogPost) => p.id === Number(postId));
+          if (existingPost) {
+            originalDate = existingPost.date;
+            originalDateDisplay = existingPost.date_display;
+          }
+        } catch (e) {
+          console.log('Could not load original post date');
+        }
+      }
       
       const newPost: BlogPost = {
-        id: postIdAsNumber, // Use the determined ID
+        id: postIdAsNumber,
         title: formData.title.trim(),
         slug: safeSlug,
         author: formData.author.trim() || 'Mind Centre Team',
@@ -328,12 +353,8 @@ export default function EditBlogPost() {
         content_images: formData.content_images,
         videos: formData.videos,
         url: `/blog/${safeSlug}`,
-        date: new Date().toISOString(),
-        date_display: new Date().toLocaleDateString('en-SG', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        }),
+        date: originalDate,
+        date_display: originalDateDisplay,
       };
 
       // Use old endpoint /api/blog-posts (fixed)
@@ -486,19 +507,26 @@ export default function EditBlogPost() {
                       <img 
                         src={formData.featured_image} 
                         alt="Featured Image" 
-                        className="w-32 h-32 object-cover rounded mx-auto" 
+                        className="w-32 h-32 object-cover rounded mx-auto"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
                       />
                     )}
-                    <p className="text-sm text-gray-600 break-all">{formData.featured_image}</p>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevent the click from re-triggering the file input
-                        setFormData(prev => ({ ...prev, featured_image: '' }));
-                      }}
-                      className="text-red-600 text-sm hover:underline"
-                    >
-                      Remove
-                    </button>
+                    {formData.featured_image && (
+                      <p className="text-sm text-gray-600 break-all">{formData.featured_image}</p>
+                    )}
+                    {formData.featured_image && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the click from re-triggering the file input
+                          setFormData(prev => ({ ...prev, featured_image: '' }));
+                        }}
+                        className="text-red-600 text-sm hover:underline"
+                      >
+                        Remove
+                      </button>
+                    )}
                   </div>
                 ) : (
                   <div>

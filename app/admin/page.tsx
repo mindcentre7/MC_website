@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Save, RefreshCw, FileText, AlertCircle, CheckCircle, BookOpen, ArrowRight, Lock, Eye, EyeOff, Edit3, Image as ImageIcon } from 'lucide-react'
+import { Save, RefreshCw, FileText, AlertCircle, CheckCircle, BookOpen, ArrowRight, Lock, Eye, EyeOff, Edit3, Image as ImageIcon, Layout } from 'lucide-react'
 import Link from 'next/link'
 
 interface ContentFile {
@@ -307,6 +307,13 @@ const loadFile = async (file: ContentFile) => {
               <p className="text-sm text-gray-600 mt-1">Edit your website content easily - no coding required!</p>
             </div>
             <div className="flex items-center gap-3">
+              <Link
+                href="/admin/visual-editor"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
+              >
+                <Layout className="w-4 h-4" />
+                Visual Editor
+              </Link>
               <Link
                 href="/admin/blog"
                 className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-all"

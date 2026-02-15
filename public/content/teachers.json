@@ -1,6 +1,4 @@
 {
-  "pageTitle": "Teachers' Profiles",
-  "pageSubtitle": "Meet our dedicated and experienced teaching team",
   "teachers": [
     {
       "name": "Violet Poh",
@@ -37,6 +35,17 @@
       "image": "/images/logo.jpg"
     },
     {
+      "name": "Justin Ma",
+      "role": "JC Mathematics Tutor",
+      "qualifications": [
+        "Degree in Business (Marketing)",
+        "Masters in Business Admin (Marketing Management",
+        "Graduate and experienced tutor",
+        "Math and Science tutor"
+      ],
+      "image": "/images/logo.jpg"
+    },
+    {
       "name": "Dr. Lawrence Sim",
       "role": "Physics / Science / Maths Tutor",
       "qualifications": [
@@ -51,17 +60,6 @@
       "qualifications": [
         "Graduate and experienced tutor",
         "Author of A Level Economics Comprehensive Guide [GLM]"
-      ],
-      "image": "/images/logo.jpg"
-    },
-    {
-      "name": "Justin Ma",
-      "role": "JC Mathematics Tutor",
-      "qualifications": [
-        "Degree in Business (Marketing)",
-        "Masters in Business Admin (Marketing Management",
-        "Graduate and experienced tutor",
-        "Math and Science tutor"
       ],
       "image": "/images/logo.jpg"
     },
@@ -112,6 +110,12 @@
       "qualifications": [
         "Graduate and experienced tutor"
       ],
+      "image": "/images/logo.jpg"
+    },
+    {
+      "name": "aaaa",
+      "role": "bbbb",
+      "qualifications": [],
       "image": "/images/logo.jpg"
     }
   ]

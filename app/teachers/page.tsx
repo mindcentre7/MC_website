@@ -22,7 +22,8 @@ export default function TeachersPage() {
   const [content, setContent] = useState<TeachersContent | null>(null)
 
   useEffect(() => {
-    fetch('/content/teachers.json')
+    // Add cache-busting to ensure fresh data is loaded after edits
+    fetch(`/content/teachers.json?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

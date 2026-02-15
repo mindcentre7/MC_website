@@ -1,5 +1,67 @@
 [
   {
+    "id": 184,
+    "slug": "lets-learn-about-day-and-night",
+    "title": "Let's Learn About Day and Night",
+    "date": "2026-02-12",
+    "date_display": "February 12, 2026",
+    "author": "Mind Centre",
+    "content": "Have you ever wondered why it is bright during the day and dark at night? It's because Earth is always spinning! Earth spins around itself, and this movement is called rotation. When our side of Earth faces the Sun, we have daytime. When Earth turns away from the Sun, it becomes night. You can try this at home using a ball (Earth) and a torch (Sun). Turn the ball slowly and watch how day and night change! Fun Fact: While we sleep, Earth is still spinning—about 1,600 km per hour!",
+    "featured_image": "",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=Ws3B8fh0zRY&t=5s"
+    ],
+    "url": "https://www.mindcentre.com.sg/single-post/lets-learn-about-day-and-night"
+  },
+  {
+    "id": 185,
+    "slug": "p5-6-math-word-problems-answer",
+    "title": "[Answer] P5/6 Math Word Problems: Total Unchanged/Internet Transfer",
+    "date": "2026-02-03",
+    "date_display": "February 03, 2026",
+    "author": "Mind Centre",
+    "content": "Jason has 42 erasers and Richie has 30 erasers. After Jason gave some of his erasers to Richie, the number of game cards they have are in the ratio 1 : 2. How many erasers does Richie have in the end? Total erasers = 42 + 30 = 72. Since number of erasers exchanged is between the same two persons, the total remains unchanged ie. 1u + 2u = 72. 3u = 72, 1u = 24. In the end, Richie has 2u >>> 2 x 24 = 48 erasers (Answer).",
+    "featured_image": "/blog_images/blog_185_featured.jpg",
+    "content_images": [
+      "/home/dhhlu24/Downloads/c1b800_8b5782012237414cb5d1bb8ee19e0208~mv2.avif"
+    ],
+    "videos": [],
+    "url": "https://www.mindcentre.com.sg/single-post/p5-6-math-word-problems-answer"
+  },
+  {
+    "id": 186,
+    "slug": "p5-6-math-word-problems-question",
+    "title": "P5/6 Math Word Problems: Total Unchanged/Internet Transfer",
+    "date": "2026-01-16",
+    "date_display": "January 16, 2026",
+    "author": "Mind Centre",
+    "content": "Jason has 42 erasers and Richie has 30 erasers. After Jason gave some of his erasers to Richie, the number of game cards they have are in the ratio 1 : 2. How many erasers does Richie have in the end? (the answer will be revealed in a subsequent post).",
+    "featured_image": "/blog_images/blog_186_featured.jpg",
+    "content_images": [
+      "/home/dhhlu24/Downloads/c1b800_8b5782012237414cb5d1bb8ee19e0208~mv2.avif"
+    ],
+    "videos": [],
+    "url": "https://www.mindcentre.com.sg/single-post/p5-6-math-word-problems-question"
+  },
+  {
+    "id": 187,
+    "slug": "understanding-angles",
+    "title": "Understanding Angles: A Guide for Students",
+    "date": "2025-12-16",
+    "date_display": "December 16, 2025",
+    "author": "Mind Centre",
+    "content": "Angles are fundamental in geometry. They help us understand shapes and their properties. In this post, we will explore how to calculate angles using simple equations. An angle is formed when two lines meet at a point. This point is called the vertex. Angles are measured in degrees. A full circle is 360 degrees. Understanding angles is crucial for various subjects, including mathematics and physics. Problem: Given c = d, a + b + d = 215, b = d + a (vertically opposite angles). Solution: c = 72.5 degrees! Understanding angles helps in real-life applications such as architecture, engineering, and even art!",
+    "featured_image": "/blog_images/blog_187_featured.jpg",
+    "content_images": [
+      "/home/dhhlu24/Downloads/c1b800_b8f60661c42d43a589f08a5aeb3a6ecd~mv2.avif"
+    ],
+    "videos": [
+      "https://www.youtube.com/watch?v=W7afOFahg-g"
+    ],
+    "url": "https://www.mindcentre.com.sg/single-post/understanding-angles"
+  },
+  {
     "id": 107,
     "slug": "the-great-pretender",
     "title": "The Great Pretender",
@@ -3116,5 +3178,35 @@
     "content_images": [],
     "videos": [],
     "url": "https://www.mindcentre.com.sg/single-post/mathematics-is-pretty-hard"
+  },
+  {
+    "id": 188,
+    "slug": "exploring-solar-energy-singapore",
+    "title": "Exploring Solar Energy: A Bright Future for Singapore",
+    "date": "2025-10-05",
+    "date_display": "October 05, 2025",
+    "author": "Mind Centre",
+    "content": "Solar energy stands out as one of the most exciting and promising sources of renewable energy today. It has the potential to transform how we power our lives while protecting our planet. In Singapore's Primary 5 science curriculum, students explore this fascinating topic, learning how sunlight can be converted into usable energy. The Basics of Solar Energy: Solar energy is harnessed from the sun's rays. This energy can be converted into electricity or heat, making it a versatile resource. The process involves solar panels, which capture sunlight and convert it into electrical energy through photovoltaic cells. The Importance of Renewable Energy: Renewable energy sources, like solar power, are crucial for sustainable development. They help reduce our reliance on fossil fuels, which are finite and harmful to the environment. By embracing solar energy, we can ensure a more sustainable future for generations to come. In Singapore, the government is actively promoting the use of renewable energy. The Future of Solar Energy: As technology advances, the efficiency of solar panels continues to improve. This means that more energy can be generated from the same amount of sunlight. Innovations in storage solutions, like batteries, are also making it easier to use solar energy even when the sun isn't shining.",
+    "featured_image": "",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=W7afOFahg-g"
+    ],
+    "url": "https://www.mindcentre.com.sg/single-post/exploring-solar-energy-singapore"
+  },
+  {
+    "id": 189,
+    "slug": "discovering-rifle-range-nature-park",
+    "title": "Discovering Rifle Range Nature Park: A Gateway to Biodiversity and Learning",
+    "date": "2025-10-15",
+    "date_display": "October 15, 2025",
+    "author": "Mind Centre",
+    "content": "Rifle Range Nature Park in Singapore showcases the city's commitment to biodiversity and conservation. It aligns perfectly with the Primary 6 Science curriculum, which emphasizes understanding environmental relationships. This park is a treasure trove of wildlife! You can find the shy Malayan Colugo and the elusive Horsfield Flying Squirrel here. These creatures provide a fantastic opportunity to explore ecological interactions. A Living Classroom: Imagine walking through the park and witnessing nature in action! Each visit can spark curiosity and inspire learning. The park serves as a living classroom where students can observe and study various species in their natural habitats. The Importance of Conservation: Through initiatives like the Singapore Green Plan, Rifle Range Nature Park advocates for sustainable practices. This plan is crucial for nurturing environmental responsibility among young learners. Engaging with Nature: Have you ever wondered how your actions impact the environment? Engaging with nature at Rifle Range Nature Park can help answer that question! Activities to Enhance Learning: Nature Walks, Workshops, Research Projects.",
+    "featured_image": "",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=EEOE7ueHotI"
+    ],
+    "url": "https://www.mindcentre.com.sg/single-post/discovering-rifle-range-nature-park"
   }
 ]

@@ -1,7 +1,10 @@
-
 {
   "pageTitle": "More Success Stories",
   "pageSubtitle": "Read more inspiring testimonials from our students who have achieved remarkable improvements and excellence in their examinations",
+  "callToAction": {
+    "title": "Join Our Success Stories!",
+    "description": "Experience our proven Fast & Systematic learning methodologies and achieve the grades you deserve. Contact us today to start your journey towards academic excellence!"
+  },
   "testimonials": [
     {
       "name": "Jaryl Ng",
@@ -44,10 +47,12 @@
       "title": "Studied POA - Scored A2 for Principles of Accounts O Levels",
       "content": "Mdm Betty Yew has been tutoring me for a few months in the year 2015. She is a patient, kind and meticulous teacher. I am very thankful that she is my tutor and helped me score an A2 for my Principles of accounts O Levels examination in 2015. Whenever I have problems in my studies, I will always text her and she will always be there helping me through. I doubt I will be able to get this grades without her. I wish her healthy and long life.",
       "image": "/images/logo.jpg"
+    },
+    {
+      "name": "aaaa",
+      "title": "bbbb",
+      "content": "cccc",
+      "image": "/images/michelle.jpg"
     }
-  ],
-  "callToAction": {
-    "title": "Join Our Success Stories!",
-    "description": "Experience our proven Fast & Systematic learning methodologies and achieve the grades you deserve. Contact us today to start your journey towards academic excellence!"
-  }
+  ]
 }
