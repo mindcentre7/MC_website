@@ -830,54 +830,349 @@ export default function VisualEditorPage() {
                         </div>
                       </div>
                       
-                      <div>
+                      {/* Title Styling */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Site Title</label>
                         <input
                           type="text"
                           value={headerData.title || ''}
                           onChange={(e) => updateHeaderData('title', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Mind Centre for Learning"
                         />
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <input
+                              type="color"
+                              value={headerData.titleColor || '#ffffff'}
+                              onChange={(e) => updateHeaderData('titleColor', e.target.value)}
+                              className="w-full h-9 rounded cursor-pointer"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Font</label>
+                            <select
+                              value={headerData.titleFont || 'inherit'}
+                              onChange={(e) => updateHeaderData('titleFont', e.target.value)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Size (px)</label>
+                            <input
+                              type="number"
+                              min="12"
+                              max="72"
+                              value={headerData.titleFontSize || 32}
+                              onChange={(e) => updateHeaderData('titleFontSize', parseInt(e.target.value) || 32)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button
+                              onClick={() => updateHeaderData('titleBold', !headerData.titleBold)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.titleBold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.titleBold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button
+                              onClick={() => updateHeaderData('titleItalic', !headerData.titleItalic)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.titleItalic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.titleItalic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
-                      <div>
+                      {/* Tagline Styling */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Tagline</label>
                         <input
                           type="text"
                           value={headerData.tagline || ''}
                           onChange={(e) => updateHeaderData('tagline', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Go for As and Multiple Grade Improvements!"
                         />
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <input
+                              type="color"
+                              value={headerData.taglineColor || '#000000'}
+                              onChange={(e) => updateHeaderData('taglineColor', e.target.value)}
+                              className="w-full h-9 rounded cursor-pointer"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Font</label>
+                            <select
+                              value={headerData.taglineFont || 'inherit'}
+                              onChange={(e) => updateHeaderData('taglineFont', e.target.value)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Size (px)</label>
+                            <input
+                              type="number"
+                              min="12"
+                              max="72"
+                              value={headerData.taglineFontSize || 20}
+                              onChange={(e) => updateHeaderData('taglineFontSize', parseInt(e.target.value) || 20)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button
+                              onClick={() => updateHeaderData('taglineBold', !headerData.taglineBold)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.taglineBold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.taglineBold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button
+                              onClick={() => updateHeaderData('taglineItalic', !headerData.taglineItalic)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.taglineItalic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.taglineItalic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
-                      <div>
+                      {/* Promo Text 1 Styling */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Promo Text 1</label>
                         <textarea
                           rows={2}
                           value={headerData.promoText1 || ''}
                           onChange={(e) => updateHeaderData('promoText1', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Enter your first promotional text..."
                         />
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <input
+                              type="color"
+                              value={headerData.promoText1Color || '#ffffff'}
+                              onChange={(e) => updateHeaderData('promoText1Color', e.target.value)}
+                              className="w-full h-9 rounded cursor-pointer"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Font</label>
+                            <select
+                              value={headerData.promoText1Font || 'inherit'}
+                              onChange={(e) => updateHeaderData('promoText1Font', e.target.value)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Size (px)</label>
+                            <input
+                              type="number"
+                              min="12"
+                              max="72"
+                              value={headerData.promoText1FontSize || 16}
+                              onChange={(e) => updateHeaderData('promoText1FontSize', parseInt(e.target.value) || 16)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText1Bold', !headerData.promoText1Bold)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText1Bold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText1Bold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText1Italic', !headerData.promoText1Italic)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText1Italic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText1Italic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
-                      <div>
+                      {/* Promo Text 2 Styling */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Promo Text 2</label>
                         <textarea
                           rows={2}
                           value={headerData.promoText2 || ''}
                           onChange={(e) => updateHeaderData('promoText2', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Enter your second promotional text..."
                         />
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <input
+                              type="color"
+                              value={headerData.promoText2Color || '#ffffff'}
+                              onChange={(e) => updateHeaderData('promoText2Color', e.target.value)}
+                              className="w-full h-9 rounded cursor-pointer"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Font</label>
+                            <select
+                              value={headerData.promoText2Font || 'inherit'}
+                              onChange={(e) => updateHeaderData('promoText2Font', e.target.value)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Size (px)</label>
+                            <input
+                              type="number"
+                              min="12"
+                              max="72"
+                              value={headerData.promoText2FontSize || 16}
+                              onChange={(e) => updateHeaderData('promoText2FontSize', parseInt(e.target.value) || 16)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText2Bold', !headerData.promoText2Bold)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText2Bold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText2Bold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText2Italic', !headerData.promoText2Italic)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText2Italic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText2Italic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
-                      <div>
+                      {/* Promo Text 3 Styling */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
                         <label className="block text-sm font-medium text-gray-700 mb-2">Promo Text 3</label>
                         <textarea
                           rows={2}
                           value={headerData.promoText3 || ''}
                           onChange={(e) => updateHeaderData('promoText3', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Enter your third promotional text..."
                         />
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <input
+                              type="color"
+                              value={headerData.promoText3Color || '#ffffff'}
+                              onChange={(e) => updateHeaderData('promoText3Color', e.target.value)}
+                              className="w-full h-9 rounded cursor-pointer"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Font</label>
+                            <select
+                              value={headerData.promoText3Font || 'inherit'}
+                              onChange={(e) => updateHeaderData('promoText3Font', e.target.value)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Size (px)</label>
+                            <input
+                              type="number"
+                              min="12"
+                              max="72"
+                              value={headerData.promoText3FontSize || 16}
+                              onChange={(e) => updateHeaderData('promoText3FontSize', parseInt(e.target.value) || 16)}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText3Bold', !headerData.promoText3Bold)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText3Bold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText3Bold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button
+                              onClick={() => updateHeaderData('promoText3Italic', !headerData.promoText3Italic)}
+                              className={`w-full px-2 py-1 text-sm border rounded ${headerData.promoText3Italic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}
+                            >
+                              {headerData.promoText3Italic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
                       <div className="border-t pt-4">
@@ -1977,6 +2272,36 @@ export default function VisualEditorPage() {
                               <option value="lighter">Light</option>
                             </select>
                           </div>
+                          {/* Font Family */}
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Font Family</label>
+                            <select
+                              value={pageData.promotionalBanner?.styles?.fontFamily || 'inherit'}
+                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, fontFamily: e.target.value })}
+                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
+                            >
+                              <option value="inherit">Inherit</option>
+                              <option value="Arial">Arial</option>
+                              <option value="Times New Roman">Times New Roman</option>
+                              <option value="Georgia">Georgia</option>
+                              <option value="Verdana">Verdana</option>
+                              <option value="Roboto">Roboto</option>
+                              <option value="Poppins">Poppins</option>
+                              <option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          {/* Text Font Style */}
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Text Font Style</label>
+                            <select
+                              value={pageData.promotionalBanner?.styles?.textFontStyle || 'normal'}
+                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, textFontStyle: e.target.value })}
+                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
+                            >
+                              <option value="normal">Normal</option>
+                              <option value="italic">Italic</option>
+                            </select>
+                          </div>
                           {/* Section Padding */}
                           <div>
                             <label className="block text-xs text-gray-600 mb-1">Section Padding</label>
@@ -2726,6 +3051,51 @@ export default function VisualEditorPage() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Font Styles */}
+                      <div className="border-t pt-4 mt-4">
+                        <h4 className="text-sm font-semibold text-gray-900 mb-3">🔤 Font Styles</h4>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Title Font Size</label>
+                            <div className="flex items-center gap-2">
+                              <input type="range" min="16" max="48" value={pageData.whyChooseUs?.styles?.titleFontSize || 30} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, titleFontSize: parseInt(e.target.value) })} className="flex-1" />
+                              <span className="text-xs w-8">{pageData.whyChooseUs?.styles?.titleFontSize || 30}px</span>
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Text Font Size</label>
+                            <div className="flex items-center gap-2">
+                              <input type="range" min="12" max="24" value={pageData.whyChooseUs?.styles?.textFontSize || 16} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, textFontSize: parseInt(e.target.value) })} className="flex-1" />
+                              <span className="text-xs w-8">{pageData.whyChooseUs?.styles?.textFontSize || 16}px</span>
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Title Font Weight</label>
+                            <select value={pageData.whyChooseUs?.styles?.titleFontWeight || 'bold'} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, titleFontWeight: e.target.value })} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                              <option value="normal">Normal</option><option value="bold">Bold</option><option value="lighter">Light</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Font Family</label>
+                            <select value={pageData.whyChooseUs?.styles?.fontFamily || 'inherit'} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, fontFamily: e.target.value })} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                              <option value="inherit">Inherit</option><option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option><option value="Georgia">Georgia</option><option value="Verdana">Verdana</option><option value="Roboto">Roboto</option><option value="Poppins">Poppins</option><option value="Open Sans">Open Sans</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Text Font Style</label>
+                            <select value={pageData.whyChooseUs?.styles?.textFontStyle || 'normal'} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, textFontStyle: e.target.value })} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                              <option value="normal">Normal</option><option value="italic">Italic</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Section Padding</label>
+                            <select value={pageData.whyChooseUs?.styles?.padding || 'large'} onChange={(e) => updateSectionData('whyChooseUs', 'styles', { ...pageData.whyChooseUs?.styles, padding: e.target.value })} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                              <option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3042,6 +3412,18 @@ function TestimonialsEditor({ data, onUpdate }: { data: any; onUpdate: (data: an
                 <label className="block text-xs text-gray-600 mb-1">Title Font Weight</label>
                 <select value={data?.styles?.titleFontWeight || 'bold'} onChange={(e) => onUpdate({ ...data, styles: { ...data?.styles, titleFontWeight: e.target.value }})} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
                   <option value="normal">Normal</option><option value="bold">Bold</option><option value="lighter">Light</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs text-gray-600 mb-1">Font Family</label>
+                <select value={data?.styles?.fontFamily || 'inherit'} onChange={(e) => onUpdate({ ...data, styles: { ...data?.styles, fontFamily: e.target.value }})} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                  <option value="inherit">Inherit</option><option value="Arial">Arial</option><option value="Times New Roman">Times New Roman</option><option value="Georgia">Georgia</option><option value="Verdana">Verdana</option><option value="Roboto">Roboto</option><option value="Poppins">Poppins</option><option value="Open Sans">Open Sans</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs text-gray-600 mb-1">Text Font Style</label>
+                <select value={data?.styles?.textFontStyle || 'normal'} onChange={(e) => onUpdate({ ...data, styles: { ...data?.styles, textFontStyle: e.target.value }})} className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm">
+                  <option value="normal">Normal</option><option value="italic">Italic</option>
                 </select>
               </div>
               <div>

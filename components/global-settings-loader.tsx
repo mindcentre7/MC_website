@@ -22,7 +22,8 @@ function applySettings(data: GlobalSettings) {
   
   // Apply master font
   if (data.masterFont) {
-    document.body.style.fontFamily = data.masterFont
+    // Use CSS variable for dynamic font family
+    document.documentElement.style.setProperty('--master-font-family', data.masterFont)
   }
   
   // Apply master font size

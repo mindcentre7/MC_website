@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCircle } from 'lucide-react'
 import TestimonialCard from '@/components/testimonial-card'
+import PromoVideoPlayer from '@/components/promo-video-player'
 import fs from 'fs'
 import path from 'path'
 
@@ -31,8 +32,13 @@ export default function Home() {
   const trackRecordColors = trackRecord?.colors || {}
   const trackRecordStyles = trackRecord?.styles || {}
   const subjectsColors = subjectsOffered?.colors || {}
+  const subjectsStyles = subjectsOffered?.styles || {}
   const methodologyColors = methodology?.colors || {}
+  const methodologyStyles = methodology?.styles || {}
   const testimonialsColors = testimonials?.colors || {}
+  const testimonialsStyles = testimonials?.styles || {}
+  const whyChooseUsColors = data?.whyChooseUs?.colors || {}
+  const whyChooseUsStyles = data?.whyChooseUs?.styles || {}
 
   // Helper to get padding value
   const getPadding = (padding: string) => {
@@ -106,14 +112,10 @@ export default function Home() {
               />
             </div>
             <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-              <video 
-                controls 
-                className="w-full h-full object-contain"
-                poster={trackRecord?.videoPoster ?? '/images/logo.jpg'}
-              >
-                <source src={trackRecord?.videoSrc ?? '/videos/intro.mp4'} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <PromoVideoPlayer 
+                videoSrc={trackRecord?.videoSrc ?? '/videos/intro.mp4'}
+                videoPoster={trackRecord?.videoPoster ?? '/images/logo.jpg'}
+              />
             </div>
           </div>
         </div>
@@ -135,14 +137,23 @@ export default function Home() {
             <Users className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 animate-bounce" />
             <h2 
               className="text-2xl sm:text-3xl font-bold text-center sm:text-left"
-              style={{ color: subjectsColors.titleColor || '#ffffff' }}
+              style={{ 
+                color: subjectsColors.titleColor || '#ffffff',
+                fontSize: subjectsStyles.titleFontSize ? `${subjectsStyles.titleFontSize}px` : '2rem',
+                fontFamily: subjectsStyles.fontFamily && subjectsStyles.fontFamily !== 'inherit' ? subjectsStyles.fontFamily : 'inherit'
+              }}
             >
               {subjectsOffered?.title}
             </h2>
           </div>
           <p 
             className="text-base sm:text-lg leading-relaxed"
-            style={{ color: subjectsColors.textColor || '#ffffff' }}
+            style={{ 
+              color: subjectsColors.textColor || '#ffffff',
+              fontSize: subjectsStyles.textFontSize ? `${subjectsStyles.textFontSize}px` : '1rem',
+              fontFamily: subjectsStyles.fontFamily && subjectsStyles.fontFamily !== 'inherit' ? subjectsStyles.fontFamily : 'inherit',
+              fontStyle: subjectsStyles.textFontStyle || 'normal'
+            }}
           >
             We offer <span className="font-bold text-yellow-300">Primary, Secondary & JC classes</span> teaching our superior mind-focused techniques for <span className="font-bold">English, Chinese & General Paper</span> covering Composition, Comprehension & Summary writing skills. In addition, we teach <span className="font-bold text-yellow-300">'Fast & Systematic'</span> learning and exam preparation methodologies for <span className="font-bold">Science, Math, Economics & Humanities</span> which help students achieve A's & multiple-grade improvement! (Coverage includes AEIS)
           </p>
@@ -157,14 +168,23 @@ export default function Home() {
         <div className="text-center mb-8 md:mb-10">
           <h2 
             className="text-3xl sm:text-4xl font-bold mb-4 flex flex-col sm:flex-row items-center justify-center gap-3"
-            style={{ color: methodologyColors.titleColor || '#166534' }}
+            style={{ 
+              color: methodologyColors.titleColor || '#166534',
+              fontSize: methodologyStyles.titleFontSize ? `${methodologyStyles.titleFontSize}px` : '2.25rem',
+              fontFamily: methodologyStyles.fontFamily && methodologyStyles.fontFamily !== 'inherit' ? methodologyStyles.fontFamily : 'inherit'
+            }}
           >
             <Brain className="w-8 h-8 sm:w-10 sm:h-10 animate-pulse" style={{ color: methodologyColors.buttonColor || '#16a34a' }} />
             <span>{methodology?.title}</span>
           </h2>
           <p 
             className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed"
-            style={{ color: methodologyColors.textColor || '#15803d' }}
+            style={{ 
+              color: methodologyColors.textColor || '#15803d',
+              fontSize: methodologyStyles.textFontSize ? `${methodologyStyles.textFontSize}px` : '1rem',
+              fontFamily: methodologyStyles.fontFamily && methodologyStyles.fontFamily !== 'inherit' ? methodologyStyles.fontFamily : 'inherit',
+              fontStyle: methodologyStyles.textFontStyle || 'normal'
+            }}
           >
             {methodology?.description}
           </p>
@@ -215,19 +235,32 @@ export default function Home() {
       {/* Testimonials Section */}
       <section 
         className="max-w-container px-4 py-12"
-        style={{ backgroundColor: testimonialsColors.useMasterBackground === true ? masterBg : (testimonialsColors.backgroundColor || masterBg) }}
+        style={{ 
+          backgroundColor: testimonialsColors.useMasterBackground === true ? masterBg : (testimonialsColors.backgroundColor || masterBg),
+          paddingTop: getPadding(testimonialsStyles.padding || 'large'),
+          paddingBottom: getPadding(testimonialsStyles.padding || 'large')
+        }}
       >
         <div className="text-center mb-10">
           <h2 
             className="text-4xl font-bold mb-4 flex items-center justify-center gap-3"
-            style={{ color: testimonialsColors.titleColor || '#1f2937' }}
+            style={{ 
+              color: testimonialsColors.titleColor || '#1f2937',
+              fontSize: testimonialsStyles.titleFontSize ? `${testimonialsStyles.titleFontSize}px` : '2.25rem',
+              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit'
+            }}
           >
             <Award className="w-10 h-10 animate-pulse" style={{ color: testimonialsColors.buttonColor || '#7c3aed' }} />
             {testimonials?.title}
           </h2>
           <p 
             className="text-lg"
-            style={{ color: testimonialsColors.subtitleColor || '#6b7280' }}
+            style={{ 
+              color: testimonialsColors.subtitleColor || '#6b7280',
+              fontSize: testimonialsStyles.textFontSize ? `${testimonialsStyles.textFontSize}px` : '1rem',
+              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit',
+              fontStyle: testimonialsStyles.textFontStyle || 'normal'
+            }}
           >
             {testimonials?.subtitle}
           </p>
@@ -263,6 +296,71 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Why Choose Us Section */}
+      {data?.whyChooseUs && (
+        <section 
+          className="max-w-container px-4 py-12"
+          style={{ 
+            backgroundColor: whyChooseUsColors.useMasterBackground === true ? masterBg : (whyChooseUsColors.backgroundColor || masterBg),
+            paddingTop: getPadding(whyChooseUsStyles.padding || 'large'),
+            paddingBottom: getPadding(whyChooseUsStyles.padding || 'large')
+          }}
+        >
+          <div className="text-center mb-10">
+            <h2 
+              className="text-3xl sm:text-4xl font-bold mb-6 flex items-center justify-center gap-3"
+              style={{ 
+                color: whyChooseUsColors.titleColor || '#1f2937',
+                fontSize: whyChooseUsStyles.titleFontSize ? `${whyChooseUsStyles.titleFontSize}px` : '2.25rem',
+                fontFamily: whyChooseUsStyles.fontFamily && whyChooseUsStyles.fontFamily !== 'inherit' ? whyChooseUsStyles.fontFamily : 'inherit',
+                fontWeight: whyChooseUsStyles.titleFontWeight || 'bold'
+              }}
+            >
+              {data.whyChooseUs?.title}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {data.whyChooseUs?.items?.map((item: any, index: number) => {
+              const IconComponent = iconMap[item?.icon] || CheckCircle
+              return (
+                <div 
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 hover:-translate-y-1"
+                >
+                  <div 
+                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                    style={{ backgroundColor: `${whyChooseUsColors.iconColor || '#7c3aed'}20`, color: whyChooseUsColors.iconColor || '#7c3aed' }}
+                  >
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+                  <h3 
+                    className="font-bold text-lg mb-2"
+                    style={{ 
+                      color: whyChooseUsColors.titleColor || '#1f2937',
+                      fontFamily: whyChooseUsStyles.fontFamily && whyChooseUsStyles.fontFamily !== 'inherit' ? whyChooseUsStyles.fontFamily : 'inherit'
+                    }}
+                  >
+                    {item?.title}
+                  </h3>
+                  <p 
+                    className="text-sm"
+                    style={{ 
+                      color: whyChooseUsColors.textColor || '#4b5563',
+                      fontSize: whyChooseUsStyles.textFontSize ? `${whyChooseUsStyles.textFontSize}px` : '1rem',
+                      fontFamily: whyChooseUsStyles.fontFamily && whyChooseUsStyles.fontFamily !== 'inherit' ? whyChooseUsStyles.fontFamily : 'inherit',
+                      fontStyle: whyChooseUsStyles.textFontStyle || 'normal'
+                    }}
+                  >
+                    {item?.description}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

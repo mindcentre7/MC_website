@@ -8,13 +8,40 @@ import LanguageSwitcher from './language-switcher'
 interface HeaderData {
   logo: string
   title: string
+  titleColor?: string
+  titleFont?: string
+  titleFontSize?: number
+  titleBold?: boolean
+  titleItalic?: boolean
   tagline: string
+  taglineColor?: string
+  taglineFont?: string
+  taglineFontSize?: number
+  taglineBold?: boolean
+  taglineItalic?: boolean
   promoText1: string
+  promoText1Color?: string
+  promoText1Font?: string
+  promoText1FontSize?: number
+  promoText1Bold?: boolean
+  promoText1Italic?: boolean
   promoText2: string
+  promoText2Color?: string
+  promoText2Font?: string
+  promoText2FontSize?: number
+  promoText2Bold?: boolean
+  promoText2Italic?: boolean
   promoText3: string
+  promoText3Color?: string
+  promoText3Font?: string
+  promoText3FontSize?: number
+  promoText3Bold?: boolean
+  promoText3Italic?: boolean
   facebookUrl: string
   twitterUrl: string
   instagramUrl: string
+  tiktokUrl?: string
+  email?: string
 }
 
 interface GlobalSettings {
@@ -24,6 +51,37 @@ interface GlobalSettings {
   masterFontColor?: string
   theme?: string
   accentColor?: string
+}
+
+// Helper function to build text style object
+function buildTextStyle(data: HeaderData | null, prefix: string): React.CSSProperties {
+  const style: React.CSSProperties = {}
+  const colorKey = `${prefix}Color` as keyof HeaderData
+  const fontKey = `${prefix}Font` as keyof HeaderData
+  const fontSizeKey = `${prefix}FontSize` as keyof HeaderData
+  
+  if (data && data[colorKey]) {
+    style.color = data[colorKey] as string
+  }
+  if (data && data[fontKey] && data[fontKey] !== 'inherit') {
+    style.fontFamily = data[fontKey] as string
+  }
+  if (data && data[fontSizeKey]) {
+    style.fontSize = `${data[fontSizeKey]}px`
+  }
+  return style
+}
+
+// Helper to get bold style
+function getBoldStyle(data: HeaderData | null, prefix: string): string {
+  const boldKey = `${prefix}Bold` as keyof HeaderData
+  return (data && data[boldKey]) ? 'bold' : 'normal'
+}
+
+// Helper to get italic style
+function getItalicStyle(data: HeaderData | null, prefix: string): string {
+  const italicKey = `${prefix}Italic` as keyof HeaderData
+  return (data && data[italicKey]) ? 'italic' : 'normal'
 }
 
 export default function Header() {
@@ -49,6 +107,13 @@ export default function Header() {
   // Use accent color from global settings, fallback to purple
   const headerBg = globalSettings.accentColor || '#8b5cf6'
   const headerBgDark = globalSettings.theme === 'dark' ? '#1f2937' : headerBg
+
+  // Build text styles
+  const titleStyle = buildTextStyle(data, 'title')
+  const taglineStyle = buildTextStyle(data, 'tagline')
+  const promoText1Style = buildTextStyle(data, 'promoText1')
+  const promoText2Style = buildTextStyle(data, 'promoText2')
+  const promoText3Style = buildTextStyle(data, 'promoText3')
 
   if (loading) {
     return (
@@ -90,12 +155,27 @@ export default function Header() {
             </div>
           </div>
           <div className="flex-1 text-center sm:text-left">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+            <h1 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 flex items-center justify-center sm:justify-start gap-2 flex-wrap"
+              style={{ 
+                ...titleStyle, 
+                fontWeight: getBoldStyle(data, 'title'),
+                fontStyle: getItalicStyle(data, 'title')
+              }}
+            >
               <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />
               <span>{data?.title || 'Mind Centre for Learning'}</span>
             </h1>
-            {/* CORRECTED TAGLINE WITH YELLOW HIGHLIGHT */}
-            <p className="text-lg sm:text-xl font-semibold flex items-center justify-center sm:justify-start gap-2 flex-wrap bg-yellow-100 text-black p-1 rounded-sm">
+            {/* TAGLINE WITH CUSTOMIZABLE STYLING */}
+            <p 
+              className="text-lg sm:text-xl font-semibold flex items-center justify-center sm:justify-start gap-2 flex-wrap bg-yellow-100 text-black p-1 rounded-sm"
+              style={{ 
+                ...taglineStyle, 
+                fontWeight: getBoldStyle(data, 'tagline'),
+                fontStyle: getItalicStyle(data, 'tagline'),
+                backgroundColor: taglineStyle.color && taglineStyle.color !== '#000000' ? undefined : 'yellow'
+              }}
+            >
               <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>{data?.tagline || 'Go for A\'s and Multiple Grade Improvements!'}</span>
             </p>
@@ -117,13 +197,75 @@ export default function Header() {
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
+            {/* X (Twitter) */}
+            <a
+              href={data?.twitterUrl || 'https://x.com/mindcentre'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            {/* TikTok */}
+            <a
+              href={data?.tiktokUrl || 'https://www.tiktok.com/@mindcentre'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-300 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+            {/* Email */}
+            <a
+              href={data?.email ? `mailto:${data.email}` : 'mailto:all@mindcentre.sg'}
+              className="text-white hover:text-yellow-300 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </a>
           </div>
         </div>
         
         {/* Promo Texts */}
         {data?.promoText1 && (
           <div className="mt-4 p-3 bg-white/10 rounded-lg backdrop-blur-sm">
-            <p className="text-sm text-center font-medium">{data.promoText1}</p>
+            <p 
+              className="text-sm text-center font-medium"
+              style={{ 
+                ...promoText1Style, 
+                fontWeight: getBoldStyle(data, 'promoText1'),
+                fontStyle: getItalicStyle(data, 'promoText1')
+              }}
+            >
+              {data.promoText1}
+            </p>
+          </div>
+        )}
+        {data?.promoText2 && (
+          <div className="mt-2 p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+            <p 
+              className="text-sm text-center"
+              style={{ 
+                ...promoText2Style, 
+                fontWeight: getBoldStyle(data, 'promoText2'),
+                fontStyle: getItalicStyle(data, 'promoText2')
+              }}
+            >
+              {data.promoText2}
+            </p>
+          </div>
+        )}
+        {data?.promoText3 && (
+          <div className="mt-2 p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+            <p 
+              className="text-sm text-center"
+              style={{ 
+                ...promoText3Style, 
+                fontWeight: getBoldStyle(data, 'promoText3'),
+                fontStyle: getItalicStyle(data, 'promoText3')
+              }}
+            >
+              {data.promoText3}
+            </p>
           </div>
         )}
       </div>

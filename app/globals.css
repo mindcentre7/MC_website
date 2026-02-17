@@ -4,6 +4,8 @@
 
 /* Custom global styles */
 :root {
+  --master-font-family: 'Arial', sans-serif;
+  --master-font-size: 19px;
   --background: 0 0% 100%;
   --foreground: 222.2 47.4% 11.2%;
   --card: 0 0% 100%;
@@ -51,9 +53,35 @@
 }
 
 body {
+  font-family: var(--master-font-family), sans-serif;
+  font-size: var(--master-font-size, 16px);
   color: hsl(var(--foreground));
   background: hsl(var(--background));
 }
+
+/* Apply master font size to ALL text elements */
+html, body, p, span, div, a, li, td, th, label, 
+h1, h2, h3, h4, h5, h6,
+.text-sm, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl {
+  font-size: var(--master-font-size, 16px);
+}
+
+/* Allow headings to scale proportionally but use the base font size */
+h1 { font-size: calc(var(--master-font-size, 16px) * 2.5) !important; }
+h2 { font-size: calc(var(--master-font-size, 16px) * 2) !important; }
+h3 { font-size: calc(var(--master-font-size, 16px) * 1.75) !important; }
+h4 { font-size: calc(var(--master-font-size, 16px) * 1.5) !important; }
+h5 { font-size: calc(var(--master-font-size, 16px) * 1.25) !important; }
+h6 { font-size: calc(var(--master-font-size, 16px) * 1.1) !important; }
+
+/* Small text uses 0.875 of master font size */
+.text-sm, small { font-size: calc(var(--master-font-size, 16px) * 0.875) !important; }
+
+/* Button text */
+button, .btn { font-size: var(--master-font-size, 16px); }
+
+/* Input text */
+input, textarea, select { font-size: var(--master-font-size, 16px); }
 
 /* ============================================
    ANIMATIONS & WOW EFFECTS
