@@ -1,7 +1,10 @@
 {
-  "backgroundColor": "#ffffff",
-  "primaryFont": "Inter",
-  "secondaryFont": "Inter",
+  "masterBackground": "#ffffff",
+  "masterFont": "Poppins",
+  "masterFontSize": 16,
+  "masterFontColor": "#1f2937",
   "theme": "light",
-  "accentColor": "#8b5cf6"
+  "accentColor": "#8b5cf6",
+  "lineHeight": 1.6,
+  "sectionPadding": "medium"
 }

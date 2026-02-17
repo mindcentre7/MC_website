@@ -288,10 +288,6 @@ const loadFile = async (file: ContentFile) => {
               Login
             </button>
           </form>
-
-          <div className="text-center text-xs text-gray-500 space-y-2">
-            <p>• Default password: <span className="font-mono bg-gray-100 px-2 py-1 rounded text-purple-600 font-semibold">13165</span></p>
-          </div>
         </div>
       </div>
     )

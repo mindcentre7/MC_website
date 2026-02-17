@@ -1,12 +1,12 @@
-
 'use client'
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const navItems = [
+// Default navigation items (fallback)
+const defaultNavItems = [
   { name: 'Home', path: '/' },
   { name: 'Results & More Testimonials', path: '/results' },
   { name: 'Class Schedules', path: '/schedules' },
@@ -21,6 +21,19 @@ const navItems = [
 export default function Navigation() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [navItems, setNavItems] = useState(defaultNavItems)
+
+  // Load navigation from footer.json
+  useEffect(() => {
+    fetch('/content/footer.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data.navigation?.links) {
+          setNavItems(data.navigation.links)
+        }
+      })
+      .catch(err => console.log('Using default navigation'))
+  }, [])
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
@@ -44,8 +57,8 @@ export default function Navigation() {
               <Link
                 href={item?.path ?? '/'}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-purple-100 hover:text-purple-700 hover:shadow-sm ${
-                  pathname === item?.path
-                    ? 'bg-purple-600 text-white shadow-md'
+                  pathname === item?.path 
+                    ? 'bg-purple-600 text-white shadow-md' 
                     : 'text-gray-700'
                 }`}
               >
@@ -57,23 +70,25 @@ export default function Navigation() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <ul className="md:hidden pb-3 space-y-1">
-            {navItems?.map((item) => (
-              <li key={item?.path}>
-                <Link
-                  href={item?.path ?? '/'}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    pathname === item?.path
-                      ? 'bg-purple-600 text-white shadow-md'
-                      : 'text-gray-700 hover:bg-purple-100 hover:text-purple-700'
-                  }`}
-                >
-                  {item?.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="md:hidden py-2 border-t">
+            <ul className="space-y-1">
+              {navItems?.map((item) => (
+                <li key={item?.path}>
+                  <Link
+                    href={item?.path ?? '/'}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                      pathname === item?.path
+                        ? 'bg-purple-100 text-purple-700'
+                        : 'text-gray-700 hover:bg-purple-50'
+                    }`}
+                  >
+                    {item?.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </nav>

@@ -6,6 +6,7 @@ import Header from '@/components/header'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/footer'
 import WhatsAppWidget from '@/components/whatsapp-widget'
+import GlobalSettingsLoader from '@/components/global-settings-loader'
 import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,33 +14,27 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mindcentre.com.sg'),
   title: {
-    default: 'Serangoon Tuition | Mind Centre Tuition | Bedok Tuition | Singapore',
+    default: 'Mind Centre for Learning - Primary, Secondary & JC Tuition in Singapore | Top PSLE & Exam Results',
     template: '%s | Mind Centre for Learning'
   },
-  description: 'Mind Centre – Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore. Proven Fast & Systematic study methodologies.',
+  description: 'Mind Centre for Learning offers primary, secondary & JC tuition in Singapore. Proven results: A\'s for exams. Subjects: English, Chinese, Sciences, Math, Humanities. WhatsApp Call 98388821',
   keywords: [
-    'serangoon tuition',
-    'bedok tuition',
-    'bishan tuition',
-    'tuition centre singapore',
-    'primary school tuition',
-    'secondary school tuition',
-    'JC tuition',
-    'PSLE tuition',
+    'tuition centre',
+    'singapore tuition',
+    'psle tuition',
+    'secondary tuition',
+    'jc tuition',
+    'english tuition',
+    'chinese tuition',
+    'science tuition',
+    'math tuition',
+    'mind centre',
+    'primary tuition',
     'O level tuition',
     'A level tuition',
-    'IP tuition',
-    'IB tuition',
-    'english tuition',
-    'math tuition',
-    'science tuition',
-    'chemistry tuition',
-    'physics tuition',
-    'biology tuition',
-    'general paper tuition',
-    'chinese tuition',
-    'POA tuition',
-    'geography tuition'
+    'tuition Serangoon',
+    'tuition Bishan',
+    'tuition Hougang',
   ],
   authors: [{ name: 'Mind Centre for Learning' }],
   creator: 'Mind Centre for Learning',
@@ -116,7 +111,7 @@ const jsonLd = {
         latitude: 1.352988,
         longitude: 103.87145899999996,
       },
-      telephone: '+65-6634-3411',
+      telephone: '+65-9740-2024',
       areaServed: [
         {
           '@type': 'City',
@@ -161,7 +156,7 @@ const jsonLd = {
       name: 'Mind Centre for Learning - Serangoon',
       image: 'https://i.pinimg.com/736x/5f/6f/7b/5f6f7bb82c8ffb8314eedb17b7f89c13.jpg',
       url: 'https://www.mindcentre.com.sg',
-      telephone: '+65-6634-3411',
+      telephone: '+65-9740-2024',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
@@ -206,13 +201,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', paddingBottom: '80px' }}>
+        <GlobalSettingsLoader />
         <Header />
         <Navigation />
-        <main className="min-h-screen">
+        <main style={{ flex: '1 0 auto' }}>
           {children}
         </main>
-        <Footer />
+        <div className="fixed bottom-0 left-0 right-0 z-50 shadow-lg">
+          <Footer />
+        </div>
         <WhatsAppWidget />
       </body>
     </html>

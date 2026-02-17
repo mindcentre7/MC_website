@@ -8,29 +8,33 @@
       "name": "Mind Centre",
       "location": "General",
       "isOnline": true,
-      "phone": "+6586705696",
-      "avatar": "/images/logo.jpg"
+      "phone": "+6580675696",
+      "avatar": "/images/logo.jpg",
+      "online": true
     },
     {
-      "name": "Dinah/Chris",
-      "location": "Bedok",
+      "name": "Violet ",
+      "location": "Serangoon Principal",
       "isOnline": true,
-      "phone": "+6596312823",
-      "avatar": "/images/logo.jpg"
+      "phone": "+6598388821 ",
+      "avatar": "/images/logo.jpg",
+      "online": true
     },
     {
       "name": "Justin",
       "location": "Serangoon",
       "isOnline": true,
       "phone": "+6597402024",
-      "avatar": "/images/logo.jpg"
+      "avatar": "/images/logo.jpg",
+      "online": true
     },
     {
-      "name": "Violet",
+      "name": "iDinah",
       "location": "Serangoon",
       "isOnline": true,
-      "phone": "+6598388821",
-      "avatar": "/images/logo.jpg"
+      "phone": "+6596312823",
+      "avatar": "/images/logo.jpg",
+      "online": true
     }
   ]
 }

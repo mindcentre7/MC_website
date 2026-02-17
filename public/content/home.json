@@ -17,10 +17,10 @@
   "promotionalBanner": {
     "enabled": true,
     "colors": {
-      "backgroundColor": "#dc8add",
+      "backgroundColor": "#ffffff",
       "titleColor": "#865e3c",
-      "textColor": "#a51d2d",
-      "highlightColor": "#ff7800"
+      "textColor": "#000000",
+      "highlightColor": "#000000"
     },
     "items": [
       {
@@ -29,15 +29,27 @@
         "callToAction": "Go to [www.mindcentre.site](https://www.mindcentre.site) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
         "highlight": "RECOMMEND A FRIEND and BOTH OF YOU will get a Special **$10 discount** when he/she signs up for a term!"
       }
-    ]
+    ],
+    "styles": {
+      "textFontSize": 17
+    }
   },
   "trackRecord": {
+    "styles": {
+      "minHeight": 400,
+      "padding": "medium",
+      "titleFontSize": 30,
+      "titleFontWeight": "bold",
+      "textFontSize": 16,
+      "textFontStyle": "normal"
+    },
     "title": "Proven Track Record of Success",
     "colors": {
       "backgroundColor": "#99c1f1",
       "titleColor": "#1f2937",
       "textColor": "#4b5563",
-      "accentColor": "#e01b24"
+      "accentColor": "#e01b24",
+      "useMasterBackground": true
     },
     "paragraph1": "The owners of Mind Centre, David & Violet Lim, together with their teacher team, have helped hundreds of Primary, Secondary & JC students achieve A's & multiple grade improvements in their examinations over the past 15 years.",
     "paragraph2": "Using our Fast & Systematic Learning Methodologies, we've had the joy of helping 5 of our past students enter Medical faculty and others enter Law, Pharmacology, Engineering, Accounting, Dentistry, Veterinary Medicine, Science and other University faculties!",

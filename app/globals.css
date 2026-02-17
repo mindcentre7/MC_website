@@ -321,3 +321,25 @@ html {
 .prose h1, .prose h2, .prose h3 {
   color: hsl(var(--foreground));
 }
+
+/* ============================================
+   VISUAL EDITOR - DARKER INPUT TEXT
+   ============================================ */
+/* Make all input fields in the visual editor use darker text for better visibility */
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  color: #1f2937 !important; /* Dark grey - same as recommended */
+  -webkit-text-fill-color: #1f2937 !important;
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
