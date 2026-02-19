@@ -1,15 +1,10 @@
-# NEXT_PUBLIC_BASE_URL=http://localhost:3000
-# NEXT_PUBLIC_BASE_URL=https://www.mindcentre.com.sg
-# netlify.toml
-# netlify.toml - Alternative simple fix
-# netlify.toml - Use this structure
-
 [build]
   command = "npm run build"
-  # Set the publish directory to .next, the standard output for Next.js builds.
-  # This avoids ambiguity and the 'out' directory conflict.
-  publish = ".next" 
-  functions = ".netlify/functions"
+  publish = ".next"
+  functions = ".next/serverless"
+
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
