@@ -40,7 +40,7 @@
       "padding": "medium",
       "titleFontSize": 30,
       "titleFontWeight": "bold",
-      "textFontSize": 16,
+      "textFontSize": 20,
       "textFontStyle": "normal"
     },
     "title": "Proven Track Record of Success",
@@ -61,7 +61,7 @@
   "subjectsOffered": {
     "title": "Subjects We Offer",
     "colors": {
-      "backgroundColor": "#dc8add",
+      "backgroundColor": "#ffffff",
       "titleColor": "#1f2937",
       "textColor": "#241f31",
       "buttonColor": "#2563eb"
@@ -303,7 +303,7 @@
     ]
   },
   "whyChooseUs": {
-    "title": "aaaWhy Choose Mind Centre?",
+    "title": "Why Choose Mind Centre?",
     "colors": {
       "backgroundColor": "#ffffff",
       "titleColor": "#1f2937",

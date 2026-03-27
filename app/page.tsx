@@ -64,8 +64,8 @@ export default function Home() {
           paddingBottom: getPadding(trackRecordStyles.padding || 'medium')
         }}
       >
-        <div className="bg-white rounded-xl shadow-xl p-4 sm:p-6 md:p-8 border border-purple-200 hover:shadow-2xl transition-all duration-300">
-          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+        <div className="bg-white rounded-xl shadow-xl p-4 sm:p-6 md:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 text-center">
+          <div className="flex flex-col items-center gap-4 mb-6">
             <Award className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 animate-pulse" style={{ color: trackRecordColors.accentColor || '#7c3aed' }} />
             <div>
               <h2 
@@ -79,17 +79,17 @@ export default function Home() {
                 {trackRecord?.title}
               </h2>
               <p 
-                className="leading-relaxed"
+                className="leading-relaxed w-full px-4"
                 style={{ 
                   color: trackRecordColors.textColor || '#4b5563',
                   fontSize: trackRecordStyles.textFontSize ? `${trackRecordStyles.textFontSize}px` : '1rem',
                   fontStyle: trackRecordStyles.textFontStyle || 'normal'
                 }}
               >
-                The owners of Mind Centre, <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>David & Violet Lim</span>, together with their teacher team, have helped <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>hundreds of Primary, Secondary & JC students</span> achieve A's & multiple grade improvements in their examinations over the past 15 years.
+                The founders of Mind Centre, <strong style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>David Lim & Violet Lim</strong>, along with their expert teacher team, have consistently helped <strong style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>Primary, Secondary & JC students in Serangoon and Bedok</strong> achieve AL1-3 for PSLE, A grades for GCE O-Level, A-Level, and multiple grade improvements over the past 15 years.
               </p>
               <p 
-                className="leading-relaxed mt-4"
+                className="leading-relaxed mt-4 w-full px-4"
                 style={{ 
                   color: trackRecordColors.textColor || '#4b5563',
                   fontSize: trackRecordStyles.textFontSize ? `${trackRecordStyles.textFontSize}px` : '1rem',
@@ -321,13 +321,13 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {data.whyChooseUs?.items?.map((item: any, index: number) => {
               const IconComponent = iconMap[item?.icon] || CheckCircle
               return (
                 <div 
                   key={index}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 hover:-translate-y-1"
+                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 hover:-translate-y-1 flex flex-col items-center"
                 >
                   <div 
                     className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"

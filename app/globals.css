@@ -4,9 +4,9 @@
 
 /* Custom global styles */
 :root {
-  --master-font-family: 'Arial', sans-serif;
-  --master-font-size: 19px;
-  --background: 0 0% 100%;
+  --master-font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+  --master-font-size: 18px;
+  --background: 0 0% 100%; /* Pure white background */
   --foreground: 222.2 47.4% 11.2%;
   --card: 0 0% 100%;
   --card-foreground: 222.2 47.4% 11.2%;
@@ -28,28 +28,35 @@
   --radius: 0.5rem;
 }
 
+/* Force light theme colors even in dark mode for the 'Elegant/White' Wix feel */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 222.2 47.4% 11.2%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 223.4 16.3% 22%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 222.2 47.4% 11.2%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
-    --border: 223.4 16.3% 22%;
-    --input: 223.4 16.3% 22%;
-    --ring: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 47.4% 11.2%;
   }
+}
+
+/* Logo Blending Utility */
+.logo-blend {
+  mix-blend-mode: multiply; /* Blends white backgrounds of images (like .jpg) into the white site background */
+  filter: contrast(110%) saturate(110%); /* Slight enhancement for visual pop */
 }
 
 body {
@@ -57,25 +64,21 @@ body {
   font-size: var(--master-font-size, 16px);
   color: hsl(var(--foreground));
   background: hsl(var(--background));
+  letter-spacing: -0.01em; /* Reducing character spacing slightly for a tighter, more elegant feel */
 }
 
-/* Apply master font size to ALL text elements */
-html, body, p, span, div, a, li, td, th, label, 
-h1, h2, h3, h4, h5, h6,
-.text-sm, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl {
-  font-size: var(--master-font-size, 16px);
-}
+
 
 /* Allow headings to scale proportionally but use the base font size */
-h1 { font-size: calc(var(--master-font-size, 16px) * 2.5) !important; }
-h2 { font-size: calc(var(--master-font-size, 16px) * 2) !important; }
-h3 { font-size: calc(var(--master-font-size, 16px) * 1.75) !important; }
-h4 { font-size: calc(var(--master-font-size, 16px) * 1.5) !important; }
-h5 { font-size: calc(var(--master-font-size, 16px) * 1.25) !important; }
-h6 { font-size: calc(var(--master-font-size, 16px) * 1.1) !important; }
+h1 { font-size: calc(var(--master-font-size, 16px) * 2.5); }
+h2 { font-size: calc(var(--master-font-size, 16px) * 2); }
+h3 { font-size: calc(var(--master-font-size, 16px) * 1.75); }
+h4 { font-size: calc(var(--master-font-size, 16px) * 1.5); }
+h5 { font-size: calc(var(--master-font-size, 16px) * 1.25); }
+h6 { font-size: calc(var(--master-font-size, 16px) * 1.1); }
 
 /* Small text uses 0.875 of master font size */
-.text-sm, small { font-size: calc(var(--master-font-size, 16px) * 0.875) !important; }
+.text-sm, small { font-size: calc(var(--master-font-size, 16px) * 0.875); }
 
 /* Button text */
 button, .btn { font-size: var(--master-font-size, 16px); }

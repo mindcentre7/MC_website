@@ -1,0 +1,22 @@
+--- MC_website-22Oct25b/app/globals.css
++++ MC_website-22Oct25b/app/globals.css
+@@ -67,12 +67,12 @@
+ }
+ 
+ /* Allow headings to scale proportionally but use the base font size */
+-h1 { font-size: calc(var(--master-font-size, 16px) * 2.5) ; }
+-h2 { font-size: calc(var(--master-font-size, 16px) * 2) ; }
+-h3 { font-size: calc(var(--master-font-size, 16px) * 1.75) ; }
+-h4 { font-size: calc(var(--master-font-size, 16px) * 1.5) ; }
+-h5 { font-size: calc(var(--master-font-size, 16px) * 1.25) ; }
+-h6 { font-size: calc(var(--master-font-size, 16px) * 1.1) ; }
++h1 { font-size: calc(var(--master-font-size, 16px) * 2.5) !important; }
++h2 { font-size: calc(var(--master-font-size, 16px) * 2) !important; }
++h3 { font-size: calc(var(--master-font-size, 16px) * 1.75) !important; }
++h4 { font-size: calc(var(--master-font-size, 16px) * 1.5) !important; }
++h5 { font-size: calc(var(--master-font-size, 16px) * 1.25) !important; }
++h6 { font-size: calc(var(--master-font-size, 16px) * 1.1) !important; }
+ 
+ /* Small text uses 0.875 of master font size */
+-.text-sm, small { font-size: calc(var(--master-font-size, 16px) * 0.875) ; }
++.text-sm, small { font-size: calc(var(--master-font-size, 16px) * 0.875) !important; }

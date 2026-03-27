@@ -25,7 +25,7 @@ export default function Navigation() {
 
   // Load navigation from footer.json
   useEffect(() => {
-    fetch('/content/footer.json')
+    fetch('/content/header.json')
       .then(res => res.json())
       .then(data => {
         if (data.navigation?.links) {
@@ -36,8 +36,8 @@ export default function Navigation() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md">
-      <div className="max-w-container px-4">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm w-full">
+      <div className="w-full px-4 md:px-8">
         {/* Mobile menu button */}
         <div className="md:hidden py-3 flex justify-between items-center">
           <span className="font-semibold text-purple-700">Menu</span>
@@ -56,9 +56,9 @@ export default function Navigation() {
             <li key={item?.path}>
               <Link
                 href={item?.path ?? '/'}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-purple-100 hover:text-purple-700 hover:shadow-sm ${
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 hover:shadow-sm ${
                   pathname === item?.path 
-                    ? 'bg-purple-600 text-white shadow-md' 
+                    ? 'bg-gray-900 text-white shadow-md' 
                     : 'text-gray-700'
                 }`}
               >
@@ -79,8 +79,8 @@ export default function Navigation() {
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                       pathname === item?.path
-                        ? 'bg-purple-100 text-purple-700'
-                        : 'text-gray-700 hover:bg-purple-50'
+                        ? 'bg-gray-100 text-gray-900'
+                        : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
                     {item?.name}

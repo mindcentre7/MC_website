@@ -1,10 +1,10 @@
 {
   "masterBackground": "#ffffff",
-  "masterFont": "Georgia",
-  "masterFontSize": 16,
-  "masterFontColor": "#1f2937",
+  "masterFont": "Inter",
+  "masterFontSize": 18,
+  "masterFontColor": "#111827",
   "theme": "light",
-  "accentColor": "#8b5cf6",
+  "accentColor": "#2563eb",
   "lineHeight": 1.6,
   "sectionPadding": "medium"
 }

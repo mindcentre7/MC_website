@@ -39,6 +39,12 @@ try {
   allPosts = []; // Fallback empty
 }
 
+export const metadata = {
+  title: 'Tuition Blog & Education Articles | Mind Centre Singapore',
+  description: 'Read the latest insights, study tips, and education news from Mind Centre for Learning. Covering PSLE, O-Level, and A-Level strategies.',
+  keywords: ['singapore education blog', 'psle study tips', 'o level revision', 'tuition center news']
+};
+
 export default function BlogPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">

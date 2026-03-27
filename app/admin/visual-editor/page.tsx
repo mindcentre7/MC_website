@@ -125,7 +125,6 @@ const pageDefinitions: PageDef[] = [
     path: 'home.json',
     previewUrl: '/',
     sections: [
-      { id: 'promotionalBanner', name: 'Promotional Banner', description: 'Special promotions and offers' },
       { id: 'trackRecord', name: 'Track Record', description: 'Success stories and achievements' },
       { id: 'subjectsOffered', name: 'Subjects Offered', description: 'List of subjects taught' },
       { id: 'methodology', name: 'Methodology', description: 'Teaching methods and approaches' },
@@ -809,25 +808,12 @@ export default function VisualEditorPage() {
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Logo Path</label>
-                        <div 
-                          className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-purple-500 transition-colors"
-                          onDragOver={(e) => e.preventDefault()}
-                          onDrop={(e) => handleImageDrop(e, 'logo', 'header')}
-                        >
-                          <input
-                            type="text"
-                            value={headerData.logo || ''}
-                            onChange={(e) => updateHeaderData('logo', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                            placeholder="/images/logo.jpg"
-                          />
-                          <p className="text-xs text-gray-500 mt-2">Or drag & drop an image here</p>
-                          {isUploading && <p className="text-xs text-purple-600 mt-1">Uploading...</p>}
-                          {headerData.logo && (
-                            <img src={headerData.logo} alt="Logo preview" className="mt-2 h-16 mx-auto object-contain" />
-                          )}
-                        </div>
+                        <ImageUploadField
+                          label="Logo Image"
+                          value={headerData.logo || ''}
+                          onChange={(value) => updateHeaderData('logo', value)}
+                          placeholder="/images/logo.jpg"
+                        />
                       </div>
                       
                       {/* Title Styling */}
@@ -872,7 +858,7 @@ export default function VisualEditorPage() {
                             <input
                               type="number"
                               min="12"
-                              max="72"
+                              max="120"
                               value={headerData.titleFontSize || 32}
                               onChange={(e) => updateHeaderData('titleFontSize', parseInt(e.target.value) || 32)}
                               className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
@@ -941,7 +927,7 @@ export default function VisualEditorPage() {
                             <input
                               type="number"
                               min="12"
-                              max="72"
+                              max="120"
                               value={headerData.taglineFontSize || 20}
                               onChange={(e) => updateHeaderData('taglineFontSize', parseInt(e.target.value) || 20)}
                               className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
@@ -1010,7 +996,7 @@ export default function VisualEditorPage() {
                             <input
                               type="number"
                               min="12"
-                              max="72"
+                              max="120"
                               value={headerData.promoText1FontSize || 16}
                               onChange={(e) => updateHeaderData('promoText1FontSize', parseInt(e.target.value) || 16)}
                               className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
@@ -1079,7 +1065,7 @@ export default function VisualEditorPage() {
                             <input
                               type="number"
                               min="12"
-                              max="72"
+                              max="120"
                               value={headerData.promoText2FontSize || 16}
                               onChange={(e) => updateHeaderData('promoText2FontSize', parseInt(e.target.value) || 16)}
                               className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
@@ -1148,7 +1134,7 @@ export default function VisualEditorPage() {
                             <input
                               type="number"
                               min="12"
-                              max="72"
+                              max="120"
                               value={headerData.promoText3FontSize || 16}
                               onChange={(e) => updateHeaderData('promoText3FontSize', parseInt(e.target.value) || 16)}
                               className="w-full px-2 py-1 text-sm border border-gray-300 rounded"
@@ -1209,6 +1195,87 @@ export default function VisualEditorPage() {
                       </div>
                     </div>
                   </div>
+
+{/* Navigation Links Section */}
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                        <Layout className="w-5 h-5 text-purple-600" />
+                        🔗 Navigation Menu Links
+                      </h3>
+                      <button
+                        onClick={() => {
+                          const newLinks = [...(headerData.navigation?.links || []), { name: 'New Link', path: '/new-page' }]
+                          setHeaderData({
+                            ...headerData,
+                            navigation: { ...headerData.navigation, links: newLinks }
+                          })
+                          setHasChanges(true)
+                        }}
+                        className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm font-medium"
+                      >
+                        <Plus className="w-4 h-4" /> Add Link
+                      </button>
+                    </div>
+                    <p className="text-sm text-gray-500 mb-4">Edit the navigation menu links shown in header</p>
+                    
+                    <div className="space-y-3">
+                      {headerData.navigation?.links?.map((link: any, index: number) => (
+                        <div key={index} className="flex gap-2 items-center">
+                          <span className="w-8 text-center text-sm font-medium text-gray-500">{index + 1}.</span>
+                          <input
+                            type="text"
+                            value={link.name || ''}
+                            onChange={(e) => {
+                              const newLinks = [...(headerData.navigation?.links || [])]
+                              newLinks[index] = { ...newLinks[index], name: e.target.value }
+                              setHeaderData({
+                                ...headerData,
+                                navigation: { ...headerData.navigation, links: newLinks }
+                              })
+                              setHasChanges(true)
+                            }}
+                            placeholder="Link name"
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
+                          />
+                          <input
+                            type="text"
+                            value={link.path || ''}
+                            onChange={(e) => {
+                              const newLinks = [...(headerData.navigation?.links || [])]
+                              newLinks[index] = { ...newLinks[index], path: e.target.value }
+                              setHeaderData({
+                                ...headerData,
+                                navigation: { ...headerData.navigation, links: newLinks }
+                              })
+                              setHasChanges(true)
+                            }}
+                            placeholder="/page-path"
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
+                          />
+                          <button
+                            onClick={() => {
+                              const newLinks = (headerData.navigation?.links || []).filter((_: any, i: number) => i !== index)
+                              setHeaderData({
+                                ...headerData,
+                                navigation: { ...headerData.navigation, links: newLinks }
+                              })
+                              setHasChanges(true)
+                            }}
+                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg"
+                            title="Remove link"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ))}
+                      {(!headerData.navigation?.links || headerData.navigation.links.length === 0) && (
+                        <p className="text-gray-400 text-sm text-center py-4">No links yet. Click "Add Link" to create one.</p>
+                      )}
+                    </div>
+                  </div>
+
+                  
                 </div>
               )}
 
@@ -1408,85 +1475,6 @@ export default function VisualEditorPage() {
               {/* Footer Editor */}
               {selectedPage.id === 'footer' && footerData && (
                 <div className="space-y-6 max-w-4xl">
-                  {/* Navigation Links Section */}
-                  <div className="bg-white rounded-lg shadow-sm border p-6">
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                        <Layout className="w-5 h-5 text-purple-600" />
-                        🔗 Navigation Menu Links
-                      </h3>
-                      <button
-                        onClick={() => {
-                          const newLinks = [...(footerData.navigation?.links || []), { name: 'New Link', path: '/new-page' }]
-                          setFooterData({
-                            ...footerData,
-                            navigation: { ...footerData.navigation, links: newLinks }
-                          })
-                          setHasChanges(true)
-                        }}
-                        className="flex items-center gap-1 px-3 py-1.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-sm font-medium"
-                      >
-                        <Plus className="w-4 h-4" /> Add Link
-                      </button>
-                    </div>
-                    <p className="text-sm text-gray-500 mb-4">Edit the navigation menu links shown in header</p>
-                    
-                    <div className="space-y-3">
-                      {footerData.navigation?.links?.map((link: any, index: number) => (
-                        <div key={index} className="flex gap-2 items-center">
-                          <span className="w-8 text-center text-sm font-medium text-gray-500">{index + 1}.</span>
-                          <input
-                            type="text"
-                            value={link.name || ''}
-                            onChange={(e) => {
-                              const newLinks = [...(footerData.navigation?.links || [])]
-                              newLinks[index] = { ...newLinks[index], name: e.target.value }
-                              setFooterData({
-                                ...footerData,
-                                navigation: { ...footerData.navigation, links: newLinks }
-                              })
-                              setHasChanges(true)
-                            }}
-                            placeholder="Link name"
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                          />
-                          <input
-                            type="text"
-                            value={link.path || ''}
-                            onChange={(e) => {
-                              const newLinks = [...(footerData.navigation?.links || [])]
-                              newLinks[index] = { ...newLinks[index], path: e.target.value }
-                              setFooterData({
-                                ...footerData,
-                                navigation: { ...footerData.navigation, links: newLinks }
-                              })
-                              setHasChanges(true)
-                            }}
-                            placeholder="/page-path"
-                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                          />
-                          <button
-                            onClick={() => {
-                              const newLinks = (footerData.navigation?.links || []).filter((_: any, i: number) => i !== index)
-                              setFooterData({
-                                ...footerData,
-                                navigation: { ...footerData.navigation, links: newLinks }
-                              })
-                              setHasChanges(true)
-                            }}
-                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg"
-                            title="Remove link"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      ))}
-                      {(!footerData.navigation?.links || footerData.navigation.links.length === 0) && (
-                        <p className="text-gray-400 text-sm text-center py-4">No links yet. Click "Add Link" to create one.</p>
-                      )}
-                    </div>
-                  </div>
-
                   {/* Contact Info Section */}
                   <div className="bg-white rounded-lg shadow-sm border p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
@@ -1994,329 +1982,73 @@ export default function VisualEditorPage() {
                           setGlobalData({
                             ...globalData,
                             masterBackground: '#ffffff',
-                            masterFontColor: '#1f2937',
+                            masterFontColor: '#111827',
                             masterFont: 'Inter',
-                            masterFontSize: 16,
-                            accentColor: '#8b5cf6',
+                            masterFontSize: 18,
+                            accentColor: '#2563eb',
                             theme: 'light'
                           })
                           setHasChanges(true)
                         }}
-                        className="p-3 border-2 rounded-lg hover:border-purple-500 transition-colors text-left"
+                        className="p-3 border-2 rounded-lg hover:border-blue-500 transition-colors text-left"
                       >
                         <div className="w-full h-8 rounded bg-white border mb-2"></div>
-                        <span className="text-xs font-medium">Clean White</span>
+                        <span className="text-xs font-medium">Wix Minimal (Default)</span>
                       </button>
                       <button
                         onClick={() => {
                           setGlobalData({
                             ...globalData,
-                            masterBackground: '#1f2937',
-                            masterFontColor: '#f9fafb',
+                            masterBackground: '#f8fafc',
+                            masterFontColor: '#334155',
+                            masterFont: 'Merriweather',
+                            masterFontSize: 18,
+                            accentColor: '#475569',
+                            theme: 'light'
+                          })
+                          setHasChanges(true)
+                        }}
+                        className="p-3 border-2 rounded-lg hover:border-slate-500 transition-colors text-left"
+                      >
+                        <div className="w-full h-8 rounded bg-slate-50 border mb-2"></div>
+                        <span className="text-xs font-medium">Elegant Slate</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setGlobalData({
+                            ...globalData,
+                            masterBackground: '#fdfcfb',
+                            masterFontColor: '#45474a',
                             masterFont: 'Inter',
-                            masterFontSize: 16,
-                            accentColor: '#60a5fa',
+                            masterFontSize: 18,
+                            accentColor: '#e0d9d1',
+                            theme: 'light'
+                          })
+                          setHasChanges(true)
+                        }}
+                        className="p-3 border-2 rounded-lg hover:border-stone-500 transition-colors text-left"
+                      >
+                        <div className="w-full h-8 rounded bg-stone-50 border mb-2"></div>
+                        <span className="text-xs font-medium">Soft Sand</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          setGlobalData({
+                            ...globalData,
+                            masterBackground: '#0f172a',
+                            masterFontColor: '#f8fafc',
+                            masterFont: 'Inter',
+                            masterFontSize: 18,
+                            accentColor: '#38bdf8',
                             theme: 'dark'
                           })
                           setHasChanges(true)
                         }}
-                        className="p-3 border-2 rounded-lg hover:border-purple-500 transition-colors text-left"
+                        className="p-3 border-2 rounded-lg hover:border-sky-500 transition-colors text-left"
                       >
-                        <div className="w-full h-8 rounded bg-gray-800 border mb-2"></div>
-                        <span className="text-xs font-medium">Dark Mode</span>
+                        <div className="w-full h-8 rounded bg-slate-900 border mb-2"></div>
+                        <span className="text-xs font-medium">Modern Dark</span>
                       </button>
-                      <button
-                        onClick={() => {
-                          setGlobalData({
-                            ...globalData,
-                            masterBackground: '#fffbeb',
-                            masterFontColor: '#78350f',
-                            masterFont: 'Georgia',
-                            masterFontSize: 18,
-                            accentColor: '#d97706',
-                            theme: 'light'
-                          })
-                          setHasChanges(true)
-                        }}
-                        className="p-3 border-2 rounded-lg hover:border-purple-500 transition-colors text-left"
-                      >
-                        <div className="w-full h-8 rounded bg-amber-50 border mb-2"></div>
-                        <span className="text-xs font-medium">Warm Cream</span>
-                      </button>
-                      <button
-                        onClick={() => {
-                          setGlobalData({
-                            ...globalData,
-                            masterBackground: '#f0fdf4',
-                            masterFontColor: '#14532d',
-                            masterFont: 'Poppins',
-                            masterFontSize: 16,
-                            accentColor: '#16a34a',
-                            theme: 'light'
-                          })
-                          setHasChanges(true)
-                        }}
-                        className="p-3 border-2 rounded-lg hover:border-purple-500 transition-colors text-left"
-                      >
-                        <div className="w-full h-8 rounded bg-green-50 border mb-2"></div>
-                        <span className="text-xs font-medium">Fresh Green</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Page Content Editor - Promotional Banner */}
-              {selectedPage.id === 'home' && pageData && selectedSection === 'promotionalBanner' && (
-                <div className="space-y-6 max-w-4xl">
-                  <div className="bg-white rounded-lg shadow-sm border p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <ImageIcon2 className="w-5 h-5 text-purple-600" />
-                      Promotional Banner
-                    </h3>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => updateSectionData('promotionalBanner', 'enabled', !pageData.promotionalBanner?.enabled)}
-                          className={`flex items-center gap-2 ${pageData.promotionalBanner?.enabled ? 'text-green-600' : 'text-gray-400'}`}
-                        >
-                          {pageData.promotionalBanner?.enabled ? <ToggleRight className="w-8 h-6" /> : <ToggleLeft className="w-8 h-6" />}
-                          {pageData.promotionalBanner?.enabled ? 'Enabled' : 'Disabled'}
-                        </button>
-                      </div>
-                      
-                      {pageData.promotionalBanner?.items?.[0] && (
-                        <div className="space-y-4 border-t pt-4">
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Banner Title</label>
-                            <input
-                              type="text"
-                              value={pageData.promotionalBanner.items[0].title || ''}
-                              onChange={(e) => {
-                                const newItems = [...pageData.promotionalBanner.items]
-                                newItems[0] = { ...newItems[0], title: e.target.value }
-                                updateSectionData('promotionalBanner', 'items', newItems)
-                              }}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                            />
-                          </div>
-                          
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
-                            <textarea
-                              rows={3}
-                              value={pageData.promotionalBanner.items[0].description || ''}
-                              onChange={(e) => {
-                                const newItems = [...pageData.promotionalBanner.items]
-                                newItems[0] = { ...newItems[0], description: e.target.value }
-                                updateSectionData('promotionalBanner', 'items', newItems)
-                              }}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                            />
-                          </div>
-                          
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Call to Action</label>
-                            <textarea
-                              rows={2}
-                              value={pageData.promotionalBanner.items[0].callToAction || ''}
-                              onChange={(e) => {
-                                const newItems = [...pageData.promotionalBanner.items]
-                                newItems[0] = { ...newItems[0], callToAction: e.target.value }
-                                updateSectionData('promotionalBanner', 'items', newItems)
-                              }}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                            />
-                          </div>
-                          
-                          <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Highlight Text</label>
-                            <textarea
-                              rows={2}
-                              value={pageData.promotionalBanner.items[0].highlight || ''}
-                              onChange={(e) => {
-                                const newItems = [...pageData.promotionalBanner.items]
-                                newItems[0] = { ...newItems[0], highlight: e.target.value }
-                                updateSectionData('promotionalBanner', 'items', newItems)
-                              }}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                            />
-                          </div>
-                        </div>
-                      )}
-                      
-                      {/* Colors & Styles */}
-                      <div className="border-t pt-4 mt-4">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">🎨 Colors & Styles</h4>
-                        <div className="grid grid-cols-2 gap-4">
-                          {/* Background Color */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Background Color</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="color"
-                                value={pageData.promotionalBanner?.colors?.backgroundColor || '#7c3aed'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, backgroundColor: e.target.value })}
-                                className="w-10 h-10 rounded cursor-pointer border-0"
-                              />
-                              <input
-                                type="text"
-                                value={pageData.promotionalBanner?.colors?.backgroundColor || '#7c3aed'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, backgroundColor: e.target.value })}
-                                className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm"
-                              />
-                            </div>
-                          </div>
-                          {/* Text Color */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Text Color</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="color"
-                                value={pageData.promotionalBanner?.colors?.textColor || '#ffffff'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, textColor: e.target.value })}
-                                className="w-10 h-10 rounded cursor-pointer border-0"
-                              />
-                              <input
-                                type="text"
-                                value={pageData.promotionalBanner?.colors?.textColor || '#ffffff'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, textColor: e.target.value })}
-                                className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm"
-                              />
-                            </div>
-                          </div>
-                          {/* Title Color */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Title Color</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="color"
-                                value={pageData.promotionalBanner?.colors?.titleColor || '#ffffff'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, titleColor: e.target.value })}
-                                className="w-10 h-10 rounded cursor-pointer border-0"
-                              />
-                              <input
-                                type="text"
-                                value={pageData.promotionalBanner?.colors?.titleColor || '#ffffff'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, titleColor: e.target.value })}
-                                className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm"
-                              />
-                            </div>
-                          </div>
-                          {/* Highlight Color */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Highlight Color</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="color"
-                                value={pageData.promotionalBanner?.colors?.highlightColor || '#fbbf24'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, highlightColor: e.target.value })}
-                                className="w-10 h-10 rounded cursor-pointer border-0"
-                              />
-                              <input
-                                type="text"
-                                value={pageData.promotionalBanner?.colors?.highlightColor || '#fbbf24'}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'colors', { ...pageData.promotionalBanner?.colors, highlightColor: e.target.value })}
-                                className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Font Styles */}
-                      <div className="border-t pt-4 mt-4">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">🔤 Font Styles</h4>
-                        <div className="grid grid-cols-2 gap-4">
-                          {/* Title Font Size */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Title Font Size</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="range"
-                                min="16"
-                                max="48"
-                                value={pageData.promotionalBanner?.styles?.titleFontSize || 24}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, titleFontSize: parseInt(e.target.value) })}
-                                className="flex-1"
-                              />
-                              <span className="text-xs w-8">{pageData.promotionalBanner?.styles?.titleFontSize || 24}px</span>
-                            </div>
-                          </div>
-                          {/* Text Font Size */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Text Font Size</label>
-                            <div className="flex items-center gap-2">
-                              <input
-                                type="range"
-                                min="12"
-                                max="24"
-                                value={pageData.promotionalBanner?.styles?.textFontSize || 16}
-                                onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, textFontSize: parseInt(e.target.value) })}
-                                className="flex-1"
-                              />
-                              <span className="text-xs w-8">{pageData.promotionalBanner?.styles?.textFontSize || 16}px</span>
-                            </div>
-                          </div>
-                          {/* Title Font Weight */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Title Font Weight</label>
-                            <select
-                              value={pageData.promotionalBanner?.styles?.titleFontWeight || 'bold'}
-                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, titleFontWeight: e.target.value })}
-                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
-                            >
-                              <option value="normal">Normal</option>
-                              <option value="bold">Bold</option>
-                              <option value="lighter">Light</option>
-                            </select>
-                          </div>
-                          {/* Font Family */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Font Family</label>
-                            <select
-                              value={pageData.promotionalBanner?.styles?.fontFamily || 'inherit'}
-                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, fontFamily: e.target.value })}
-                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
-                            >
-                              <option value="inherit">Inherit</option>
-                              <option value="Arial">Arial</option>
-                              <option value="Times New Roman">Times New Roman</option>
-                              <option value="Georgia">Georgia</option>
-                              <option value="Verdana">Verdana</option>
-                              <option value="Roboto">Roboto</option>
-                              <option value="Poppins">Poppins</option>
-                              <option value="Open Sans">Open Sans</option>
-                            </select>
-                          </div>
-                          {/* Text Font Style */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Text Font Style</label>
-                            <select
-                              value={pageData.promotionalBanner?.styles?.textFontStyle || 'normal'}
-                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, textFontStyle: e.target.value })}
-                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
-                            >
-                              <option value="normal">Normal</option>
-                              <option value="italic">Italic</option>
-                            </select>
-                          </div>
-                          {/* Section Padding */}
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Section Padding</label>
-                            <select
-                              value={pageData.promotionalBanner?.styles?.padding || 'medium'}
-                              onChange={(e) => updateSectionData('promotionalBanner', 'styles', { ...pageData.promotionalBanner?.styles, padding: e.target.value })}
-                              className="w-full px-2 py-1.5 border border-gray-300 rounded text-sm"
-                            >
-                              <option value="small">Small</option>
-                              <option value="medium">Medium</option>
-                              <option value="large">Large</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -2364,12 +2096,10 @@ export default function VisualEditorPage() {
                       
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">Certificate Image</label>
-                          <input
-                            type="text"
+                          <ImageUploadField
+                            label="Certificate Image"
                             value={pageData.trackRecord?.certificateImage || ''}
-                            onChange={(e) => updateSectionData('trackRecord', 'certificateImage', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                            onChange={(value) => updateSectionData('trackRecord', 'certificateImage', value)}
                           />
                         </div>
                         <div>
@@ -3177,47 +2907,10 @@ function TestimonialsEditor({ data, onUpdate }: { data: any; onUpdate: (data: an
   const [isEditing, setIsEditing] = useState(false)
   const [editingIndex, setEditingIndex] = useState<number | null>(null)
   const [formData, setFormData] = useState({ name: '', title: '', content: '', image: '' })
-  const [isUploading, setIsUploading] = useState(false)
 
   useEffect(() => {
     setTestimonials(data?.items || [])
   }, [data])
-
-  // Upload file function
-  const uploadFile = async (file: File): Promise<string | null> => {
-    setIsUploading(true)
-    try {
-      const formDataUpload = new FormData()
-      formDataUpload.append('image', file)
-      
-      const response = await fetch('/api/blog/upload-image', {
-        method: 'POST',
-        body: formDataUpload,
-      })
-      
-      if (!response.ok) throw new Error('Upload failed')
-      
-      const result = await response.json()
-      return result.imagePath
-    } catch (error) {
-      console.error('Upload error:', error)
-      return null
-    } finally {
-      setIsUploading(false)
-    }
-  }
-
-  // Handle drag & drop for image
-  const handleImageDrop = async (e: React.DragEvent) => {
-    e.preventDefault()
-    const file = e.dataTransfer.files[0]
-    if (!file || !file.type.startsWith('image/')) return
-    
-    const path = await uploadFile(file)
-    if (path) {
-      setFormData({ ...formData, image: path })
-    }
-  }
 
   const handleSave = () => {
     onUpdate({
@@ -3489,25 +3182,12 @@ function TestimonialsEditor({ data, onUpdate }: { data: any; onUpdate: (data: an
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Image Path</label>
-                <div 
-                  className="border-2 border-dashed border-gray-300 rounded-lg p-3 hover:border-purple-500 transition-colors"
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={handleImageDrop}
-                >
-                  <input
-                    type="text"
-                    value={formData.image}
-                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                    placeholder="/images/logo.jpg"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">Or drag & drop an image here</p>
-                  {isUploading && <p className="text-xs text-purple-600 mt-1">Uploading...</p>}
-                  {formData.image && (
-                    <img src={formData.image} alt="Preview" className="mt-2 h-16 w-16 object-cover rounded" />
-                  )}
-                </div>
+                <ImageUploadField
+                  label="Image"
+                  value={formData.image}
+                  onChange={(value) => setFormData({ ...formData, image: value })}
+                  placeholder="/images/logo.jpg"
+                />
               </div>
               <div className="flex gap-2">
                 <button
