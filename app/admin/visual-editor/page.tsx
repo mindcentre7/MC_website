@@ -3386,15 +3386,18 @@ function TeachersEditor() {
               <Plus className="w-4 h-4" />
               Add Teacher
             </button>
-            {hasChanges && (
-              <button
-                onClick={saveTeachers}
-                className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium flex items-center gap-1"
-              >
-                <Save className="w-4 h-4" />
-                Save All
-              </button>
-            )}
+            <button
+              onClick={saveTeachers}
+              disabled={!hasChanges}
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-1 transition-all ${
+                hasChanges 
+                  ? 'bg-green-600 hover:bg-green-700 text-white' 
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <Save className="w-4 h-4" />
+              Save All
+            </button>
           </div>
         </div>
 
@@ -3674,15 +3677,18 @@ function TestimonialsPageEditor() {
               <Plus className="w-4 h-4" />
               Add Testimonial
             </button>
-            {hasChanges && (
-              <button
-                onClick={saveTestimonials}
-                className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium flex items-center gap-1"
-              >
-                <Save className="w-4 h-4" />
-                Save All
-              </button>
-            )}
+            <button
+              onClick={saveTestimonials}
+              disabled={!hasChanges}
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-1 transition-all ${
+                hasChanges 
+                  ? 'bg-green-600 hover:bg-green-700 text-white' 
+                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <Save className="w-4 h-4" />
+              Save All
+            </button>
           </div>
         </div>
 
