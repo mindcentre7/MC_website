@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-// Default navigation items (fallback)
+// Updated navigation items in the requested order
 const defaultNavItems = [
   { name: 'Home', path: '/' },
   { name: 'Results & More Testimonials', path: '/results' },
@@ -23,7 +23,7 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [navItems, setNavItems] = useState(defaultNavItems)
 
-  // Load navigation from footer.json
+  // Load navigation from header.json if present
   useEffect(() => {
     fetch('/content/header.json')
       .then(res => res.json())
@@ -36,14 +36,14 @@ export default function Navigation() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm w-full">
+    <nav className="sticky top-0 z-50 bg-purple-600 backdrop-blur-md shadow-sm w-full" style={{ fontSize: '25px' }}>
       <div className="w-full px-4 md:px-8">
         {/* Mobile menu button */}
         <div className="md:hidden py-3 flex justify-between items-center">
-          <span className="font-semibold text-purple-700">Menu</span>
+          <span className="font-semibold text-yellow-300">Menu</span>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-lg hover:bg-purple-100 transition-colors"
+            className="p-2 rounded-lg hover:bg-purple-500 transition-colors text-yellow-300"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -56,10 +56,10 @@ export default function Navigation() {
             <li key={item?.path}>
               <Link
                 href={item?.path ?? '/'}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 hover:shadow-sm ${
+                className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-purple-500 hover:text-yellow-200 hover:shadow-sm ${
                   pathname === item?.path 
-                    ? 'bg-gray-900 text-white shadow-md' 
-                    : 'text-gray-700'
+                    ? 'bg-yellow-400 text-purple-900 shadow-md'
+                    : 'text-yellow-300'
                 }`}
               >
                 {item?.name}
@@ -70,17 +70,17 @@ export default function Navigation() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-2 border-t">
+          <div className="md:hidden py-2 border-t border-purple-400">
             <ul className="space-y-1">
               {navItems?.map((item) => (
                 <li key={item?.path}>
                   <Link
                     href={item?.path ?? '/'}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                    className={`block px-3 py-2 rounded-lg font-medium transition-all ${
                       pathname === item?.path
-                        ? 'bg-gray-100 text-gray-900'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        ? 'bg-yellow-400 text-purple-900'
+                        : 'text-yellow-300 hover:bg-purple-500'
                     }`}
                   >
                     {item?.name}
