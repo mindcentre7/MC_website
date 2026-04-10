@@ -37,38 +37,15 @@
   "email": "all@mindcentre.sg",
   "navigation": {
     "links": [
-      {
-        "name": "Home",
-        "path": "/"
-      },
-      {
-        "name": "About",
-        "path": "/about"
-      },
-      {
-        "name": "Programmes",
-        "path": "/programmes"
-      },
-      {
-        "name": "Teachers",
-        "path": "/teachers"
-      },
-      {
-        "name": "Results",
-        "path": "/results"
-      },
-      {
-        "name": "Schedule",
-        "path": "/schedule"
-      },
-      {
-        "name": "Blog",
-        "path": "/blog"
-      },
-      {
-        "name": "Contact",
-        "path": "/contact"
-      }
+      { "name": "Home", "path": "/" },
+      { "name": "Results & More Testimonials", "path": "/results" },
+      { "name": "Class Schedules", "path": "/schedules" },
+      { "name": "Blog", "path": "/blog" },
+      { "name": "Contact Us", "path": "/contact" },
+      { "name": "Franchising", "path": "/franchising" },
+      { "name": "About Us", "path": "/about" },
+      { "name": "Our Learning System", "path": "/learning-system" },
+      { "name": "Teachers' Profiles", "path": "/teachers" }
     ]
   }
 }

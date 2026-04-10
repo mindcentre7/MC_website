@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next'
+import ContactForm from '../../components/contact-form'
 
 // Revalidate every 10 seconds to ensure fresh content
 export const revalidate = 10
@@ -146,8 +147,9 @@ export default async function ContactPage() {
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-              <p className="text-purple-600">{contactData.email}</p>
+              <p className="text-gray-700">{contactData.email}</p>
             </div>
+            <ContactForm />
           </div>
         </div>
         <div>

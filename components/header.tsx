@@ -104,10 +104,6 @@ export default function Header() {
       .finally(() => setLoading(false))
   }, [])
 
-  // Use white background for the header as requested for an elegant look
-  const headerBg = '#ffffff'
-  const headerBgDark = '#ffffff'
-
   // Build text styles
   const titleStyle = buildTextStyle(data, 'title')
   const taglineStyle = buildTextStyle(data, 'tagline')
@@ -159,8 +155,8 @@ export default function Header() {
                 ...titleStyle, 
                 lineHeight: 1.5,
                 letterSpacing: 'normal',
-                fontWeight: getBoldStyle(data, 'title'),
-                fontStyle: getItalicStyle(data, 'title')
+                fontWeight: getBoldStyle(data, 'title') as any,
+                fontStyle: getItalicStyle(data, 'title') as any
               }}
             >
               <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
@@ -173,8 +169,8 @@ export default function Header() {
                 ...taglineStyle, 
                 lineHeight: 1.5,
                 letterSpacing: 'normal',
-                fontWeight: getBoldStyle(data, 'tagline'),
-                fontStyle: getItalicStyle(data, 'tagline')
+                fontWeight: getBoldStyle(data, 'tagline') as any,
+                fontStyle: getItalicStyle(data, 'tagline') as any
               }}
             >
               <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
@@ -209,7 +205,7 @@ export default function Header() {
             </a>
             {/* Email */}
             <a
-              href={data?.email ? `mailto:${data.email}` : 'mailto:all@mindcentre.sg'}
+              href="mailto:all@mindcentre.sg?subject=Query%20from%20Mind%20Centre%20Website&body=Dear%20Mind%20Centre%20Team,%0A%0A"
               className="text-gray-600 hover:text-blue-500 transition-colors"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -225,8 +221,8 @@ export default function Header() {
               style={{ 
                 ...promoText1Style, 
                 lineHeight: 1.5,
-                fontWeight: getBoldStyle(data, 'promoText1'),
-                fontStyle: getItalicStyle(data, 'promoText1')
+                fontWeight: getBoldStyle(data, 'promoText1') as any,
+                fontStyle: getItalicStyle(data, 'promoText1') as any
               }}
             >
               {data.promoText1}
@@ -240,8 +236,8 @@ export default function Header() {
               style={{ 
                 ...promoText2Style, 
                 lineHeight: 1.5,
-                fontWeight: getBoldStyle(data, 'promoText2'),
-                fontStyle: getItalicStyle(data, 'promoText2')
+                fontWeight: getBoldStyle(data, 'promoText2') as any,
+                fontStyle: getItalicStyle(data, 'promoText2') as any
               }}
             >
               {data.promoText2}
@@ -255,8 +251,8 @@ export default function Header() {
               style={{ 
                 ...promoText3Style, 
                 lineHeight: 1.5,
-                fontWeight: getBoldStyle(data, 'promoText3'),
-                fontStyle: getItalicStyle(data, 'promoText3')
+                fontWeight: getBoldStyle(data, 'promoText3') as any,
+                fontStyle: getItalicStyle(data, 'promoText3') as any
               }}
             >
               {data.promoText3}

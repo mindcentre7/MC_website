@@ -33,7 +33,7 @@ try {
   allPosts = JSON.parse(jsonString).sort(
     (a: BlogPost, b: BlogPost) => normalizeDate(b.date) - normalizeDate(a.date)
   );
-  console.log('Blog posts loaded from clean-blog-data.json:', allPosts.length, allPosts);
+  console.log('Blog posts loaded from clean-blog-data.json:', allPosts.length);
 } catch (error) {
   console.error('Error loading clean-blog-data.json:', error);
   allPosts = []; // Fallback empty
@@ -77,7 +77,7 @@ export default function BlogPage() {
                 {post.content.replace(/<[^>]+>/g, '').substring(0, 100)}...
               </p>
               <Link
-                href={post.url || `/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 className="text-purple-600 hover:text-purple-800 font-medium text-sm"
               >
                 Read More →
