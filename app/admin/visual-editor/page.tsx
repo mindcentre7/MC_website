@@ -2946,15 +2946,16 @@ function TestimonialsEditor({ data, onUpdate }: { data: any; onUpdate: (data: an
       return
     }
     
+    let newItems: any[]
     if (editingIndex !== null) {
-      const newItems = [...testimonials]
+      newItems = [...testimonials]
       newItems[editingIndex] = formData
-      setTestimonials(newItems)
     } else {
-      setTestimonials([...testimonials, formData])
+      newItems = [...testimonials, formData]
     }
+    setTestimonials(newItems)
     setIsEditing(false)
-    onUpdate({ ...data, items: editingIndex !== null ? testimonials : [...testimonials, formData] })
+    onUpdate({ ...data, items: newItems })
   }
 
   return (
