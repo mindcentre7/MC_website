@@ -162,20 +162,46 @@ export default function Header() {
               <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
               <span>{data?.title || 'Mind Centre for Learning'}</span>
             </h1>
-            {/* TAGLINE WITH CUSTOMIZABLE STYLING */}
-            <p 
-              className="text-lg sm:text-xl font-semibold flex items-center justify-center gap-2 flex-wrap text-gray-700 leading-snug tracking-normal"
-              style={{ 
-                ...taglineStyle, 
-                lineHeight: 1.5,
-                letterSpacing: 'normal',
-                fontWeight: getBoldStyle(data, 'tagline') as any,
-                fontStyle: getItalicStyle(data, 'tagline') as any
-              }}
-            >
-              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
-              <span>{data?.tagline || 'Go for A\'s and Multiple Grade Improvements!'}</span>
-            </p>
+            {/* TAGLINE WITH CUSTOMIZABLE STYLING - 3 lines */}
+            {data?.tagline1 && (
+              <p 
+                className="text-lg sm:text-xl font-semibold flex items-center justify-center gap-2 flex-wrap text-gray-700 leading-snug tracking-normal"
+                style={{ 
+                  ...taglineStyle, 
+                  lineHeight: 1.5,
+                  letterSpacing: 'normal',
+                  fontWeight: getBoldStyle(data, 'tagline') as any,
+                  fontStyle: getItalicStyle(data, 'tagline') as any
+                }}
+              >
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                <span>{data.tagline1}</span>
+              </p>
+            )}
+            {data?.tagline2 && (
+              <p 
+                className="text-base sm:text-lg font-medium flex items-center justify-center gap-2 flex-wrap text-gray-700 leading-snug tracking-normal"
+                style={{ 
+                  color: data.tagline2Color || undefined,
+                  fontWeight: data.tagline2Bold ? 'bold' : 'normal',
+                  fontStyle: data.tagline2Italic ? 'italic' : 'normal'
+                }}
+              >
+                <span>{data.tagline2}</span>
+              </p>
+            )}
+            {data?.tagline3 && (
+              <p 
+                className="text-sm sm:text-base font-medium flex items-center justify-center gap-2 flex-wrap text-gray-700 leading-snug tracking-normal"
+                style={{ 
+                  color: data.tagline3Color || undefined,
+                  fontWeight: data.tagline3Bold ? 'bold' : 'normal',
+                  fontStyle: data.tagline3Italic ? 'italic' : 'normal'
+                }}
+              >
+                <span>{data.tagline3}</span>
+              </p>
+            )}
           </div>
           <div className="flex items-center gap-3">
             <a

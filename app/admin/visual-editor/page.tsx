@@ -966,6 +966,72 @@ export default function VisualEditorPage() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Tagline 2 */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Tagline 2</label>
+                        <input
+                          type="text"
+                          value={headerData.tagline2 || ''}
+                          onChange={(e) => updateHeaderData('tagline2', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="Online & Physical Science & English Tuition for Primary, Sec & JC"
+                        />
+                        <div className="grid grid-cols-3 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <div className="flex items-center gap-2">
+                              <input type="color" value={headerData.tagline2Color || '#1e3a5f'} onChange={(e) => updateHeaderData('tagline2Color', e.target.value)} className="w-10 h-9 rounded cursor-pointer" />
+                              <input type="text" value={headerData.tagline2Color || '#1e3a5f'} onChange={(e) => updateHeaderData('tagline2Color', e.target.value)} className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded" />
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button onClick={() => updateHeaderData('tagline2Bold', !headerData.tagline2Bold)} className={`w-full px-2 py-1 text-sm border rounded ${headerData.tagline2Bold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}>
+                              {headerData.tagline2Bold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button onClick={() => updateHeaderData('tagline2Italic', !headerData.tagline2Italic)} className={`w-full px-2 py-1 text-sm border rounded ${headerData.tagline2Italic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}>
+                              {headerData.tagline2Italic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Tagline 3 */}
+                      <div className="border rounded-lg p-4 bg-gray-50">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Tagline 3</label>
+                        <input
+                          type="text"
+                          value={headerData.tagline3 || ''}
+                          onChange={(e) => updateHeaderData('tagline3', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 mb-3"
+                          placeholder="18+ Years Experience | 18,000+ Students Coached"
+                        />
+                        <div className="grid grid-cols-3 gap-3">
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Color</label>
+                            <div className="flex items-center gap-2">
+                              <input type="color" value={headerData.tagline3Color || '#6b7280'} onChange={(e) => updateHeaderData('tagline3Color', e.target.value)} className="w-10 h-9 rounded cursor-pointer" />
+                              <input type="text" value={headerData.tagline3Color || '#6b7280'} onChange={(e) => updateHeaderData('tagline3Color', e.target.value)} className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded" />
+                            </div>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Bold</label>
+                            <button onClick={() => updateHeaderData('tagline3Bold', !headerData.tagline3Bold)} className={`w-full px-2 py-1 text-sm border rounded ${headerData.tagline3Bold ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}>
+                              {headerData.tagline3Bold ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                          <div>
+                            <label className="block text-xs text-gray-500 mb-1">Italic</label>
+                            <button onClick={() => updateHeaderData('tagline3Italic', !headerData.tagline3Italic)} className={`w-full px-2 py-1 text-sm border rounded ${headerData.tagline3Italic ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-gray-700 border-gray-300'}`}>
+                              {headerData.tagline3Italic ? 'ON' : 'OFF'}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                       
                       {/* Promo Text 1 Styling */}
                       <div className="border rounded-lg p-4 bg-gray-50">
