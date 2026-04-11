@@ -231,8 +231,9 @@ export default function Header() {
         )}
         {data?.promoText2 && (
           <div className="mt-2 p-2 bg-blue-50 border border-blue-100 rounded-lg">
-            <p 
-              className="text-sm text-center text-blue-800"
+            <a
+              href="/enroll"
+              className="block text-sm text-center text-blue-800 hover:text-blue-900 transition-colors"
               style={{ 
                 ...promoText2Style, 
                 lineHeight: 1.5,
@@ -240,8 +241,8 @@ export default function Header() {
                 fontStyle: getItalicStyle(data, 'promoText2') as any
               }}
             >
-              {data.promoText2}
-            </p>
+              {data.promoText2} →
+            </a>
           </div>
         )}
         {data?.promoText3 && (
