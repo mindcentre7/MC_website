@@ -1191,6 +1191,15 @@ export default function VisualEditorPage() {
                               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
                             />
                           </div>
+                          <div>
+                            <label className="block text-xs text-gray-600 mb-1">Email</label>
+                            <input
+                              type="email"
+                              value={headerData.email || ''}
+                              onChange={(e) => updateHeaderData('email', e.target.value)}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
