@@ -133,6 +133,19 @@ const pageDefinitions: PageDef[] = [
     ]
   },
   {
+    id: 'enroll',
+    name: 'Landing Page',
+    path: 'enroll.json',
+    previewUrl: '/enroll',
+    sections: [
+      { id: 'hero', name: 'Hero Banner', description: 'Title, subtitle, badge' },
+      { id: 'benefits', name: 'Benefits Cards', description: '3 key benefit cards' },
+      { id: 'uniquePoints', name: 'What Makes Us Unique', description: '6 unique selling points' },
+      { id: 'form', name: 'Enrollment Form', description: 'Lead capture form settings' },
+      { id: 'page', name: 'Page Background', description: 'Page-level colors' },
+    ]
+  },
+  {
     id: 'about',
     name: 'About Us',
     path: 'about.json',
@@ -210,19 +223,6 @@ const pageDefinitions: PageDef[] = [
     sections: [
       { id: 'opportunity', name: 'Franchise Opportunity', description: 'Business opportunity details' },
       { id: 'contact', name: 'Franchise Contact', description: 'Contact for inquiries' },
-    ]
-  },
-  {
-    id: 'enroll',
-    name: 'Landing Page',
-    path: 'enroll.json',
-    previewUrl: '/enroll',
-    sections: [
-      { id: 'hero', name: 'Hero Banner', description: 'Title, subtitle, badge' },
-      { id: 'benefits', name: 'Benefits Cards', description: '3 key benefit cards' },
-      { id: 'uniquePoints', name: 'What Makes Us Unique', description: '6 unique selling points' },
-      { id: 'form', name: 'Enrollment Form', description: 'Lead capture form settings' },
-      { id: 'page', name: 'Page Background', description: 'Page-level colors' },
     ]
   },
 ]
