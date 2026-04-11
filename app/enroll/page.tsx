@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import EnrollForm from '../../components/enroll-form'
+import fs from 'fs'
+import path from 'path'
 
 export const metadata: Metadata = {
   title: 'Enroll Now - Buy 1 Get 1 Free Trial Classes | Mind Centre',
@@ -24,21 +26,48 @@ export const metadata: Metadata = {
 }
 
 export default function EnrollPage() {
+  const filePath = path.join(process.cwd(), 'public', 'content', 'enroll.json')
+  const fileContents = fs.readFileSync(filePath, 'utf8')
+  const data = JSON.parse(fileContents)
+
+  const { hero, benefits, uniquePoints, form, page } = data
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-amber-50">
+    <div
+      className="min-h-screen"
+      style={{
+        background: `linear-gradient(to bottom, ${page?.colors?.gradientFrom || '#fffbeb'}, ${page?.colors?.gradientTo || '#fffbeb'})`
+      }}
+    >
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-amber-700 to-amber-900 text-white py-12 px-4">
+      <section
+        className="py-12 px-4"
+        style={{ backgroundColor: hero?.colors?.backgroundColor || '#78350f' }}
+      >
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-amber-200 font-semibold text-sm uppercase tracking-wider mb-3">
-            Limited Slots Available
+          <p
+            className="font-semibold text-sm uppercase tracking-wider mb-3"
+            style={{ color: hero?.colors?.badgeColor || '#fcd34d' }}
+          >
+            {hero?.badge || 'Limited Slots Available'}
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Secure Your 2 Free Trial Classes
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+            style={{
+              color: hero?.colors?.textColor || '#ffffff',
+              fontSize: hero?.styles?.titleFontSize ? `${hero.styles.titleFontSize}px` : undefined
+            }}
+          >
+            {hero?.title || 'Secure Your 2 Free Trial Classes'}
           </h1>
-          <p className="text-lg sm:text-xl text-amber-100 leading-relaxed">
-            Buy 1 Get 1 Free — Experience Mind Centre&apos;s proven{' '}
-            <strong className="text-white">Fast &amp; Systematic</strong> learning methodologies
-            for Science, English &amp; GP
+          <p
+            className="text-lg sm:text-xl leading-relaxed"
+            style={{
+              color: hero?.colors?.subtitleColor || '#fef3c7',
+              fontSize: hero?.styles?.subtitleFontSize ? `${hero.styles.subtitleFontSize}px` : undefined
+            }}
+          >
+            {hero?.subtitle || "Buy 1 Get 1 Free — Experience Mind Centre's proven Fast & Systematic learning methodologies for Science, English & GP"}
           </p>
         </div>
       </section>
@@ -46,46 +75,68 @@ export default function EnrollPage() {
       {/* Key Benefits */}
       <section className="max-w-4xl mx-auto px-4 py-10">
         <div className="grid sm:grid-cols-3 gap-6 text-center mb-10">
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-amber-100">
-            <div className="text-3xl mb-3">🧠</div>
-            <h3 className="font-bold text-amber-900 mb-2">Mind-focused Methods</h3>
-            <p className="text-sm text-gray-600">
-              Story memory, mind-mapping &amp; brain research techniques for faster learning
-            </p>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-amber-100">
-            <div className="text-3xl mb-3">📈</div>
-            <h3 className="font-bold text-amber-900 mb-2">Proven Results</h3>
-            <p className="text-sm text-gray-600">
-              18+ years experience, 18,000+ students coached, 5 past students in Medical faculty
-            </p>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-amber-100">
-            <div className="text-3xl mb-3">🎯</div>
-            <h3 className="font-bold text-amber-900 mb-2">Exam-ready Skills</h3>
-            <p className="text-sm text-gray-600">
-              FAST methodologies for Science, English &amp; GP — Primary, Secondary &amp; JC
-            </p>
-          </div>
+          {benefits?.items?.map((item: any, i: number) => (
+            <div
+              key={i}
+              className="rounded-xl shadow-lg p-6 border"
+              style={{
+                backgroundColor: benefits?.colors?.cardBackgroundColor || '#ffffff',
+                borderColor: `${benefits?.colors?.accentColor || '#d97706'}30`
+              }}
+            >
+              <div className="text-3xl mb-3">{item.icon}</div>
+              <h3
+                className="font-bold mb-2"
+                style={{ color: benefits?.colors?.titleColor || '#92400e' }}
+              >
+                {item.title}
+              </h3>
+              <p
+                className="text-sm"
+                style={{ color: benefits?.colors?.textColor || '#4b5563' }}
+              >
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        {/* What Makes Us Unique - condensed from landing page */}
-        <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-amber-100 mb-10">
-          <h2 className="text-2xl font-bold text-amber-900 mb-6 text-center">What Makes Us Unique?</h2>
+        {/* What Makes Us Unique */}
+        <div
+          className="rounded-xl shadow-lg p-6 sm:p-8 border"
+          style={{
+            backgroundColor: uniquePoints?.colors?.backgroundColor || '#ffffff',
+            borderColor: `${uniquePoints?.colors?.accentColor || '#d97706'}30`
+          }}
+        >
+          <h2
+            className="text-2xl font-bold mb-6 text-center"
+            style={{ color: uniquePoints?.colors?.titleColor || '#92400e' }}
+          >
+            {uniquePoints?.title || 'What Makes Us Unique?'}
+          </h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {[
-              { title: 'Tailored to Latest Syllabus', desc: 'Master core topics and study techniques for tests and main exams.' },
-              { title: 'Live & Recorded Classes', desc: 'Missed a class? Makeup lessons and recordings available.' },
-              { title: 'Fast & Systematic Methodologies', desc: 'Proven advantage over slower school methods. 5 past students entered Medical faculty.' },
-              { title: 'Teacher Violet & Expert Team', desc: '20+ years teaching experience, 1,800+ students coached with consistent A\'s.' },
-              { title: 'Affordable Education', desc: 'Quality education accessible to all at competitive rates.' },
-              { title: 'Motivational Methods', desc: 'Goal setting, peer motivation & championship prizes to inspire students.' },
-            ].map((item, i) => (
+            {uniquePoints?.items?.map((item: any, i: number) => (
               <div key={i} className="flex gap-3">
-                <span className="text-amber-500 text-xl flex-shrink-0">✓</span>
+                <span
+                  className="text-xl flex-shrink-0"
+                  style={{ color: uniquePoints?.colors?.accentColor || '#d97706' }}
+                >
+                  ✓
+                </span>
                 <div>
-                  <h4 className="font-semibold text-amber-800 text-sm">{item.title}</h4>
-                  <p className="text-xs text-gray-600">{item.desc}</p>
+                  <h4
+                    className="font-semibold text-sm"
+                    style={{ color: uniquePoints?.colors?.titleColor || '#92400e' }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p
+                    className="text-xs"
+                    style={{ color: uniquePoints?.colors?.textColor || '#451a03' }}
+                  >
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -93,14 +144,36 @@ export default function EnrollPage() {
         </div>
 
         {/* Enrollment Form */}
-        <div className="bg-white rounded-xl shadow-xl p-6 sm:p-8 border-2 border-amber-300">
-          <h2 className="text-2xl sm:text-3xl font-bold text-amber-900 mb-2 text-center">
-            ⚡ Limited Slots Available ⚡
+        <div
+          className="rounded-xl shadow-xl p-6 sm:p-8 border-2 mt-10"
+          style={{
+            backgroundColor: form?.colors?.backgroundColor || '#ffffff',
+            borderColor: `${form?.colors?.buttonColor || '#d97706'}60`
+          }}
+        >
+          <h2
+            className="text-2xl sm:text-3xl font-bold mb-2 text-center"
+            style={{
+              color: form?.colors?.titleColor || '#92400e',
+              fontSize: form?.styles?.titleFontSize ? `${form.styles.titleFontSize}px` : undefined
+            }}
+          >
+            {form?.title || '⚡ Limited Slots Available ⚡'}
           </h2>
-          <p className="text-center text-gray-600 mb-8 text-sm">
-            Fill in the form below and our team will contact you via WhatsApp within 24 hours.
+          <p
+            className="text-center mb-8 text-sm"
+            style={{ color: form?.colors?.subtitleColor || '#4b5563' }}
+          >
+            {form?.subtitle || 'Fill in the form below and our team will contact you via WhatsApp within 24 hours.'}
           </p>
-          <EnrollForm />
+          <EnrollForm
+            buttonText={form?.buttonText}
+            successTitle={form?.successTitle}
+            successMessage={form?.successMessage}
+            successSubtext={form?.successSubtext}
+            buttonColor={form?.colors?.buttonColor}
+            buttonTextColor={form?.colors?.buttonTextColor}
+          />
         </div>
       </section>
     </div>

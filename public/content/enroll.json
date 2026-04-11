@@ -1,0 +1,105 @@
+{
+  "hero": {
+    "title": "Secure Your 2 Free Trial Classes",
+    "subtitle": "Buy 1 Get 1 Free — Experience Mind Centre's proven Fast & Systematic learning methodologies for Science, English & GP",
+    "badge": "Limited Slots Available",
+    "colors": {
+      "backgroundColor": "#78350f",
+      "textColor": "#ffffff",
+      "subtitleColor": "#fef3c7",
+      "badgeColor": "#fcd34d"
+    },
+    "styles": {
+      "titleFontSize": 40,
+      "subtitleFontSize": 20
+    }
+  },
+  "benefits": {
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#92400e",
+      "textColor": "#4b5563",
+      "cardBackgroundColor": "#ffffff",
+      "accentColor": "#d97706"
+    },
+    "items": [
+      {
+        "icon": "🧠",
+        "title": "Mind-focused Methods",
+        "description": "Story memory, mind-mapping & brain research techniques for faster learning"
+      },
+      {
+        "icon": "📈",
+        "title": "Proven Results",
+        "description": "18+ years experience, 18,000+ students coached, 5 past students in Medical faculty"
+      },
+      {
+        "icon": "🎯",
+        "title": "Exam-ready Skills",
+        "description": "FAST methodologies for Science, English & GP — Primary, Secondary & JC"
+      }
+    ]
+  },
+  "uniquePoints": {
+    "title": "What Makes Us Unique?",
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#92400e",
+      "textColor": "#451a03",
+      "accentColor": "#d97706"
+    },
+    "items": [
+      {
+        "title": "Tailored to Latest Syllabus",
+        "description": "Master core topics and study techniques for tests and main exams."
+      },
+      {
+        "title": "Live & Recorded Classes",
+        "description": "Missed a class? Makeup lessons and recordings available."
+      },
+      {
+        "title": "Fast & Systematic Methodologies",
+        "description": "Proven advantage over slower school methods. 5 past students entered Medical faculty."
+      },
+      {
+        "title": "Teacher Violet & Expert Team",
+        "description": "20+ years teaching experience, 1,800+ students coached with consistent A's."
+      },
+      {
+        "title": "Affordable Education",
+        "description": "Quality education accessible to all at competitive rates."
+      },
+      {
+        "title": "Motivational Methods",
+        "description": "Goal setting, peer motivation & championship prizes to inspire students."
+      }
+    ]
+  },
+  "form": {
+    "title": "⚡ Limited Slots Available ⚡",
+    "subtitle": "Fill in the form below and our team will contact you via WhatsApp within 24 hours.",
+    "buttonText": "SECURE MY FREE TRIAL CLASSES",
+    "successTitle": "Thank You!",
+    "successMessage": "We have received your enrollment inquiry for Buy 1 Get 1 Free trial classes.",
+    "successSubtext": "Our team will contact you via WhatsApp within 24 hours to confirm your child's trial class schedule.",
+    "colors": {
+      "backgroundColor": "#ffffff",
+      "titleColor": "#92400e",
+      "subtitleColor": "#4b5563",
+      "buttonColor": "#d97706",
+      "buttonTextColor": "#ffffff",
+      "inputBorderColor": "#d1d5db"
+    },
+    "styles": {
+      "titleFontSize": 28,
+      "buttonFontSize": 18
+    }
+  },
+  "page": {
+    "colors": {
+      "backgroundColor": "#fffbeb",
+      "gradientFrom": "#fffbeb",
+      "gradientTo": "#fffbeb"
+    }
+  }
+}

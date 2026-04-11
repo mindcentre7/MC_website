@@ -212,6 +212,19 @@ const pageDefinitions: PageDef[] = [
       { id: 'contact', name: 'Franchise Contact', description: 'Contact for inquiries' },
     ]
   },
+  {
+    id: 'enroll',
+    name: 'Landing Page',
+    path: 'enroll.json',
+    previewUrl: '/enroll',
+    sections: [
+      { id: 'hero', name: 'Hero Banner', description: 'Title, subtitle, badge' },
+      { id: 'benefits', name: 'Benefits Cards', description: '3 key benefit cards' },
+      { id: 'uniquePoints', name: 'What Makes Us Unique', description: '6 unique selling points' },
+      { id: 'form', name: 'Enrollment Form', description: 'Lead capture form settings' },
+      { id: 'page', name: 'Page Background', description: 'Page-level colors' },
+    ]
+  },
 ]
 
 // Site-wide settings
@@ -2873,8 +2886,128 @@ export default function VisualEditorPage() {
                 <TestimonialsPageEditor />
               )}
 
+              {/* Landing Page (Enroll) Editor */}
+              {selectedPage.id === 'enroll' && pageData && selectedSection === 'hero' && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <FileText className="w-5 h-5 text-purple-600" />
+                      🎯 Hero Banner - Content
+                    </h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                        <input type="text" value={pageData.hero?.title || ''} onChange={(e) => updateSectionData('hero', 'title', e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Subtitle</label>
+                        <textarea rows={2} value={pageData.hero?.subtitle || ''} onChange={(e) => updateSectionData('hero', 'subtitle', e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Badge Text</label>
+                        <input type="text" value={pageData.hero?.badge || ''} onChange={(e) => updateSectionData('hero', 'badge', e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2"><Palette className="w-5 h-5 text-purple-600" /> 🎨 Hero - Colors</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {[{key:'backgroundColor',label:'Background'},{key:'textColor',label:'Title Color'},{key:'subtitleColor',label:'Subtitle Color'},{key:'badgeColor',label:'Badge Color'}].map(c => (
+                        <div key={c.key}>
+                          <label className="block text-xs text-gray-600 mb-1">{c.label}</label>
+                          <div className="flex items-center gap-2">
+                            <input type="color" value={pageData.hero?.colors?.[c.key] || '#ffffff'} onChange={(e) => updateSectionData('hero', 'colors', { ...pageData.hero?.colors, [c.key]: e.target.value })} className="w-10 h-10 rounded cursor-pointer border-0" />
+                            <input type="text" value={pageData.hero?.colors?.[c.key] || ''} onChange={(e) => updateSectionData('hero', 'colors', { ...pageData.hero?.colors, [c.key]: e.target.value })} className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2"><Type className="w-5 h-5 text-purple-600" /> 🔤 Hero - Font Sizes</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs text-gray-600 mb-1">Title Font Size</label>
+                        <div className="flex items-center gap-2">
+                          <input type="range" min="20" max="60" value={pageData.hero?.styles?.titleFontSize || 40} onChange={(e) => updateSectionData('hero', 'styles', { ...pageData.hero?.styles, titleFontSize: parseInt(e.target.value) })} className="flex-1" />
+                          <span className="text-xs w-8">{pageData.hero?.styles?.titleFontSize || 40}px</span>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs text-gray-600 mb-1">Subtitle Font Size</label>
+                        <div className="flex items-center gap-2">
+                          <input type="range" min="12" max="36" value={pageData.hero?.styles?.subtitleFontSize || 20} onChange={(e) => updateSectionData('hero', 'styles', { ...pageData.hero?.styles, subtitleFontSize: parseInt(e.target.value) })} className="flex-1" />
+                          <span className="text-xs w-8">{pageData.hero?.styles?.subtitleFontSize || 20}px</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {selectedPage.id === 'enroll' && pageData && selectedSection === 'form' && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2"><FileText className="w-5 h-5 text-purple-600" /> 📝 Form - Content</h3>
+                    <div className="space-y-4">
+                      {[{key:'title',label:'Form Title',rows:1},{key:'subtitle',label:'Form Subtitle',rows:2},{key:'buttonText',label:'Button Text',rows:1},{key:'successTitle',label:'Success Title',rows:1},{key:'successMessage',label:'Success Message',rows:2},{key:'successSubtext',label:'Success Subtext',rows:2}].map(f => (
+                        <div key={f.key}>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">{f.label}</label>
+                          {f.rows > 1 ? (
+                            <textarea rows={f.rows} value={pageData.form?.[f.key] || ''} onChange={(e) => updateSectionData('form', f.key, e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" />
+                          ) : (
+                            <input type="text" value={pageData.form?.[f.key] || ''} onChange={(e) => updateSectionData('form', f.key, e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2"><Palette className="w-5 h-5 text-purple-600" /> 🎨 Form - Colors</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {[{key:'backgroundColor',label:'Background'},{key:'titleColor',label:'Title Color'},{key:'subtitleColor',label:'Subtitle Color'},{key:'buttonColor',label:'Button Color'},{key:'buttonTextColor',label:'Button Text Color'}].map(c => (
+                        <div key={c.key}>
+                          <label className="block text-xs text-gray-600 mb-1">{c.label}</label>
+                          <div className="flex items-center gap-2">
+                            <input type="color" value={pageData.form?.colors?.[c.key] || '#ffffff'} onChange={(e) => updateSectionData('form', 'colors', { ...pageData.form?.colors, [c.key]: e.target.value })} className="w-10 h-10 rounded cursor-pointer border-0" />
+                            <input type="text" value={pageData.form?.colors?.[c.key] || ''} onChange={(e) => updateSectionData('form', 'colors', { ...pageData.form?.colors, [c.key]: e.target.value })} className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {selectedPage.id === 'enroll' && pageData && selectedSection === 'page' && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2"><Palette className="w-5 h-5 text-purple-600" /> 🎨 Page Background</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {[{key:'backgroundColor',label:'Background Color'},{key:'gradientFrom',label:'Gradient From'},{key:'gradientTo',label:'Gradient To'}].map(c => (
+                        <div key={c.key}>
+                          <label className="block text-xs text-gray-600 mb-1">{c.label}</label>
+                          <div className="flex items-center gap-2">
+                            <input type="color" value={pageData.page?.colors?.[c.key] || '#fffbeb'} onChange={(e) => updateSectionData('page', 'colors', { ...pageData.page?.colors, [c.key]: e.target.value })} className="w-10 h-10 rounded cursor-pointer border-0" />
+                            <input type="text" value={pageData.page?.colors?.[c.key] || ''} onChange={(e) => updateSectionData('page', 'colors', { ...pageData.page?.colors, [c.key]: e.target.value })} className="flex-1 px-2 py-1.5 border border-gray-300 rounded text-sm" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {selectedPage.id === 'enroll' && pageData && (selectedSection === 'benefits' || selectedSection === 'uniquePoints') && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-yellow-800">
+                  <p className="font-medium">"{selectedSection === 'benefits' ? 'Benefits Cards' : 'What Makes Us Unique'}" editor</p>
+                  <p className="text-sm mt-1">Edit these items in the JSON editor for now.</p>
+                  <Link href="/admin" className="text-sm underline mt-2 inline-block">Go to JSON Editor</Link>
+                </div>
+              )}
+
               {/* Other Pages - Coming Soon */}
-              {selectedPage.id !== 'home' && selectedPage.id !== 'header' && selectedPage.id !== 'footer' && selectedPage.id !== 'whatsapp' && (
+              {selectedPage.id !== 'home' && selectedPage.id !== 'header' && selectedPage.id !== 'footer' && selectedPage.id !== 'whatsapp' && selectedPage.id !== 'enroll' && selectedPage.id !== 'teachers' && selectedPage.id !== 'testimonials' && (
                 <div className="bg-white rounded-lg shadow-sm border p-6">
                   <div className="text-center py-12">
                     <FileEdit className="w-16 h-16 text-gray-300 mx-auto mb-4" />

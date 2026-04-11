@@ -2,7 +2,23 @@
 
 import { useState } from 'react'
 
-export default function EnrollForm() {
+interface EnrollFormProps {
+  buttonText?: string
+  successTitle?: string
+  successMessage?: string
+  successSubtext?: string
+  buttonColor?: string
+  buttonTextColor?: string
+}
+
+export default function EnrollForm({
+  buttonText = 'SECURE MY FREE TRIAL CLASSES',
+  successTitle = 'Thank You!',
+  successMessage = 'We have received your enrollment inquiry for Buy 1 Get 1 Free trial classes.',
+  successSubtext = 'Our team will contact you via WhatsApp within 24 hours to confirm your child\'s trial class schedule.',
+  buttonColor = '#d97706',
+  buttonTextColor = '#ffffff',
+}: EnrollFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -47,13 +63,9 @@ export default function EnrollForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-green-800 mb-2">Thank You!</h3>
-        <p className="text-green-700 text-lg mb-6">
-          We have received your enrollment inquiry for Buy 1 Get 1 Free trial classes.
-        </p>
-        <p className="text-gray-600">
-          Our team will contact you via WhatsApp within 24 hours to confirm your child&apos;s trial class schedule.
-        </p>
+        <h3 className="text-2xl font-bold text-green-800 mb-2">{successTitle}</h3>
+        <p className="text-green-700 text-lg mb-6">{successMessage}</p>
+        <p className="text-gray-600">{successSubtext}</p>
       </div>
     )
   }
@@ -144,9 +156,10 @@ export default function EnrollForm() {
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="w-full bg-amber-600 text-white py-3.5 px-6 rounded-lg font-bold text-lg hover:bg-amber-700 transition-colors disabled:opacity-50 shadow-lg hover:shadow-xl"
+        className="w-full py-3.5 px-6 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-colors disabled:opacity-50"
+        style={{ backgroundColor: buttonColor, color: buttonTextColor }}
       >
-        {status === 'submitting' ? 'Submitting...' : 'SECURE MY FREE TRIAL CLASSES'}
+        {status === 'submitting' ? 'Submitting...' : buttonText}
       </button>
 
       {status === 'error' && (
