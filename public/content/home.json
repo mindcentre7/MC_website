@@ -26,7 +26,7 @@
       {
         "title": "🎉 SPECIAL PROMOTION",
         "description": "Are you struggling with your studies? Learn our proven **Fast & Systematic** study methodologies which have helped many students excel! Learn the \"secrets\" for success using unique methodologies backed by brain research and enjoy your studies!",
-        "callToAction": "Go to [www.mindcentre.site](https://www.mindcentre.site) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
+        "callToAction": "[Sign up here](/enroll) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
         "highlight": "RECOMMEND A FRIEND and BOTH OF YOU will get a Special **$10 discount** when he/she signs up for a term!"
       }
     ],
@@ -57,6 +57,61 @@
     "certificateAlt": "Mind Centre Trusted Enterprise Certificate and Achievement",
     "videoSrc": "/videos/intro.mp4",
     "videoPoster": "/images/logo.jpg"
+  },
+  "howYourChildWillLearn": {
+    "title": "Here's How Your Child Will Learn",
+    "subtitle": "Creative Mind-focused Learning Techniques",
+    "intro": "Do you think that Science, English and General Paper are boring? Come and visualize and see how Science shows the miracles of nature and the world and English is the stepping stone to success in studies and at work. Experience the fun of learning through the use of good Science and English memory, learning and writing techniques.",
+    "colors": {
+      "backgroundColor": "#fef3c7",
+      "titleColor": "#92400e",
+      "subtitleColor": "#78350f",
+      "textColor": "#451a03",
+      "accentColor": "#d97706",
+      "cardBackgroundColor": "#ffffff"
+    },
+    "styles": {
+      "padding": "large",
+      "titleFontSize": 30,
+      "textFontSize": 16
+    },
+    "methods": [
+      {
+        "icon": "brain",
+        "title": "Story Memory Technique",
+        "description": "Transform complex theories into interesting, relatable or even 'silly' stories that engage strong memory for Science."
+      },
+      {
+        "icon": "book-open",
+        "title": "Mind-Mapping",
+        "description": "Enlist right-brain mind-mapping methods that result in superior memory retention especially for tough Science topics. By scanning the mind-map on the day/s before your exam, you are photographing all the points and equations into your brain."
+      },
+      {
+        "icon": "mic",
+        "title": "Brain Research: Reading Out Aloud",
+        "description": "Reading out aloud good English model compositions helps flood the brain with good sentence structures. Reading out aloud of key Science phrases in the days before the exam helps to cement strong remembrance of Science points for use in exam answers. Confirmed by brain research."
+      },
+      {
+        "icon": "target",
+        "title": "Problem-Solving Techniques",
+        "description": "Use problem-solving strategies and Brain Research Organisation methods for answering Science and English questions. These skills empower the student to confidently tackle complex exam questions."
+      },
+      {
+        "icon": "trending-up",
+        "title": "Excel in Exam Preparation",
+        "description": "We focus on exam-specific techniques, tips and practice. Your child will learn how to prepare effectively for their Science, English and General Paper exams, boosting their confidence and performance."
+      },
+      {
+        "icon": "lightbulb",
+        "title": "Applying Science in Real Life",
+        "description": "This goes beyond theory by exploring the practical applications of Physics, Chemistry and Biology in real-life situations. Your child will learn how these subjects are relevant and relatable to everyday scenarios, making learning more enjoyable."
+      },
+      {
+        "icon": "award",
+        "title": "Developing Critical Thinking & Growth Mindset",
+        "description": "Through engaging exercises and activities, your child will develop critical thinking skills, logical reasoning and analytical abilities. We encourage a growth mindset — discovering how to maintain a positive attitude towards challenges and mistakes, fostering a love for learning."
+      }
+    ]
   },
   "subjectsOffered": {
     "title": "Subjects We Offer",

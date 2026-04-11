@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCircle } from 'lucide-react'
+import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCircle, Mic } from 'lucide-react'
 import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
 import fs from 'fs'
@@ -11,7 +11,9 @@ const iconMap: Record<string, any> = {
   'brain': Brain,
   'trending-up': TrendingUp,
   'target': Target,
-  'lightbulb': Lightbulb
+  'lightbulb': Lightbulb,
+  'mic': Mic,
+  'award': Award
 }
 
 export default function Home() {
@@ -23,7 +25,7 @@ export default function Home() {
   const data = JSON.parse(fileContents)
   const globalSettings = JSON.parse(globalSettingsContents)
 
-  const { trackRecord, subjectsOffered, methodology, testimonials } = data
+  const { trackRecord, subjectsOffered, methodology, testimonials, howYourChildWillLearn } = data
 
   // Use global master background if set, otherwise use section colors
   const masterBg = globalSettings.masterBackground || '#ffffff'
@@ -39,6 +41,8 @@ export default function Home() {
   const testimonialsStyles = testimonials?.styles || {}
   const whyChooseUsColors = data?.whyChooseUs?.colors || {}
   const whyChooseUsStyles = data?.whyChooseUs?.styles || {}
+  const howLearnColors = howYourChildWillLearn?.colors || {}
+  const howLearnStyles = howYourChildWillLearn?.styles || {}
 
   // Helper to get padding value
   const getPadding = (padding: string) => {
@@ -120,6 +124,86 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* How Your Child Will Learn Section */}
+      {howYourChildWillLearn && (
+        <section
+          className="max-w-container px-4"
+          style={{
+            backgroundColor: howLearnColors.backgroundColor || '#fef3c7',
+            paddingTop: getPadding(howLearnStyles.padding || 'large'),
+            paddingBottom: getPadding(howLearnStyles.padding || 'large')
+          }}
+        >
+          <div className="text-center mb-8 md:mb-10">
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-3"
+              style={{
+                color: howLearnColors.titleColor || '#92400e',
+                fontSize: howLearnStyles.titleFontSize ? `${howLearnStyles.titleFontSize}px` : '2.25rem'
+              }}
+            >
+              {howYourChildWillLearn.title}
+            </h2>
+            <h3
+              className="text-xl sm:text-2xl font-bold mb-4"
+              style={{ color: howLearnColors.subtitleColor || '#78350f' }}
+            >
+              {howYourChildWillLearn.subtitle}
+            </h3>
+            <p
+              className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed"
+              style={{
+                color: howLearnColors.textColor || '#451a03',
+                fontSize: howLearnStyles.textFontSize ? `${howLearnStyles.textFontSize}px` : '1rem'
+              }}
+            >
+              {howYourChildWillLearn.intro}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {howYourChildWillLearn.methods?.map((method: any, index: number) => {
+              const IconComponent = iconMap[method?.icon] || Brain
+              return (
+                <div
+                  key={index}
+                  className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 p-5 hover:-translate-y-1"
+                  style={{
+                    backgroundColor: howLearnColors.cardBackgroundColor || '#ffffff',
+                    borderWidth: '1px',
+                    borderStyle: 'solid',
+                    borderColor: `${howLearnColors.accentColor || '#d97706'}40`
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div
+                      className="p-2.5 rounded-lg flex-shrink-0"
+                      style={{ backgroundColor: `${howLearnColors.accentColor || '#d97706'}20`, color: howLearnColors.accentColor || '#d97706' }}
+                    >
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4
+                        className="font-bold text-base mb-1.5"
+                        style={{ color: howLearnColors.titleColor || '#92400e' }}
+                      >
+                        {method?.title}
+                      </h4>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: howLearnColors.textColor || '#451a03', fontSize: `${howLearnStyles.textFontSize || 16}px` }}
+                      >
+                        {method?.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Subjects Offered Section */}
       <section 
