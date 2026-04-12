@@ -19,6 +19,15 @@ interface HeaderData {
   taglineFontSize?: number
   taglineBold?: boolean
   taglineItalic?: boolean
+  tagline1?: string
+  tagline2?: string
+  tagline2Color?: string
+  tagline2Bold?: boolean
+  tagline2Italic?: boolean
+  tagline3?: string
+  tagline3Color?: string
+  tagline3Bold?: boolean
+  tagline3Italic?: boolean
   promoText1: string
   promoText1Color?: string
   promoText1Font?: string
