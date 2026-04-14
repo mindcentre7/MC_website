@@ -22,13 +22,18 @@ interface ResultsContent {
     buttonText: string
     infoText: string
   }
+  testimonialImages?: {
+    title: string
+    subtitle: string
+    images?: Array<{ src: string; alt: string }>
+  }
 }
 
 export default function ResultsPage() {
   const [content, setContent] = useState<ResultsContent | null>(null)
 
   useEffect(() => {
-    fetch('/content/results.json')
+    fetch('/api/get-content/results.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))
@@ -103,6 +108,23 @@ export default function ResultsPage() {
             </div>
           </div>
         </div>
+
+        {/* Testimonial Images */}
+        {content.testimonialImages && (
+          <div className="mt-12">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">{content.testimonialImages.title}</h2>
+              <p className="text-gray-600 text-lg">{content.testimonialImages.subtitle}</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {content.testimonialImages.images?.map((img: any, i: number) => (
+                <div key={i} className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img src={img.src} alt={img.alt} className="w-full h-auto" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
     </div>
   )

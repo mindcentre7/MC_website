@@ -1,4 +1,3 @@
-
 {
   "pageTitle": "Class Schedules",
   "pageSubtitle": "View our class schedules by location",
@@ -21,5 +20,13 @@
       "locationInfo": "Within close walking distance from Bedok MRT",
       "pdfPath": "schedules/bedok.pdf"
     }
-  ]
+  ],
+  "promoBanner": {
+    "enabled": true,
+    "title": "2 Trial Science or English/GP Master Classes",
+    "subtitle": "Buy 1 Get 1 FREE",
+    "ctaText": "Click to secure your slots now!",
+    "ctaLink": "/enroll",
+    "highlight": "LIMITED SLOTS AVAILABLE"
+  }
 }

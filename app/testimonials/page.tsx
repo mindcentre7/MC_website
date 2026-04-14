@@ -25,7 +25,7 @@ export default function TestimonialsPage() {
   const [content, setContent] = useState<TestimonialsContent | null>(null)
 
   useEffect(() => {
-    fetch(`/content/testimonials.json?t=${Date.now()}`)
+    fetch('/api/get-content/testimonials.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

@@ -28,7 +28,7 @@ export default function FranchisingPage() {
   const [content, setContent] = useState<FranchisingContent | null>(null)
 
   useEffect(() => {
-    fetch('/content/franchising.json')
+    fetch('/api/get-content/franchising.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

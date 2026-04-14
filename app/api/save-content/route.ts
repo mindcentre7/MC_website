@@ -14,18 +14,20 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Determine the correct directory
-    let fullPath: string
-    if (filePath === 'blog-data.json') {
-      fullPath = path.join(process.cwd(), 'public', filePath)
-    } else {
-      fullPath = path.join(process.cwd(), 'public', 'content', filePath)
+    // Try Netlify Blobs first (production)
+    try {
+      const { getStore } = await import('@netlify/blobs')
+      const store = getStore('site-content')
+      await store.setJSON(filePath, content)
+      return NextResponse.json({ success: true, storage: 'blobs' })
+    } catch {
+      // Blobs not available (local dev) — fall back to filesystem
     }
 
-    // Write the file
+    // Fallback: write to filesystem (local dev)
+    const fullPath = path.join(process.cwd(), 'public', 'content', filePath)
     await fs.writeFile(fullPath, JSON.stringify(content, null, 2), 'utf-8')
-
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true, storage: 'filesystem' })
   } catch (error) {
     console.error('Error saving file:', error)
     return NextResponse.json(

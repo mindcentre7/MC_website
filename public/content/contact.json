@@ -14,7 +14,8 @@
         "Well-equipped classrooms",
         "Experienced teachers on-site",
         "Safe and conducive learning environment"
-      ]
+      ],
+      "image": "/images/migrated/location-serangoon.jpg"
     },
     {
       "name": "Bedok Centre",
@@ -30,7 +31,8 @@
         "Modern facilities and resources",
         "Dedicated teaching staff",
         "Comfortable learning spaces"
-      ]
+      ],
+      "image": "/images/migrated/location-bedok.jpg"
     }
   ],
   "operatingHours": {
@@ -38,5 +40,26 @@
     "weekends": "Saturday - Sunday: 9:00 AM - 6:00 PM"
   },
   "email": "all@mindcentre.com.sg",
-  "description": "Mind Centre for Learning has two convenient locations to serve students from Serangoon, Bedok, Bishan, and surrounding areas. Both centres are easily accessible by public transport."
+  "description": "Mind Centre for Learning has two convenient locations to serve students from Serangoon, Bedok, Bishan, and surrounding areas. Both centres are easily accessible by public transport.",
+  "gallery": {
+    "title": "Our Locations",
+    "images": [
+      {
+        "src": "/images/migrated/location-serangoon.jpg",
+        "alt": "Serangoon Branch"
+      },
+      {
+        "src": "/images/migrated/location-bedok.jpg",
+        "alt": "Bedok Branch"
+      },
+      {
+        "src": "/images/migrated/location-exterior.webp",
+        "alt": "Mind Centre Exterior"
+      }
+    ],
+    "video": {
+      "title": "Take a Tour of Mind Centre",
+      "url": "https://www.youtube.com/watch?v=qZFr63as5U"
+    }
+  }
 }

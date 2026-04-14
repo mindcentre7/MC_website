@@ -22,7 +22,7 @@ export default function SchedulesPage() {
   const [content, setContent] = useState<SchedulesContent | null>(null)
 
   useEffect(() => {
-    fetch('/content/schedules.json')
+    fetch('/api/get-content/schedules.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))
@@ -88,6 +88,24 @@ export default function SchedulesPage() {
             </div>
           ))}
         </div>
+
+        {/* Promo Banner - Buy 1 Get 1 Free */}
+        {(content as any).promoBanner?.enabled && (
+          <div className="mt-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl p-8 text-center shadow-xl">
+            <span className="inline-block bg-red-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+              {(content as any).promoBanner.highlight}
+            </span>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">{(content as any).promoBanner.title}</h2>
+            <p className="text-2xl font-bold text-purple-800 mb-4">{(content as any).promoBanner.subtitle}</p>
+            <p className="text-lg text-gray-800 mb-6">{(content as any).promoBanner.ctaText}</p>
+            <a
+              href={(content as any).promoBanner.ctaLink}
+              className="inline-block px-8 py-4 bg-purple-700 hover:bg-purple-800 text-white font-bold rounded-lg text-lg transition-colors shadow-lg"
+            >
+              Register Now →
+            </a>
+          </div>
+        )}
       </section>
     </div>
   )

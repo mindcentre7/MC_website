@@ -1,10 +1,25 @@
 [
   {
     "id": 1,
+    "slug": "how-to-learn-faster-with-the-feynman-technique",
+    "title": "How to Learn Faster with the Feynman Technique",
+    "date": "2026-04-06",
+    "date_display": "April 06, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Critical Mind-focused Learning</p><p>The Feynman Technique, named after Nobel Prize-winning physicist Richard Feynman, is one of the most effective ways to truly understand any concept. The method is simple: explain the topic as if teaching it to a child, identify gaps in your explanation, go back to the source material, and simplify your explanation further. At Mind Centre, our Critical Mind-focused Learning methodology encourages students to teach concepts to their peers, reinforcing deep understanding rather than surface-level memorization for PSLE, O-Level, and A-Level success.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/_f-qkGJBPts/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=_f-qkGJBPts"
+    ],
+    "channel": "Thomas Frank"
+  },
+  {
+    "id": 2,
     "slug": "the-memory-palace-unlock-your-brains-hidden-potential",
     "title": "The Memory Palace: Unlock Your Brain's Hidden Potential",
-    "date": "2026-04-12",
-    "date_display": "April 12, 2026",
+    "date": "2026-04-14",
+    "date_display": "April 14, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Story Memory Technique</p><p>The Memory Palace technique, also known as the Method of Loci, is one of the most powerful memory strategies ever discovered. This video from Sprouts explains how you can use spatial visualization to remember vast amounts of information. By associating items with specific locations in a familiar place, your brain creates strong neural pathways that make recall almost effortless. Students at Mind Centre use this exact technique to memorize Science concepts, English vocabulary, and Math formulas with remarkable speed.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/p9IOqd1LpkA/hqdefault.jpg",
@@ -15,41 +30,11 @@
     "channel": "Sprouts"
   },
   {
-    "id": 2,
-    "slug": "how-to-memorize-fast-and-easily-using-a-mind-palace",
-    "title": "How to Memorize Fast and Easily Using a Mind Palace",
-    "date": "2026-04-05",
-    "date_display": "April 05, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Story Memory Technique</p><p>Memory champion Ron White shares his proven system for building a Mind Palace that works for students of all ages. This technique transforms abstract information into vivid mental images placed along a familiar journey. At Mind Centre, we teach our students similar visualization strategies that help them remember key facts for PSLE, O-Level, and A-Level examinations. Watch this video to learn how to create your own memory palace in just minutes!</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/3vlpQHJ09do/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=3vlpQHJ09do"
-    ],
-    "channel": "Ron White"
-  },
-  {
     "id": 3,
-    "slug": "mnemonics-memory-tricks-that-actually-work",
-    "title": "Mnemonics: Memory Tricks That Actually Work",
-    "date": "2026-03-29",
-    "date_display": "March 29, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Story Memory Technique</p><p>Mnemonic devices are memory shortcuts that help you retain information more efficiently. From acronyms to rhymes, these tricks have been used by students worldwide to boost their academic performance. This video breaks down the science behind mnemonics and shows practical examples you can use immediately. Mind Centre incorporates mnemonic techniques into our Story Memory methodology, helping students in Serangoon and Bedok achieve AL1-3 for PSLE Science.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/Js5Tm1y0igY/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=Js5Tm1y0igY"
-    ],
-    "channel": "Practical Psychology"
-  },
-  {
-    "id": 4,
     "slug": "how-to-mind-map-with-tony-buzan-the-complete-guide",
     "title": "How to Mind Map with Tony Buzan: The Complete Guide",
-    "date": "2026-03-22",
-    "date_display": "March 22, 2026",
+    "date": "2026-04-21",
+    "date_display": "April 21, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Mind-Mapping</p><p>Tony Buzan, the inventor of Mind Mapping, demonstrates how to create effective mind maps that enhance creativity and memory. Mind maps use colors, images, and branches to organize information the way your brain naturally thinks. This technique is central to Mind Centre's Critical Mind-focused Learning methodology. Our students use mind mapping to plan essays, summarize Science chapters, and organize revision notes for all subjects.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/u5Y4pIsXTV0/hqdefault.jpg",
@@ -60,56 +45,26 @@
     "channel": "AYOA"
   },
   {
+    "id": 4,
+    "slug": "how-to-memorize-fast-and-easily-using-a-mind-palace",
+    "title": "How to Memorize Fast and Easily Using a Mind Palace",
+    "date": "2026-04-28",
+    "date_display": "April 28, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Story Memory Technique</p><p>Memory champion Ron White shares his proven system for building a Mind Palace that works for students of all ages. This technique transforms abstract information into vivid mental images placed along a familiar journey. At Mind Centre, we teach our students similar visualization strategies that help them remember key facts for PSLE, O-Level, and A-Level examinations. Watch this video to learn how to create your own memory palace in just minutes!</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/3vlpQHJ09do/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=3vlpQHJ09do"
+    ],
+    "channel": "Ron White"
+  },
+  {
     "id": 5,
-    "slug": "the-power-of-a-mind-to-map-tony-buzan-at-tedxsquaremile",
-    "title": "The Power of a Mind to Map: Tony Buzan at TEDxSquareMile",
-    "date": "2026-03-15",
-    "date_display": "March 15, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Mind-Mapping</p><p>In this inspiring TEDx talk, Tony Buzan explains why mind mapping is the most effective thinking tool ever created. He demonstrates how the brain thinks in radiating patterns, and how mind maps mirror this natural process. Mind Centre's teachers use Buzan's principles to help students develop critical thinking skills and organize complex topics into simple, memorable visual diagrams.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/nMZCghZ1hB4/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=nMZCghZ1hB4"
-    ],
-    "channel": "TEDx Talks"
-  },
-  {
-    "id": 6,
-    "slug": "the-power-of-reading-out-loud-benefits-for-all-ages",
-    "title": "The Power of Reading Out Loud: Benefits for All Ages",
-    "date": "2026-03-08",
-    "date_display": "March 08, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Brain Research: Reading Out Aloud</p><p>Brain research shows that reading out loud activates multiple areas of the brain simultaneously, creating stronger memory pathways than silent reading alone. This video explains the science behind why reading aloud improves comprehension, retention, and fluency. At Mind Centre, our Rapid Application Flooding methodology includes reading aloud as a core technique, helping students internalize key concepts for exams.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/PNwOjuYMBgQ/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=PNwOjuYMBgQ"
-    ],
-    "channel": "ArgoPrep"
-  },
-  {
-    "id": 7,
-    "slug": "what-reading-does-to-your-brain-the-science-explained",
-    "title": "What Reading Does To Your Brain: The Science Explained",
-    "date": "2026-03-01",
-    "date_display": "March 01, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Brain Research: Reading Out Aloud</p><p>Discover the fascinating neuroscience behind reading and how it literally changes your brain structure. Studies show that reading activates Broca's area, Wernicke's area, and the visual cortex simultaneously. When students read out loud, they engage even more neural pathways, leading to deeper understanding and longer retention. Mind Centre applies this brain research in our teaching methodology to maximize learning outcomes.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/Lgc2T74quZI/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=Lgc2T74quZI"
-    ],
-    "channel": "Merphy Napier"
-  },
-  {
-    "id": 8,
     "slug": "every-problem-solving-strategy-explained-in-10-minutes",
     "title": "Every Problem-Solving Strategy Explained In 10 Minutes",
-    "date": "2026-02-22",
-    "date_display": "February 22, 2026",
+    "date": "2026-05-05",
+    "date_display": "May 05, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Problem-Solving Techniques</p><p>From Polya's four-step method to design thinking, this comprehensive video covers every major problem-solving strategy students need to know. Problem-solving is a core skill that Mind Centre develops through our Critical Mind-focused Learning approach. Our students learn to break down complex Math and Science problems into manageable steps, building confidence and achieving consistent grade improvements.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/yhc-EPLcIaI/hqdefault.jpg",
@@ -120,71 +75,41 @@
     "channel": "Explain It All"
   },
   {
-    "id": 9,
-    "slug": "how-to-study-effectively-3-evidence-based-tips",
-    "title": "How to Study Effectively: 3 Evidence-Based Tips",
-    "date": "2026-02-15",
-    "date_display": "February 15, 2026",
+    "id": 6,
+    "slug": "mnemonics-memory-tricks-that-actually-work",
+    "title": "Mnemonics: Memory Tricks That Actually Work",
+    "date": "2026-05-12",
+    "date_display": "May 12, 2026",
     "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Excel in Exam Preparation</p><p>TED-Ed presents three scientifically proven study techniques: spaced repetition, retrieval practice, and interleaving. These methods are far more effective than re-reading notes or highlighting textbooks. Mind Centre's Testing and Exam Methodologies incorporate all three techniques through our structured revision programs, timed practice papers, and progressive difficulty system that prepares students for PSLE, O-Level, and A-Level success.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/TjPFZaMe2yw/hqdefault.jpg",
+    "content": "<p><strong>Topic:</strong> Story Memory Technique</p><p>Mnemonic devices are memory shortcuts that help you retain information more efficiently. From acronyms to rhymes, these tricks have been used by students worldwide to boost their academic performance. This video breaks down the science behind mnemonics and shows practical examples you can use immediately. Mind Centre incorporates mnemonic techniques into our Story Memory methodology, helping students in Serangoon and Bedok achieve AL1-3 for PSLE Science.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/Js5Tm1y0igY/hqdefault.jpg",
     "content_images": [],
     "videos": [
-      "https://www.youtube.com/watch?v=TjPFZaMe2yw"
+      "https://www.youtube.com/watch?v=Js5Tm1y0igY"
     ],
-    "channel": "TED-Ed"
+    "channel": "Practical Psychology"
   },
   {
-    "id": 10,
-    "slug": "learn-how-to-ace-every-exam-in-6-minutes",
-    "title": "Learn How To Ace Every Exam in 6 Minutes",
-    "date": "2026-02-08",
-    "date_display": "February 08, 2026",
+    "id": 7,
+    "slug": "the-power-of-reading-out-loud-benefits-for-all-ages",
+    "title": "The Power of Reading Out Loud: Benefits for All Ages",
+    "date": "2026-05-19",
+    "date_display": "May 19, 2026",
     "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Excel in Exam Preparation</p><p>A medical student shares the exact exam preparation system that helped them excel in one of the most demanding academic programs. The strategies include active recall, practice testing, and strategic time management during exams. Mind Centre's exam preparation methodology follows similar principles, combining structured practice with our unique Rapid Application Flooding technique to build exam-ready confidence.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/1OO8j3lz-i8/hqdefault.jpg",
+    "content": "<p><strong>Topic:</strong> Brain Research: Reading Out Aloud</p><p>Brain research shows that reading out loud activates multiple areas of the brain simultaneously, creating stronger memory pathways than silent reading alone. This video explains the science behind why reading aloud improves comprehension, retention, and fluency. At Mind Centre, our Rapid Application Flooding methodology includes reading aloud as a core technique, helping students internalize key concepts for exams.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/PNwOjuYMBgQ/hqdefault.jpg",
     "content_images": [],
     "videos": [
-      "https://www.youtube.com/watch?v=1OO8j3lz-i8"
+      "https://www.youtube.com/watch?v=PNwOjuYMBgQ"
     ],
-    "channel": "Evolving Medic"
+    "channel": "ArgoPrep"
   },
   {
-    "id": 11,
-    "slug": "applying-science-in-real-life-sparking-curiosity",
-    "title": "Applying Science in Real Life: Sparking Curiosity",
-    "date": "2026-02-01",
-    "date_display": "February 01, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>Edutopia shows how connecting classroom Science to real-world problems ignites student curiosity and deepens understanding. When students see how Science explains everyday phenomena, from cooking to weather, learning becomes meaningful and memorable. Mind Centre's methodology emphasizes applying Science concepts to real-life situations, helping students develop genuine understanding rather than rote memorization.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/IpVgjiCKK4s/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=IpVgjiCKK4s"
-    ],
-    "channel": "Edutopia"
-  },
-  {
-    "id": 12,
-    "slug": "science-education-for-life-and-work",
-    "title": "Science Education for Life and Work",
-    "date": "2026-01-25",
-    "date_display": "January 25, 2026",
-    "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>The National Academies of Sciences explain why Science education must go beyond textbooks to prepare students for real-world challenges. This video demonstrates how applied Science learning develops critical thinking, problem-solving, and adaptability. Mind Centre aligns with this philosophy, teaching students to apply Scientific principles to everyday situations and develop a lifelong love of learning.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/hCO4FMYEUDM/hqdefault.jpg",
-    "content_images": [],
-    "videos": [
-      "https://www.youtube.com/watch?v=hCO4FMYEUDM"
-    ],
-    "channel": "National Academies"
-  },
-  {
-    "id": 13,
+    "id": 8,
     "slug": "teaching-a-growth-mindset-carol-dweck-at-stanford",
     "title": "Teaching a Growth Mindset: Carol Dweck at Stanford",
-    "date": "2026-01-18",
-    "date_display": "January 18, 2026",
+    "date": "2026-05-26",
+    "date_display": "May 26, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Developing Critical Thinking & Growth Mindset</p><p>Carol Dweck, the Stanford psychologist who coined the term 'growth mindset,' explains how believing in the brain's ability to grow transforms student achievement. Students with a growth mindset embrace challenges, learn from mistakes, and persist through difficulties. Mind Centre's Powerful Motivation methodology builds growth mindset in every student, helping them believe they can improve and achieve their academic goals.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/isHM1rEd3GE/hqdefault.jpg",
@@ -195,26 +120,41 @@
     "channel": "Stanford"
   },
   {
-    "id": 14,
-    "slug": "developing-a-growth-mindset-with-carol-dweck",
-    "title": "Developing a Growth Mindset with Carol Dweck",
-    "date": "2026-01-11",
-    "date_display": "January 11, 2026",
+    "id": 9,
+    "slug": "learn-how-to-ace-every-exam-in-6-minutes",
+    "title": "Learn How To Ace Every Exam in 6 Minutes",
+    "date": "2026-06-02",
+    "date_display": "June 02, 2026",
     "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Developing Critical Thinking & Growth Mindset</p><p>In this Stanford Alumni talk, Carol Dweck shares practical strategies for developing a growth mindset in students. She explains the difference between fixed and growth mindsets, and how teachers and parents can foster resilience and love of learning. Mind Centre's teachers are trained to praise effort and strategy rather than innate ability, creating a classroom culture where every student feels empowered to improve.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/hiiEeMN7vbQ/hqdefault.jpg",
+    "content": "<p><strong>Topic:</strong> Excel in Exam Preparation</p><p>A medical student shares the exact exam preparation system that helped them excel in one of the most demanding academic programs. The strategies include active recall, practice testing, and strategic time management during exams. Mind Centre's exam preparation methodology follows similar principles, combining structured practice with our unique Rapid Application Flooding technique to build exam-ready confidence.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/1OO8j3lz-i8/hqdefault.jpg",
     "content_images": [],
     "videos": [
-      "https://www.youtube.com/watch?v=hiiEeMN7vbQ"
+      "https://www.youtube.com/watch?v=1OO8j3lz-i8"
     ],
-    "channel": "Stanford Alumni"
+    "channel": "Evolving Medic"
   },
   {
-    "id": 15,
+    "id": 10,
+    "slug": "the-power-of-a-mind-to-map-tony-buzan-at-tedxsquaremile",
+    "title": "The Power of a Mind to Map: Tony Buzan at TEDxSquareMile",
+    "date": "2026-06-09",
+    "date_display": "June 09, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Mind-Mapping</p><p>In this inspiring TEDx talk, Tony Buzan explains why mind mapping is the most effective thinking tool ever created. He demonstrates how the brain thinks in radiating patterns, and how mind maps mirror this natural process. Mind Centre's teachers use Buzan's principles to help students develop critical thinking skills and organize complex topics into simple, memorable visual diagrams.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/nMZCghZ1hB4/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=nMZCghZ1hB4"
+    ],
+    "channel": "TEDx Talks"
+  },
+  {
+    "id": 11,
     "slug": "learning-how-to-learn-barbara-oakley-at-tedxoaklanduniversity",
     "title": "Learning How to Learn: Barbara Oakley at TEDxOaklandUniversity",
-    "date": "2026-01-04",
-    "date_display": "January 04, 2026",
+    "date": "2026-06-16",
+    "date_display": "June 16, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Critical Mind-focused Learning</p><p>Barbara Oakley, creator of the world's most popular online course, explains the science of effective learning. She covers focused vs. diffuse thinking, chunking, and the importance of sleep in memory consolidation. Mind Centre's Critical Mind-focused Learning methodology incorporates these same principles, teaching students how their brains learn best and giving them tools to study more efficiently.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/O96fE1E-rf8/hqdefault.jpg",
@@ -225,26 +165,56 @@
     "channel": "TEDx Talks"
   },
   {
-    "id": 16,
-    "slug": "learning-how-to-learn-barbara-oakley-at-google",
-    "title": "Learning How to Learn: Barbara Oakley at Google",
-    "date": "2025-12-28",
-    "date_display": "December 28, 2025",
+    "id": 12,
+    "slug": "what-reading-does-to-your-brain-the-science-explained",
+    "title": "What Reading Does To Your Brain: The Science Explained",
+    "date": "2026-06-23",
+    "date_display": "June 23, 2026",
     "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Critical Mind-focused Learning</p><p>Barbara Oakley visits Google to discuss the neuroscience of learning, including how to overcome procrastination, build effective study habits, and use metaphors to understand complex concepts. Her insights align perfectly with Mind Centre's approach to teaching, where we help students understand not just what to learn, but how to learn. This meta-learning skill is the foundation of our Rapid Application Flooding technique.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/vd2dtkMINIw/hqdefault.jpg",
+    "content": "<p><strong>Topic:</strong> Brain Research: Reading Out Aloud</p><p>Discover the fascinating neuroscience behind reading and how it literally changes your brain structure. Studies show that reading activates Broca's area, Wernicke's area, and the visual cortex simultaneously. When students read out loud, they engage even more neural pathways, leading to deeper understanding and longer retention. Mind Centre applies this brain research in our teaching methodology to maximize learning outcomes.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/Lgc2T74quZI/hqdefault.jpg",
     "content_images": [],
     "videos": [
-      "https://www.youtube.com/watch?v=vd2dtkMINIw"
+      "https://www.youtube.com/watch?v=Lgc2T74quZI"
     ],
-    "channel": "Talks at Google"
+    "channel": "Merphy Napier"
   },
   {
-    "id": 17,
+    "id": 13,
+    "slug": "applying-science-in-real-life-sparking-curiosity",
+    "title": "Applying Science in Real Life: Sparking Curiosity",
+    "date": "2026-06-30",
+    "date_display": "June 30, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>Edutopia shows how connecting classroom Science to real-world problems ignites student curiosity and deepens understanding. When students see how Science explains everyday phenomena, from cooking to weather, learning becomes meaningful and memorable. Mind Centre's methodology emphasizes applying Science concepts to real-life situations, helping students develop genuine understanding rather than rote memorization.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/IpVgjiCKK4s/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=IpVgjiCKK4s"
+    ],
+    "channel": "Edutopia"
+  },
+  {
+    "id": 14,
+    "slug": "how-to-study-effectively-3-evidence-based-tips",
+    "title": "How to Study Effectively: 3 Evidence-Based Tips",
+    "date": "2026-07-07",
+    "date_display": "July 07, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Excel in Exam Preparation</p><p>TED-Ed presents three scientifically proven study techniques: spaced repetition, retrieval practice, and interleaving. These methods are far more effective than re-reading notes or highlighting textbooks. Mind Centre's Testing and Exam Methodologies incorporate all three techniques through our structured revision programs, timed practice papers, and progressive difficulty system that prepares students for PSLE, O-Level, and A-Level success.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/TjPFZaMe2yw/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=TjPFZaMe2yw"
+    ],
+    "channel": "TED-Ed"
+  },
+  {
+    "id": 15,
     "slug": "6-keys-to-rapid-learning-jim-kwiks-expert-system",
     "title": "6 Keys to Rapid Learning: Jim Kwik's Expert System",
-    "date": "2025-12-21",
-    "date_display": "December 21, 2025",
+    "date": "2026-07-14",
+    "date_display": "July 14, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Rapid Application Flooding</p><p>Brain coach Jim Kwik reveals six powerful keys to accelerate your learning speed. From visualization to active recall, these techniques can dramatically reduce study time while improving retention. Mind Centre's Rapid Application Flooding methodology incorporates similar principles, immersing students in intensive practice sessions that build automatic recall and deep understanding of key concepts.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/TEf34ufuj5U/hqdefault.jpg",
@@ -255,26 +225,26 @@
     "channel": "Jim Kwik"
   },
   {
-    "id": 18,
-    "slug": "how-to-learn-so-fast-its-almost-unfair",
-    "title": "How to Learn So Fast It's Almost Unfair",
-    "date": "2025-12-14",
-    "date_display": "December 14, 2025",
+    "id": 16,
+    "slug": "developing-a-growth-mindset-with-carol-dweck",
+    "title": "Developing a Growth Mindset with Carol Dweck",
+    "date": "2026-07-21",
+    "date_display": "July 21, 2026",
     "author": "Mind Centre",
-    "content": "<p><strong>Topic:</strong> Rapid Application Flooding</p><p>Discover rapid learning techniques used by top performers at MIT and other elite institutions. This video covers the Pareto principle in learning, active experimentation, and the power of teaching others. Mind Centre applies similar accelerated learning strategies through our Rapid Application Flooding approach, where students engage in intensive, focused practice that builds mastery in record time.</p><p>Video content available</p>",
-    "featured_image": "https://img.youtube.com/vi/npQ2IORdlvU/hqdefault.jpg",
+    "content": "<p><strong>Topic:</strong> Developing Critical Thinking & Growth Mindset</p><p>In this Stanford Alumni talk, Carol Dweck shares practical strategies for developing a growth mindset in students. She explains the difference between fixed and growth mindsets, and how teachers and parents can foster resilience and love of learning. Mind Centre's teachers are trained to praise effort and strategy rather than innate ability, creating a classroom culture where every student feels empowered to improve.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/hiiEeMN7vbQ/hqdefault.jpg",
     "content_images": [],
     "videos": [
-      "https://www.youtube.com/watch?v=npQ2IORdlvU"
+      "https://www.youtube.com/watch?v=hiiEeMN7vbQ"
     ],
-    "channel": "theMITmonk"
+    "channel": "Stanford Alumni"
   },
   {
-    "id": 19,
+    "id": 17,
     "slug": "my-best-test-taking-strategies-to-ace-any-exam",
     "title": "My Best Test-Taking Strategies to Ace Any Exam",
-    "date": "2025-12-07",
-    "date_display": "December 07, 2025",
+    "date": "2026-07-28",
+    "date_display": "July 28, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Testing and Exam Methodologies</p><p>A top student shares her proven test-taking strategies, from time management during exams to eliminating wrong answers and handling difficult questions. These practical tips complement the content knowledge students gain in class. Mind Centre's Testing and Exam Methodologies go beyond content review to teach students the art of exam performance, including strategic question selection and stress management techniques.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/Es29mH7sN_w/hqdefault.jpg",
@@ -285,11 +255,41 @@
     "channel": "Amy Wang"
   },
   {
+    "id": 18,
+    "slug": "science-education-for-life-and-work",
+    "title": "Science Education for Life and Work",
+    "date": "2026-08-04",
+    "date_display": "August 04, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>The National Academies of Sciences explain why Science education must go beyond textbooks to prepare students for real-world challenges. This video demonstrates how applied Science learning develops critical thinking, problem-solving, and adaptability. Mind Centre aligns with this philosophy, teaching students to apply Scientific principles to everyday situations and develop a lifelong love of learning.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/hCO4FMYEUDM/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=hCO4FMYEUDM"
+    ],
+    "channel": "National Academies"
+  },
+  {
+    "id": 19,
+    "slug": "learning-how-to-learn-barbara-oakley-at-google",
+    "title": "Learning How to Learn: Barbara Oakley at Google",
+    "date": "2026-08-11",
+    "date_display": "August 11, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Critical Mind-focused Learning</p><p>Barbara Oakley visits Google to discuss the neuroscience of learning, including how to overcome procrastination, build effective study habits, and use metaphors to understand complex concepts. Her insights align perfectly with Mind Centre's approach to teaching, where we help students understand not just what to learn, but how to learn. This meta-learning skill is the foundation of our Rapid Application Flooding technique.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/vd2dtkMINIw/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=vd2dtkMINIw"
+    ],
+    "channel": "Talks at Google"
+  },
+  {
     "id": 20,
     "slug": "committed-the-most-powerful-motivational-speech-for-students",
     "title": "Committed: The Most Powerful Motivational Speech for Students",
-    "date": "2025-11-30",
-    "date_display": "November 30, 2025",
+    "date": "2026-08-18",
+    "date_display": "August 18, 2026",
     "author": "Mind Centre",
     "content": "<p><strong>Topic:</strong> Powerful Motivation</p><p>This powerful motivational compilation reminds students why commitment and consistency are the keys to academic success. Every great achievement starts with a decision to commit fully to the process. Mind Centre's Powerful Motivation methodology inspires students to develop intrinsic motivation, set meaningful goals, and persevere through challenges. Our students don't just improve grades \u2014 they develop the mindset of lifelong learners.</p><p>Video content available</p>",
     "featured_image": "https://img.youtube.com/vi/lnFNxRRyRuw/hqdefault.jpg",
@@ -298,5 +298,20 @@
       "https://www.youtube.com/watch?v=lnFNxRRyRuw"
     ],
     "channel": "Motiversity"
+  },
+  {
+    "id": 21,
+    "slug": "how-to-learn-so-fast-its-almost-unfair",
+    "title": "How to Learn So Fast It's Almost Unfair",
+    "date": "2026-08-25",
+    "date_display": "August 25, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Rapid Application Flooding</p><p>Discover rapid learning techniques used by top performers at MIT and other elite institutions. This video covers the Pareto principle in learning, active experimentation, and the power of teaching others. Mind Centre applies similar accelerated learning strategies through our Rapid Application Flooding approach, where students engage in intensive, focused practice that builds mastery in record time.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/npQ2IORdlvU/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=npQ2IORdlvU"
+    ],
+    "channel": "theMITmonk"
   }
 ]

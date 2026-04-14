@@ -48,5 +48,94 @@
       "Rigorous tracking of each student's achievement process through our recording system",
       "Continuous improvement to our repository of top school papers and official examination scripts"
     ]
+  },
+  "learningMethods": {
+    "title": "How Your Child Will Learn",
+    "subtitle": "9 Proven Learning Methods",
+    "description": "Our brain research-backed methodologies ensure your child learns effectively and enjoys the process.",
+    "backgroundImage": "/images/migrated/learning-bg.jpg",
+    "methods": [
+      {
+        "number": 1,
+        "title": "Creative Mind-focused Learning Techniques",
+        "description": "We use brain research to develop creative approaches that engage both hemispheres of the brain for deeper understanding."
+      },
+      {
+        "number": 2,
+        "title": "Story Memory Technique",
+        "description": "Transform facts into vivid stories that stick in long-term memory, making revision effortless and fun."
+      },
+      {
+        "number": 3,
+        "title": "Mind-Mapping",
+        "description": "Visual diagrams that organize information the way your brain naturally thinks, improving recall and comprehension."
+      },
+      {
+        "number": 4,
+        "title": "Brain Research Reading Out Aloud",
+        "description": "Reading aloud activates multiple brain areas simultaneously, creating stronger memory pathways than silent reading."
+      },
+      {
+        "number": 5,
+        "title": "Problem-Solving Techniques",
+        "description": "Systematic approaches to break down complex questions into manageable steps for consistent answers."
+      },
+      {
+        "number": 6,
+        "title": "Excel in Exam Preparation",
+        "description": "Structured revision programs, timed practice papers, and progressive difficulty systems for exam confidence."
+      },
+      {
+        "number": 7,
+        "title": "Applying Science in Real Life",
+        "description": "Connect classroom Science to everyday phenomena, making learning meaningful and memorable."
+      },
+      {
+        "number": 8,
+        "title": "Developing Critical Thinking Skills",
+        "description": "Teach students to analyze, evaluate, and create — going beyond memorization to true understanding."
+      },
+      {
+        "number": 9,
+        "title": "Cultivating a Growth Mindset",
+        "description": "Help students believe they can improve, embrace challenges, and persist through difficulties."
+      }
+    ]
+  },
+  "uniqueFeatures": {
+    "title": "What Makes Us Unique",
+    "subtitle": "Our unconventional methodologies bring success to our students!",
+    "features": [
+      {
+        "title": "Tailored to Latest Syllabus",
+        "description": "Always updated to match the latest MOE syllabus.",
+        "image": "/images/migrated/usp-syllabus.png"
+      },
+      {
+        "title": "Live and Recorded Classes",
+        "description": "Flexible learning with live sessions and revision recordings.",
+        "image": "/images/migrated/usp-live-recorded.png"
+      },
+      {
+        "title": "Fast & Systematic Methodologies",
+        "description": "Proven methods backed by brain research.",
+        "image": "/images/migrated/usp-methodologies.png"
+      },
+      {
+        "title": "Highly Experienced Tutors",
+        "description": "20+ years experience, 1,800+ students coached to A's.",
+        "image": "/images/migrated/usp-tutors.png"
+      },
+      {
+        "title": "Affordable Education",
+        "description": "Quality education at competitive rates.",
+        "image": "/images/migrated/usp-affordable.png"
+      },
+      {
+        "title": "Motivational Methods",
+        "description": "Inspiring students to develop intrinsic academic drive.",
+        "image": "/images/migrated/usp-motivational.jpeg"
+      }
+    ]
   }
 }

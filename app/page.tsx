@@ -445,6 +445,32 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* CTA Banner - Mindset/Motivation/Method/Mentor */}
+      {data.ctaBanner && (
+        <section className="bg-purple-700 py-16">
+          <div className="max-w-container px-4 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">{data.ctaBanner.title}</h2>
+            <p className="text-purple-200 text-lg mb-2">{data.ctaBanner.subtitle}</p>
+            <p className="text-yellow-300 text-xl font-bold mb-8">{data.ctaBanner.tagline}</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-8">
+              {data.ctaBanner.images?.map((img: any, i: number) => (
+                <div key={i} className="bg-white rounded-xl p-4 shadow-lg">
+                  <img src={img.src} alt={img.alt} className="w-full h-32 object-contain" />
+                </div>
+              ))}
+            </div>
+            {data.ctaBanner.ctaButton && (
+              <a
+                href={data.ctaBanner.ctaButton.link}
+                className="inline-block px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold rounded-lg text-lg transition-colors"
+              >
+                {data.ctaBanner.ctaButton.text}
+              </a>
+            )}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

@@ -1,4 +1,3 @@
-
 {
   "pageTitle": "Mind Centre Hall of Fame",
   "pageSubtitle": "Celebrating our students' outstanding achievements",
@@ -38,5 +37,23 @@
     "description": "Read more success stories from our students",
     "buttonText": "View More Testimonials",
     "infoText": "Discover how our students have achieved remarkable grade improvements and secured places in top universities through our proven Fast & Systematic learning methodologies."
+  },
+  "testimonialImages": {
+    "title": "What Our Students Say",
+    "subtitle": "Real testimonials from our students and parents",
+    "images": [
+      {
+        "src": "/images/migrated/testimonial-1.jpeg",
+        "alt": "Student testimonial 1"
+      },
+      {
+        "src": "/images/migrated/testimonial-2.png",
+        "alt": "Student testimonial 2"
+      },
+      {
+        "src": "/images/migrated/testimonial-3.jpeg",
+        "alt": "Student testimonial 3"
+      }
+    ]
   }
 }

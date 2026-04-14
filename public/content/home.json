@@ -176,7 +176,7 @@
     },
     "items": [
       {
-        "name": "Dr. Michelle Lim",
+        "name": "Dr. Michelle Lim ZQ",
         "title": "Studied Medicine at NUS",
         "content": "I have been a student at Mind Centre since I was in Primary School, all the way through Secondary to Junior College for English & GP, Maths and Sciences tuition. For all the excellent grades I achieved in PSLE, 'O' Levels and 'A' Levels, I would like to thank the dedicated teachers at Mind Centre who really helped me to study effectively. What really helped me were the structured techniques that my teachers taught me for each subject, for example, a step by step method to identify key phrases in English comprehensions. I found that these techniques cut down my revision time greatly - this and advice from my teachers helped me identify the areas I really needed to focus on in exams.",
         "image": "/images/testimonials/michelle.jpg"
@@ -388,5 +388,32 @@
         "description": "Two centres in Serangoon and Bedok, easily accessible by public transport."
       }
     ]
+  },
+  "ctaBanner": {
+    "title": "Join Mind Centre's Classes Today!",
+    "subtitle": "Limited spots available",
+    "tagline": "MINDSET / MOTIVATION / METHOD / MENTOR",
+    "images": [
+      {
+        "src": "/images/migrated/cta-mindset.png",
+        "alt": "Mindset"
+      },
+      {
+        "src": "/images/migrated/cta-motivation.png",
+        "alt": "Motivation"
+      },
+      {
+        "src": "/images/migrated/cta-method.png",
+        "alt": "Method"
+      },
+      {
+        "src": "/images/migrated/cta-mentor.png",
+        "alt": "Mentor"
+      }
+    ],
+    "ctaButton": {
+      "text": "Sign up for Buy 1 Get 1 Free Trial Classes!",
+      "link": "/enroll"
+    }
   }
 }

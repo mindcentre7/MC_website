@@ -38,6 +38,7 @@ interface ContactData {
     whatsapp: string
     color: string
     nearbyLandmarks: string[]
+    image?: string
   }>
   operatingHours: {
     weekdays: string
@@ -124,6 +125,9 @@ export default async function ContactPage() {
                 }`}>
                   {branch.name}
                 </h3>
+                {branch.image && (
+                  <img src={branch.image} alt={`${branch.name} photo`} className="w-full h-48 object-cover rounded-lg mb-4" />
+                )}
                 <p className="text-gray-700">{branch.address}</p>
                 <p className="text-gray-700">{branch.unit}</p>
                 <p className="text-gray-700">{branch.postalCode}</p>
@@ -177,6 +181,35 @@ export default async function ContactPage() {
           ))}
         </div>
       </div>
+
+      {/* Location Gallery & Video */}
+      {(contactData as any).gallery && (
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">{(contactData as any).gallery.title}</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {(contactData as any).gallery.images?.map((img: any, i: number) => (
+              <div key={i} className="rounded-xl overflow-hidden shadow-lg">
+                <img src={img.src} alt={img.alt} className="w-full h-48 object-cover" />
+              </div>
+            ))}
+          </div>
+          {(contactData as any).gallery.video && (
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">{(contactData as any).gallery.video.title}</h3>
+              <div className="max-w-2xl mx-auto aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src={(contactData as any).gallery.video.url.replace('watch?v=', 'embed/')}
+                  className="w-full h-full"
+                  allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }

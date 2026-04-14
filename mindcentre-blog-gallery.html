@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Centre Blog Posts — 20 Posts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f0f13;
+    color: #e0e0e0;
+    padding: 2rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    text-align: center;
+    color: #888;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #1a1a24;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #2a2a3a;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.15);
+  }
+  .card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+  .card-body {
+    padding: 1.2rem;
+  }
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    font-size: 0.78rem;
+    color: #888;
+  }
+  .card-id {
+    background: #667eea;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+  .card-date { display: flex; align-items: center; gap: 0.4rem; }
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
+  }
+  .card-topic {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.15);
+    color: #99aaff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .card-channel {
+    color: #764ba2;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .card-content {
+    font-size: 0.82rem;
+    color: #aaa;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .card-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h1>📚 Mind Centre Blog Posts</h1>
+<p class="subtitle">21 posts — from mindcentre-blog-posts.json</p>
+<div class="grid" id="grid"></div>
+<script>
+const posts = [
+  {
+    "id": 1,
+    "title": "How to Learn Faster with the Feynman Technique",
+    "date_display": "April 06, 2026",
+    "content": "The Feynman Technique, named after Nobel Prize-winning physicist Richard Feynman, is one of the most effective ways to truly understand any concept. The method is simple: explain the topic as if teach",
+    "featured_image": "https://img.youtube.com/vi/_f-qkGJBPts/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=_f-qkGJBPts"
+    ],
+    "channel": "Thomas Frank",
+    "topic": "Critical Mind-focused Learning"
+  },
+  {
+    "id": 2,
+    "title": "The Memory Palace: Unlock Your Brain's Hidden Potential",
+    "date_display": "April 14, 2026",
+    "content": "The Memory Palace technique, also known as the Method of Loci, is one of the most powerful memory strategies ever discovered. This video from Sprouts explains how you can use spatial visualization to ",
+    "featured_image": "https://img.youtube.com/vi/p9IOqd1LpkA/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=p9IOqd1LpkA"
+    ],
+    "channel": "Sprouts",
+    "topic": "Story Memory Technique"
+  },
+  {
+    "id": 3,
+    "title": "How to Mind Map with Tony Buzan: The Complete Guide",
+    "date_display": "April 21, 2026",
+    "content": "Tony Buzan, the inventor of Mind Mapping, demonstrates how to create effective mind maps that enhance creativity and memory. Mind maps use colors, images, and branches to organize information the way ",
+    "featured_image": "https://img.youtube.com/vi/u5Y4pIsXTV0/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=u5Y4pIsXTV0"
+    ],
+    "channel": "AYOA",
+    "topic": "Mind-Mapping"
+  },
+  {
+    "id": 4,
+    "title": "How to Memorize Fast and Easily Using a Mind Palace",
+    "date_display": "April 28, 2026",
+    "content": "Memory champion Ron White shares his proven system for building a Mind Palace that works for students of all ages. This technique transforms abstract information into vivid mental images placed along ",
+    "featured_image": "https://img.youtube.com/vi/3vlpQHJ09do/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=3vlpQHJ09do"
+    ],
+    "channel": "Ron White",
+    "topic": "Story Memory Technique"
+  },
+  {
+    "id": 5,
+    "title": "Every Problem-Solving Strategy Explained In 10 Minutes",
+    "date_display": "May 05, 2026",
+    "content": "From Polya's four-step method to design thinking, this comprehensive video covers every major problem-solving strategy students need to know. Problem-solving is a core skill that Mind Centre develops ",
+    "featured_image": "https://img.youtube.com/vi/yhc-EPLcIaI/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=yhc-EPLcIaI"
+    ],
+    "channel": "Explain It All",
+    "topic": "Problem-Solving Techniques"
+  },
+  {
+    "id": 6,
+    "title": "Mnemonics: Memory Tricks That Actually Work",
+    "date_display": "May 12, 2026",
+    "content": "Mnemonic devices are memory shortcuts that help you retain information more efficiently. From acronyms to rhymes, these tricks have been used by students worldwide to boost their academic performance.",
+    "featured_image": "https://img.youtube.com/vi/Js5Tm1y0igY/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=Js5Tm1y0igY"
+    ],
+    "channel": "Practical Psychology",
+    "topic": "Story Memory Technique"
+  },
+  {
+    "id": 7,
+    "title": "The Power of Reading Out Loud: Benefits for All Ages",
+    "date_display": "May 19, 2026",
+    "content": "Brain research shows that reading out loud activates multiple areas of the brain simultaneously, creating stronger memory pathways than silent reading alone. This video explains the science behind why",
+    "featured_image": "https://img.youtube.com/vi/PNwOjuYMBgQ/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=PNwOjuYMBgQ"
+    ],
+    "channel": "ArgoPrep",
+    "topic": "Brain Research: Reading Out Aloud"
+  },
+  {
+    "id": 8,
+    "title": "Teaching a Growth Mindset: Carol Dweck at Stanford",
+    "date_display": "May 26, 2026",
+    "content": "Carol Dweck, the Stanford psychologist who coined the term 'growth mindset,' explains how believing in the brain's ability to grow transforms student achievement. Students with a growth mindset embrac",
+    "featured_image": "https://img.youtube.com/vi/isHM1rEd3GE/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=isHM1rEd3GE"
+    ],
+    "channel": "Stanford",
+    "topic": "Developing Critical Thinking & Growth Mindset"
+  },
+  {
+    "id": 9,
+    "title": "Learn How To Ace Every Exam in 6 Minutes",
+    "date_display": "June 02, 2026",
+    "content": "A medical student shares the exact exam preparation system that helped them excel in one of the most demanding academic programs. The strategies include active recall, practice testing, and strategic ",
+    "featured_image": "https://img.youtube.com/vi/1OO8j3lz-i8/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=1OO8j3lz-i8"
+    ],
+    "channel": "Evolving Medic",
+    "topic": "Excel in Exam Preparation"
+  },
+  {
+    "id": 10,
+    "title": "The Power of a Mind to Map: Tony Buzan at TEDxSquareMile",
+    "date_display": "June 09, 2026",
+    "content": "In this inspiring TEDx talk, Tony Buzan explains why mind mapping is the most effective thinking tool ever created. He demonstrates how the brain thinks in radiating patterns, and how mind maps mirror",
+    "featured_image": "https://img.youtube.com/vi/nMZCghZ1hB4/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=nMZCghZ1hB4"
+    ],
+    "channel": "TEDx Talks",
+    "topic": "Mind-Mapping"
+  },
+  {
+    "id": 11,
+    "title": "Learning How to Learn: Barbara Oakley at TEDxOaklandUniversity",
+    "date_display": "June 16, 2026",
+    "content": "Barbara Oakley, creator of the world's most popular online course, explains the science of effective learning. She covers focused vs. diffuse thinking, chunking, and the importance of sleep in memory ",
+    "featured_image": "https://img.youtube.com/vi/O96fE1E-rf8/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=O96fE1E-rf8"
+    ],
+    "channel": "TEDx Talks",
+    "topic": "Critical Mind-focused Learning"
+  },
+  {
+    "id": 12,
+    "title": "What Reading Does To Your Brain: The Science Explained",
+    "date_display": "June 23, 2026",
+    "content": "Discover the fascinating neuroscience behind reading and how it literally changes your brain structure. Studies show that reading activates Broca's area, Wernicke's area, and the visual cortex simulta",
+    "featured_image": "https://img.youtube.com/vi/Lgc2T74quZI/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=Lgc2T74quZI"
+    ],
+    "channel": "Merphy Napier",
+    "topic": "Brain Research: Reading Out Aloud"
+  },
+  {
+    "id": 13,
+    "title": "Applying Science in Real Life: Sparking Curiosity",
+    "date_display": "June 30, 2026",
+    "content": "Edutopia shows how connecting classroom Science to real-world problems ignites student curiosity and deepens understanding. When students see how Science explains everyday phenomena, from cooking to w",
+    "featured_image": "https://img.youtube.com/vi/IpVgjiCKK4s/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=IpVgjiCKK4s"
+    ],
+    "channel": "Edutopia",
+    "topic": "Applying Science in Real Life"
+  },
+  {
+    "id": 14,
+    "title": "How to Study Effectively: 3 Evidence-Based Tips",
+    "date_display": "July 07, 2026",
+    "content": "TED-Ed presents three scientifically proven study techniques: spaced repetition, retrieval practice, and interleaving. These methods are far more effective than re-reading notes or highlighting textbo",
+    "featured_image": "https://img.youtube.com/vi/TjPFZaMe2yw/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=TjPFZaMe2yw"
+    ],
+    "channel": "TED-Ed",
+    "topic": "Excel in Exam Preparation"
+  },
+  {
+    "id": 15,
+    "title": "6 Keys to Rapid Learning: Jim Kwik's Expert System",
+    "date_display": "July 14, 2026",
+    "content": "Brain coach Jim Kwik reveals six powerful keys to accelerate your learning speed. From visualization to active recall, these techniques can dramatically reduce study time while improving retention. Mi",
+    "featured_image": "https://img.youtube.com/vi/TEf34ufuj5U/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=TEf34ufuj5U"
+    ],
+    "channel": "Jim Kwik",
+    "topic": "Rapid Application Flooding"
+  },
+  {
+    "id": 16,
+    "title": "Developing a Growth Mindset with Carol Dweck",
+    "date_display": "July 21, 2026",
+    "content": "In this Stanford Alumni talk, Carol Dweck shares practical strategies for developing a growth mindset in students. She explains the difference between fixed and growth mindsets, and how teachers and p",
+    "featured_image": "https://img.youtube.com/vi/hiiEeMN7vbQ/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=hiiEeMN7vbQ"
+    ],
+    "channel": "Stanford Alumni",
+    "topic": "Developing Critical Thinking & Growth Mindset"
+  },
+  {
+    "id": 17,
+    "title": "My Best Test-Taking Strategies to Ace Any Exam",
+    "date_display": "July 28, 2026",
+    "content": "A top student shares her proven test-taking strategies, from time management during exams to eliminating wrong answers and handling difficult questions. These practical tips complement the content kno",
+    "featured_image": "https://img.youtube.com/vi/Es29mH7sN_w/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=Es29mH7sN_w"
+    ],
+    "channel": "Amy Wang",
+    "topic": "Testing and Exam Methodologies"
+  },
+  {
+    "id": 18,
+    "title": "Science Education for Life and Work",
+    "date_display": "August 04, 2026",
+    "content": "The National Academies of Sciences explain why Science education must go beyond textbooks to prepare students for real-world challenges. This video demonstrates how applied Science learning develops c",
+    "featured_image": "https://img.youtube.com/vi/hCO4FMYEUDM/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=hCO4FMYEUDM"
+    ],
+    "channel": "National Academies",
+    "topic": "Applying Science in Real Life"
+  },
+  {
+    "id": 19,
+    "title": "Learning How to Learn: Barbara Oakley at Google",
+    "date_display": "August 11, 2026",
+    "content": "Barbara Oakley visits Google to discuss the neuroscience of learning, including how to overcome procrastination, build effective study habits, and use metaphors to understand complex concepts. Her ins",
+    "featured_image": "https://img.youtube.com/vi/vd2dtkMINIw/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=vd2dtkMINIw"
+    ],
+    "channel": "Talks at Google",
+    "topic": "Critical Mind-focused Learning"
+  },
+  {
+    "id": 20,
+    "title": "Committed: The Most Powerful Motivational Speech for Students",
+    "date_display": "August 18, 2026",
+    "content": "This powerful motivational compilation reminds students why commitment and consistency are the keys to academic success. Every great achievement starts with a decision to commit fully to the process. ",
+    "featured_image": "https://img.youtube.com/vi/lnFNxRRyRuw/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=lnFNxRRyRuw"
+    ],
+    "channel": "Motiversity",
+    "topic": "Powerful Motivation"
+  },
+  {
+    "id": 21,
+    "title": "How to Learn So Fast It's Almost Unfair",
+    "date_display": "August 25, 2026",
+    "content": "Discover rapid learning techniques used by top performers at MIT and other elite institutions. This video covers the Pareto principle in learning, active experimentation, and the power of teaching oth",
+    "featured_image": "https://img.youtube.com/vi/npQ2IORdlvU/hqdefault.jpg",
+    "videos": [
+      "https://www.youtube.com/watch?v=npQ2IORdlvU"
+    ],
+    "channel": "theMITmonk",
+    "topic": "Rapid Application Flooding"
+  }
+];
+
+const grid = document.getElementById('grid');
+posts.forEach(p => {
+  grid.innerHTML += `
+  <div class="card">
+    <img src="${p.featured_image}" alt="${p.title}" loading="lazy">
+    <div class="card-body">
+      <div class="card-meta">
+        <div style="display:flex;align-items:center;gap:0.5rem">
+          <span class="card-id">${p.id}</span>
+          <span class="card-date">📅 ${p.date_display}</span>
+        </div>
+        <span class="card-channel">▶ ${p.channel}</span>
+      </div>
+      <span class="card-topic">${p.topic}</span>
+      <div class="card-title">${p.title}</div>
+      <div class="card-content">${p.content}</div>
+      <a class="card-link" href="${p.videos[0]}" target="_blank">▶ Watch Video →</a>
+    </div>
+  </div>`;
+});
+</script>
+</body>
+</html>
