@@ -446,6 +446,71 @@ export default function Home() {
         </section>
       )}
 
+      {/* Watch Our Classes Section */}
+      {data?.watchOurClasses && (
+        <section
+          className="max-w-container px-4 py-12"
+          style={{
+            backgroundColor: data.watchOurClasses.colors?.backgroundColor || '#1e1b4b',
+            paddingTop: '3rem',
+            paddingBottom: '3rem'
+          }}
+        >
+          <div className="text-center mb-10">
+            <h2
+              className="text-3xl sm:text-4xl font-bold mb-3"
+              style={{ color: data.watchOurClasses.colors?.titleColor || '#ffffff' }}
+            >
+              {data.watchOurClasses.title}
+            </h2>
+            <p
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: data.watchOurClasses.colors?.subtitleColor || '#c4b5fd' }}
+            >
+              {data.watchOurClasses.subtitle}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {data.watchOurClasses.videos?.map((video: any, index: number) => (
+              <div
+                key={index}
+                className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                style={{ backgroundColor: data.watchOurClasses.colors?.cardBackgroundColor || '#312e81' }}
+              >
+                <div className="aspect-video bg-black">
+                  <video
+                    src={video.src}
+                    className="w-full h-full object-cover"
+                    preload="metadata"
+                    controls
+                    playsInline
+                    muted
+                  />
+                </div>
+                <div className="p-3">
+                  <span
+                    className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: data.watchOurClasses.colors?.accentColor || '#a78bfa',
+                      color: '#1e1b4b'
+                    }}
+                  >
+                    {video.level}
+                  </span>
+                  <h3
+                    className="font-bold text-sm mt-2"
+                    style={{ color: data.watchOurClasses.colors?.titleColor || '#ffffff' }}
+                  >
+                    {video.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* CTA Banner - Mindset/Motivation/Method/Mentor */}
       {data.ctaBanner && (
         <section className="bg-purple-700 py-16">

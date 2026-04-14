@@ -176,7 +176,7 @@
     },
     "items": [
       {
-        "name": "Dr. Michelle Lim ZQ",
+        "name": "Dr. Michelle Lim",
         "title": "Studied Medicine at NUS",
         "content": "I have been a student at Mind Centre since I was in Primary School, all the way through Secondary to Junior College for English & GP, Maths and Sciences tuition. For all the excellent grades I achieved in PSLE, 'O' Levels and 'A' Levels, I would like to thank the dedicated teachers at Mind Centre who really helped me to study effectively. What really helped me were the structured techniques that my teachers taught me for each subject, for example, a step by step method to identify key phrases in English comprehensions. I found that these techniques cut down my revision time greatly - this and advice from my teachers helped me identify the areas I really needed to focus on in exams.",
         "image": "/images/testimonials/michelle.jpg"
@@ -386,6 +386,59 @@
         "icon": "map-pin",
         "title": "Convenient Locations",
         "description": "Two centres in Serangoon and Bedok, easily accessible by public transport."
+      }
+    ]
+  },
+  "watchOurClasses": {
+    "title": "Watch Our Classes",
+    "subtitle": "See our Mind-focused teaching in action — class demos from Primary to Secondary level",
+    "colors": {
+      "backgroundColor": "#1e1b4b",
+      "titleColor": "#ffffff",
+      "subtitleColor": "#c4b5fd",
+      "cardBackgroundColor": "#312e81",
+      "accentColor": "#a78bfa"
+    },
+    "videos": [
+      {
+        "src": "/images/migrated/video-pri-science-forces.mp4",
+        "title": "Primary Science — Forces",
+        "level": "Primary"
+      },
+      {
+        "src": "/images/migrated/video-pri-science-water.mp4",
+        "title": "Primary Science — Water Cycle",
+        "level": "Primary"
+      },
+      {
+        "src": "/images/migrated/video-pri-science-mindmap.mp4",
+        "title": "Primary Science — Mind-Mapping",
+        "level": "Primary"
+      },
+      {
+        "src": "/images/migrated/video-pri-eng-compo.mp4",
+        "title": "Primary English — Composition Writing",
+        "level": "Primary"
+      },
+      {
+        "src": "/images/migrated/video-eng-composition-1.mp4",
+        "title": "English Composition — Techniques 1",
+        "level": "Secondary"
+      },
+      {
+        "src": "/images/migrated/video-eng-composition-2.mp4",
+        "title": "English Composition — Techniques 2",
+        "level": "Secondary"
+      },
+      {
+        "src": "/images/migrated/video-lower-sec-atoms.mp4",
+        "title": "Lower Sec Science — Atoms",
+        "level": "Secondary"
+      },
+      {
+        "src": "/images/migrated/video-sec-electricity.mp4",
+        "title": "Secondary Science — Electricity",
+        "level": "Secondary"
       }
     ]
   },

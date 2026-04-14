@@ -12,7 +12,7 @@
         "Advanced Cert., TEFL (Teaching English)",
         "Ex-teacher, Singapore Polytechnic"
       ],
-      "image": "/images/migrated/teacher-violet.jpg"
+      "image": "/blog_images/violet-1776148354481.jpg"
     },
     {
       "name": "David Lim",
@@ -113,97 +113,5 @@
       ],
       "image": "/images/logo.jpg"
     }
-  ],
-  "pageTitle": "Meet Our Teachers",
-  "pageSubtitle": "Highly Experienced & Specialised Tutors",
-  "uniqueSection": {
-    "title": "What Makes Us Unique",
-    "subtitle": "Our unconventional methodologies bring success to our students!",
-    "items": [
-      {
-        "title": "Tailored to Latest Syllabus",
-        "description": "Our curriculum is always updated to match the latest MOE syllabus requirements.",
-        "image": "/images/migrated/usp-syllabus.png"
-      },
-      {
-        "title": "Live and Recorded Classes",
-        "description": "Flexible learning with both live interactive sessions and recorded lessons for revision.",
-        "image": "/images/migrated/usp-live-recorded.png"
-      },
-      {
-        "title": "Fast & Systematic Methodologies",
-        "description": "Learn using our proven Fast & Systematic and Testing methodologies backed by brain research.",
-        "image": "/images/migrated/usp-methodologies.png"
-      },
-      {
-        "title": "Highly Experienced Tutors",
-        "description": "Teacher Violet & Team have over 20 years of teaching experience and have coached 1,800+ students.",
-        "image": "/images/migrated/usp-tutors.png"
-      },
-      {
-        "title": "Affordable Education",
-        "description": "Quality education at competitive rates so every family can access excellent tutoring.",
-        "image": "/images/migrated/usp-affordable.png"
-      },
-      {
-        "title": "Motivational Methods",
-        "description": "We inspire and motivate students to develop intrinsic drive for academic excellence.",
-        "image": "/images/migrated/usp-motivational.jpeg"
-      }
-    ]
-  },
-  "videoGallery": {
-    "title": "Watch How We Teach",
-    "subtitle": "See our teaching methods in action with real class demonstrations",
-    "videos": [
-      {
-        "title": "Primary English Composition Writing",
-        "description": "Watch our step-by-step English composition writing method in action.",
-        "video": "/images/migrated/video-eng-composition-1.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "English Composition Descriptive Sentences",
-        "description": "Learn how we teach students to write vivid descriptive sentences.",
-        "video": "/images/migrated/video-eng-composition-2.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Sec 2 Electricity & Circuits",
-        "description": "See how we make Physics concepts like circuits easy to understand.",
-        "video": "/images/migrated/video-sec-electricity.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Primary Science - Water",
-        "description": "An engaging Primary Science lesson on water properties and states.",
-        "video": "/images/migrated/video-pri-science-water.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Primary Science - Forces",
-        "description": "Hands-on Forces lesson making abstract concepts concrete.",
-        "video": "/images/migrated/video-pri-science-forces.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Primary English Composition",
-        "description": "Students learning composition skills with our systematic approach.",
-        "video": "/images/migrated/video-pri-eng-compo.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Lower Sec - Atoms & Structure",
-        "description": "Breaking down atomic structure for Lower Secondary students.",
-        "video": "/images/migrated/video-lower-sec-atoms.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      },
-      {
-        "title": "Primary Science - Water & Mind Map",
-        "description": "Using mind-mapping techniques to learn Science concepts.",
-        "video": "/images/migrated/video-pri-science-mindmap.mp4",
-        "thumbnail": "/images/teachers/violet.jpg"
-      }
-    ]
-  }
+  ]
 }
