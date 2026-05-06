@@ -1,4 +1,7 @@
 
+import * as fs from 'fs'
+import * as path from 'path'
+
 export interface VideoInfo {
   url: string
   title?: string
@@ -43,8 +46,6 @@ async function loadBlogData(): Promise<BlogPost[]> {
 
   // Fallback: read from filesystem (local dev)
   try {
-    const fs = require('fs')
-    const path = require('path')
     const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json')
     const fileContent = fs.readFileSync(filePath, 'utf-8')
     return JSON.parse(fileContent) as BlogPost[]
