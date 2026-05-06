@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link'
-import { getAllPosts } from '@/lib/blog';
 
 interface BlogPost {
   id: number;
@@ -21,8 +20,19 @@ interface BlogPostPageProps {
   params: { slug: string };
 }
 
+async function getAllPostsApi(): Promise<BlogPost[]> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mindcentre.sg';
+    const res = await fetch(`${baseUrl}/api/blog-posts`, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const posts = await getAllPosts();
+  const posts = await getAllPostsApi();
   const post = posts.find((p) => p.slug === params.slug) || null;
 
   if (!post) {

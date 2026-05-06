@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllPosts } from '@/lib/blog';
 
 interface BlogPost {
   id: number;
@@ -23,6 +22,17 @@ const normalizeDate = (dateStr: string): number => {
   return isNaN(date.getTime()) ? 0 : date.getTime();
 };
 
+async function getAllPostsApi(): Promise<BlogPost[]> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mindcentre.sg';
+    const res = await fetch(`${baseUrl}/api/blog-posts`, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
 export const metadata = {
   title: 'Tuition Blog & Education Articles | Mind Centre Singapore',
   description: 'Read the latest insights, study tips, and education news from Mind Centre for Learning. Covering PSLE, O-Level, and A-Level strategies.',
@@ -30,7 +40,7 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPostsApi();
   const sortedPosts = [...allPosts].sort(
     (a, b) => normalizeDate(b.date) - normalizeDate(a.date)
   );
