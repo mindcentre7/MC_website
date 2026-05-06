@@ -26,33 +26,7 @@ async function loadAllPosts(): Promise<any[]> {
   }
 }
 
-export async function GET(request: NextRequest) {
-  // One-time: strip HTML from all posts when ?strip=html
-  if (request.nextUrl.searchParams.get('strip') === 'html') {
-    try {
-      const posts = await loadAllPosts();
-      let count = 0;
-      for (const post of posts) {
-        if (/<[^>]+>/.test(post.content)) {
-          post.content = post.content.replace(/<[^>]*>/g, '')
-            .replace(/&amp;/g, '&').replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>').replace(/&quot;/g, '"')
-            .replace(/&#x27;/g, "'");
-          count++;
-        }
-      }
-      if (count > 0) {
-        const { getStore } = await import('@netlify/blobs');
-        const store = getStore('site-content');
-        await store.setJSON('data/clean-blog-data.json', posts);
-      }
-      return NextResponse.json({ stripped: count, total: posts.length });
-    } catch (error) {
-      console.error("Strip HTML error:", error);
-      return NextResponse.json({ error: "Strip failed" }, { status: 500 });
-    }
-  }
-
+export async function GET() {
   try {
     const posts = await loadAllPosts();
     return NextResponse.json(posts);
