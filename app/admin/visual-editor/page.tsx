@@ -2183,13 +2183,25 @@ export default function VisualEditorPage() {
                       </div>
                       
                       <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Paragraph 3 Title</label>
+                        <input
+                          type="text"
+                          value={pageData.trackRecord?.paragraph3Title || ''}
+                          onChange={(e) => updateSectionData('trackRecord', 'paragraph3Title', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          placeholder="Contact us via WhatsApp and telephone:"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">Rendered underlined, 30px, bold</p>
+                      </div>
+                      
+                      <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Paragraph 3 (Contact Info — after video)</label>
                         <textarea
                           rows={5}
                           value={pageData.trackRecord?.paragraph3 || ''}
                           onChange={(e) => updateSectionData('trackRecord', 'paragraph3', e.target.value)}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
-                          placeholder="Contact info paragraph. Use blank lines to separate blocks."
+                          placeholder="Contact info. Use blank lines between blocks."
                         />
                       </div>
                       

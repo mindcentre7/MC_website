@@ -126,10 +126,15 @@ export default function Home() {
           {/* Contact Info */}
           {trackRecord?.paragraph3 && (
             <div className="mt-8 text-center text-base sm:text-lg leading-relaxed" style={{ color: trackRecord?.colors?.textColor || '#4b5563' }}>
+              {trackRecord.paragraph3Title && (
+                <p className="mb-3" style={{ fontSize: '30px', textDecoration: 'underline', fontWeight: 600 }}>
+                  {trackRecord.paragraph3Title}
+                </p>
+              )}
               {trackRecord.paragraph3.split('\n\n').map((block: string, idx: number) => {
                 const lines = block.split('\n')
                 return (
-                  <p key={idx} className={idx === 0 ? 'font-semibold text-xl mb-3' : 'mb-4'}>
+                  <p key={idx} className="mb-3">
                     {lines.map((line: string, li: number) => (
                       <span key={li}>
                         {line}
