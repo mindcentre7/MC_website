@@ -365,8 +365,8 @@ export default function EditBlogPost() {
       });
 
       if (response.ok) {
-        router.push('/admin/blog');
-        router.refresh(); // Refresh list
+        // Force remount of blog management page with cache-busting param
+        router.replace(`/admin/blog?_t=${Date.now()}`);
       } else {
         // Try to read error message from response body
         const errorData = await response.json().catch(() => ({ message: 'Failed to save post' }));
