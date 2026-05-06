@@ -122,7 +122,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'home',
     name: 'Home Page',
-    path: 'home.json',
+    path: 'content/home.json',
     previewUrl: '/',
     sections: [
       { id: 'trackRecord', name: 'Track Record', description: 'Success stories and achievements' },
@@ -135,7 +135,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'enroll',
     name: 'Landing Page',
-    path: 'enroll.json',
+    path: 'content/enroll.json',
     previewUrl: '/enroll',
     sections: [
       { id: 'hero', name: 'Hero Banner', description: 'Title, subtitle, badge' },
@@ -148,7 +148,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'about',
     name: 'About Us',
-    path: 'about.json',
+    path: 'content/about.json',
     previewUrl: '/about-us',
     sections: [
       { id: 'mission', name: 'Mission & Vision', description: 'Our purpose and goals' },
@@ -160,7 +160,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'contact',
     name: 'Contact',
-    path: 'contact.json',
+    path: 'content/contact.json',
     previewUrl: '/contact',
     sections: [
       { id: 'locations', name: 'Branch Locations', description: 'Addresses and maps' },
@@ -171,7 +171,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'teachers',
     name: 'Teachers',
-    path: 'teachers.json',
+    path: 'content/teachers.json',
     previewUrl: '/teachers',
     sections: [
       { id: 'teachers', name: 'Teacher Profiles', description: 'List of teachers' },
@@ -180,7 +180,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'testimonials',
     name: 'Testimonials',
-    path: 'testimonials.json',
+    path: 'content/testimonials.json',
     previewUrl: '/testimonials',
     sections: [
       { id: 'testimonials', name: 'Student Testimonials', description: 'Success stories' },
@@ -189,7 +189,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'learning-system',
     name: 'Learning System',
-    path: 'learning-system.json',
+    path: 'content/learning-system.json',
     previewUrl: '/our-learning-system',
     sections: [
       { id: 'overview', name: 'System Overview', description: 'MIND system introduction' },
@@ -199,7 +199,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'schedules',
     name: 'Schedules',
-    path: 'schedules.json',
+    path: 'content/schedules.json',
     previewUrl: '/schedules',
     sections: [
       { id: 'serangoon', name: 'Serangoon Schedule', description: 'Class times for Serangoon' },
@@ -209,7 +209,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'results',
     name: 'Results',
-    path: 'results.json',
+    path: 'content/results.json',
     previewUrl: '/results',
     sections: [
       { id: 'examResults', name: 'Exam Results', description: 'PDF downloads' },
@@ -218,7 +218,7 @@ const pageDefinitions: PageDef[] = [
   {
     id: 'franchising',
     name: 'Franchising',
-    path: 'franchising.json',
+    path: 'content/franchising.json',
     previewUrl: '/franchising',
     sections: [
       { id: 'opportunity', name: 'Franchise Opportunity', description: 'Business opportunity details' },
@@ -231,7 +231,7 @@ const pageDefinitions: PageDef[] = [
 const siteSettingsDef = {
   id: 'site-settings',
   name: 'Site Settings',
-  path: 'site-settings.json',
+  path: 'content/site-settings.json',
   previewUrl: '/',
   sections: [
     { id: 'general', name: 'General Settings', description: 'Logo, site name, colors' },
@@ -273,7 +273,7 @@ const whatsappSettingsDef = {
 const globalSettingsDef = {
   id: 'global',
   name: 'Global Settings',
-  path: 'global-settings.json',
+  path: 'content/global-settings.json',
   previewUrl: '/',
   sections: [
     { id: 'global', name: 'Global Configuration', description: 'Theme, fonts, colors' },
@@ -371,7 +371,7 @@ export default function VisualEditorPage() {
         header: 'header.json',
         footer: 'footer.json', 
         whatsapp: 'whatsapp.json',
-        global: 'global-settings.json'
+        global: 'content/global-settings.json'
       }
       
       const response = await fetch(`/api/get-content/${paths[type]}`)
@@ -3528,7 +3528,7 @@ function TeachersEditor() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          path: 'teachers.json',
+          path: 'content/teachers.json',
           content: { teachers },
         }),
       })
@@ -3822,7 +3822,7 @@ function TestimonialsPageEditor() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          path: 'testimonials.json',
+          path: 'content/testimonials.json',
           content: { ...pageData, testimonials },
         }),
       })

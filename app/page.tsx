@@ -2,8 +2,6 @@ import Image from 'next/image'
 import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCircle, Mic } from 'lucide-react'
 import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
-import fs from 'fs'
-import path from 'path'
 
 // Icon mapping
 const iconMap: Record<string, any> = {
@@ -16,14 +14,17 @@ const iconMap: Record<string, any> = {
   'award': Award
 }
 
-export default function Home() {
-  // Read content from JSON files
-  const filePath = path.join(process.cwd(), 'public', 'content', 'home.json')
-  const globalSettingsPath = path.join(process.cwd(), 'public', 'content', 'global-settings.json')
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-  const globalSettingsContents = fs.readFileSync(globalSettingsPath, 'utf8')
-  const data = JSON.parse(fileContents)
-  const globalSettings = JSON.parse(globalSettingsContents)
+export default async function Home() {
+  // Fetch content from API (reads from Netlify Blobs in production, filesystem in dev)
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
+  
+  const [dataRes, globalRes] = await Promise.all([
+    fetch(`${baseUrl}/api/get-content/content/home.json`, { next: { revalidate: 60 } }),
+    fetch(`${baseUrl}/api/get-content/content/global-settings.json`, { next: { revalidate: 60 } }),
+  ]);
+  
+  const data = dataRes.ok ? await dataRes.json() : {};
+  const globalSettings = globalRes.ok ? await globalRes.json() : {};
 
   const { trackRecord, subjectsOffered, methodology, testimonials, howYourChildWillLearn } = data
 
