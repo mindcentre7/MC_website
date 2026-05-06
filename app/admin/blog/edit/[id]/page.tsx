@@ -79,7 +79,7 @@ export default function EditBlogPost() {
               title: post.title,
               slug: post.slug,
               author: post.author,
-              content: post.content,
+              content: stripHtml(post.content),
               featured_image: post.featured_image || '',
               content_images: Array.isArray(post.content_images) ? post.content_images : [],
               videos: Array.isArray(post.videos) ? post.videos : [],
@@ -103,7 +103,10 @@ export default function EditBlogPost() {
     // Depend on postId, not params.id
   }, [postId]); 
 
-  // Generate slug from title
+  // Strip HTML tags for plain-text editing
+const stripHtml = (html: string) => {
+  return html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x27;/g, "'");
+};
   const generateSlug = (title: string) => {
     return title
       .toLowerCase()
