@@ -1,25 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile, readFile } from "fs/promises";
+import { readFile } from "fs/promises";
 import path from "path";
+
+// Helper: load all posts from Blobs first, then filesystem
+async function loadAllPosts(): Promise<any[]> {
+  // Try Netlify Blobs first (production)
+  try {
+    const { getStore } = await import('@netlify/blobs');
+    const store = getStore('site-content');
+    const blob = await store.get('data/clean-blog-data.json', { type: 'json' });
+    if (blob && Array.isArray(blob)) {
+      return blob;
+    }
+  } catch {
+    // Blobs not available — fall through to filesystem
+  }
+
+  // Fallback: read from filesystem (local dev / build)
+  try {
+    const filePath = path.join(process.cwd(), "public", "data", "clean-blog-data.json");
+    const fileContent = await readFile(filePath, "utf-8");
+    return JSON.parse(fileContent);
+  } catch {
+    return [];
+  }
+}
 
 export async function GET() {
   try {
-    // Try Netlify Blobs first (production)
-    try {
-      const { getStore } = await import('@netlify/blobs');
-      const store = getStore('site-content');
-      const blob = await store.get('data/clean-blog-data.json', { type: 'json' });
-      if (blob) {
-        return NextResponse.json(blob);
-      }
-    } catch {
-      // Blobs not available — fall through to filesystem
-    }
-
-    // Fallback: read from filesystem
-    const filePath = path.join(process.cwd(), "public", "data", "clean-blog-data.json");
-    const fileContent = await readFile(filePath, "utf-8");
-    return NextResponse.json(JSON.parse(fileContent));
+    const posts = await loadAllPosts();
+    return NextResponse.json(posts);
   } catch (error) {
     console.error("Read blog data error:", error);
     return NextResponse.json({ error: "Failed to read blog data" }, { status: 500 });
@@ -34,15 +44,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Title and slug are required" }, { status: 400 });
     }
 
-    const filePath = path.join(process.cwd(), "public", "data", "clean-blog-data.json");
-    let allPosts: any[] = [];
-
-    try {
-      const fileContent = await readFile(filePath, "utf-8");
-      allPosts = JSON.parse(fileContent);
-    } catch (error) {
-      allPosts = [];
-    }
+    // Load existing posts (Blobs-first, fs fallback)
+    let allPosts = await loadAllPosts();
 
     const isEditing = allPosts.some((p: any) => p.id === post.id);
     
@@ -54,19 +57,15 @@ export async function POST(request: NextRequest) {
       allPosts.unshift({ ...post, id: Number(post.id) });
     }
 
-    // Try Netlify Blobs first (production)
-    let savedToBlobs = false;
+    // Save to Netlify Blobs (production)
     try {
       const { getStore } = await import('@netlify/blobs');
       const store = getStore('site-content');
       await store.setJSON('data/clean-blog-data.json', allPosts);
-      savedToBlobs = true;
     } catch {
-      // Blobs not available — fall through to filesystem
-    }
-
-    // Fallback: write to filesystem (local dev)
-    if (!savedToBlobs) {
+      // Blobs not available — write to filesystem (local dev)
+      const filePath = path.join(process.cwd(), "public", "data", "clean-blog-data.json");
+      const { writeFile } = await import("fs/promises");
       await writeFile(filePath, JSON.stringify(allPosts, null, 2), "utf-8");
     }
 
