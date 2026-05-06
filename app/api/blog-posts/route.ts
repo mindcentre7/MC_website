@@ -36,31 +36,6 @@ export async function GET() {
   }
 }
 
-// Temporary fix endpoint — removes "aaa-" prefix from slugs
-export async function PUT() {
-  try {
-    const posts = await loadAllPosts();
-    let fixed = 0;
-    for (const post of posts) {
-      if (post.slug && post.slug.startsWith('aaa-')) {
-        const oldSlug = post.slug;
-        post.slug = post.slug.slice(4);
-        console.log(`Fixed slug: "${oldSlug}" → "${post.slug}"`);
-        fixed++;
-      }
-    }
-    if (fixed > 0) {
-      const { getStore } = await import('@netlify/blobs');
-      const store = getStore('site-content');
-      await store.setJSON('data/clean-blog-data.json', posts);
-    }
-    return NextResponse.json({ fixed });
-  } catch (error) {
-    console.error("Fix slugs error:", error);
-    return NextResponse.json({ error: "Fix failed" }, { status: 500 });
-  }
-}
-
 export async function POST(request: NextRequest) {
   try {
     const post = await request.json();
