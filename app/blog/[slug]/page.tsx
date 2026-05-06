@@ -87,6 +87,37 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
+        {/* JSON-LD Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: post.title,
+              datePublished: post.date,
+              author: {
+                '@type': 'Organization',
+                name: post.author || 'Mind Centre for Learning',
+              },
+              image: post.featured_image || 'https://www.mindcentre.com.sg/images/og-default.jpg',
+              url: `https://www.mindcentre.com.sg/blog/${post.slug}`,
+              publisher: {
+                '@type': 'Organization',
+                name: 'Mind Centre for Learning',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.mindcentre.com.sg/images/logo.png',
+                },
+              },
+              mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': `https://www.mindcentre.com.sg/blog/${post.slug}`,
+              },
+            }),
+          }}
+        />
+
         <article>
           <header className="mb-8">
             <div className="text-sm text-gray-500 mb-4">

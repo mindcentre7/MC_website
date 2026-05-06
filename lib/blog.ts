@@ -33,7 +33,7 @@ function loadBlogData(): BlogPost[] {
   try {
     const fs = require('fs')
     const path = require('path')
-    const filePath = path.join(process.cwd(), 'public', 'blog-data.json')
+    const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json')
     const fileContent = fs.readFileSync(filePath, 'utf-8')
     return JSON.parse(fileContent) as BlogPost[]
   } catch (error) {

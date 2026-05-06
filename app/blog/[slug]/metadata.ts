@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const title = post.title
   const description = post.content.replace(/<[^>]*>/g, '').substring(0, 155) + '...'
   const url = `https://www.mindcentre.com.sg/blog/${post.slug}`
-  const imageUrl = post.featured_image ? `https://i.ytimg.com/vi/U9J7G8yoc3g/sddefault.jpg` : 'http://uxmovement.com/wp-content/uploads/2018/05/right_centered_left_logo-comparison.png'
+  const imageUrl = post.featured_image || 'https://www.mindcentre.com.sg/images/og-default.jpg'
 
   return {
     title,

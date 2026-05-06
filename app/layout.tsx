@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.mindcentre.com.sg',
   },
   verification: {
-    google: 'your-google-verification-code', // Replace with actual code
+    google: 'NAAe4Bk7xTXxtigf1PhyteRTdezB-VN35Gjzx4E8UMA',
   },
   icons: {
     icon: '/images/logo.jpg',
@@ -188,7 +188,9 @@ const jsonLd = {
       sameAs: [
         'https://www.facebook.com/mindcentre',
         'https://www.instagram.com/mindcentreforlearning/',
-        'https://x.com/Mindcentre7'
+        'https://x.com/Mindcentre7',
+        'https://www.youtube.com/@mindcentreforlearning',
+        'https://www.tiktok.com/@mindcentretuition',
       ],
       makesOffer: [
         {
@@ -241,21 +243,21 @@ const jsonLd = {
       '@type': 'LocalBusiness',
       '@id': 'https://www.mindcentre.com.sg/#localbusiness',
       name: 'Mind Centre for Learning - Serangoon',
-      image: 'https://i.pinimg.com/736x/5f/6f/7b/5f6f7bb82c8ffb8314eedb17b7f89c13.jpg',
+      image: 'https://www.mindcentre.com.sg/images/logo.jpg',
       url: 'https://www.mindcentre.com.sg',
       telephone: '+65 9740 2024',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '265 Serangoon Central Drive #04-267',
+        streetAddress: 'Blk 265 Serangoon Central Drive #04-267 (Lift C)',
         addressLocality: 'Singapore',
         postalCode: '550265',
         addressCountry: 'SG',
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 1.352988,
-        longitude: 103.87145899999996,
+        latitude: 1.353988,
+        longitude: 103.872458,
       },
       openingHoursSpecification: [
         {

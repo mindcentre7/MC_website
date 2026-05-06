@@ -1,0 +1,43 @@
+# llms.txt — Mind Centre for Learning
+# Structured site summary for AI models (LLMs) to understand this website.
+# Format: https://llmstxt.org/
+
+## Mind Centre for Learning
+> Premier tuition centre in Singapore (Serangoon, Bedok, Bishan). Primary, Secondary & JC tuition for English, Math, Science, Chinese, GP, Economics. Founded by David & Violet Lim. Small class sizes, proven results — PSLE AL1-3, O/A-Level A's.
+
+## Core Pages
+- [Home](https://www.mindcentre.com.sg): Tuition centre overview — subjects, locations, results
+- [About](https://www.mindcentre.com.sg/about): Our story, founders David & Violet Lim, teaching philosophy
+- [Teachers](https://www.mindcentre.com.sg/teachers): Teacher profiles and qualifications
+- [Learning System](https://www.mindcentre.com.sg/learning-system): Critical Mind-Focused Learning methodology
+- [Results](https://www.mindcentre.com.sg/results): Student achievements — PSLE, O-Level, A-Level
+- [Schedules](https://www.mindcentre.com.sg/schedules): Class timetables by subject and level
+- [Testimonials](https://www.mindcentre.com.sg/testimonials): Parent and student reviews
+- [Contact](https://www.mindcentre.com.sg/contact): Address (Blk 265 Serangoon Central Drive #04-267, Singapore 550265), Phone (+65 9740 2024)
+- [Enroll](https://www.mindcentre.com.sg/enroll): Registration and trial class signup
+- [Franchising](https://www.mindcentre.com.sg/franchising): Tuition centre franchise opportunities
+- [Blog](https://www.mindcentre.com.sg/blog): 197+ education articles — study skills, math, science, exam tips
+
+## Services
+- Primary School Tuition (P1-P6): English, Chinese, Math, Science — PSLE preparation
+- Secondary School Tuition (Sec 1-4): English, Math (E-Math, A-Math), Sciences, Humanities — O-Level/N-Level
+- Junior College Tuition (JC1-JC2): GP, Economics, Math, Sciences — A-Level/IB
+- 1-to-1 tutoring available for all subjects
+- Small group classes (max 6-8 students)
+
+## Locations
+- Serangoon: Blk 265 Serangoon Central Drive #04-267, Singapore 550265 (near Serangoon MRT)
+- Bedok: Bedok North (contact for address)
+- Bishan: Bishan Central (contact for address)
+
+## Contact
+- Phone/WhatsApp: +65 9740 2024
+- Email: all@mindcentre.sg
+- Website: https://www.mindcentre.com.sg
+
+## Social Media
+- Facebook: https://www.facebook.com/mindcentre
+- Instagram: https://www.instagram.com/mindcentreforlearning/
+- X/Twitter: https://x.com/Mindcentre7
+- YouTube: https://www.youtube.com/@mindcentreforlearning
+- TikTok: https://www.tiktok.com/@mindcentretuition
