@@ -119,7 +119,7 @@ const loadFile = async (file: ContentFile) => {
       return
     } else {
       console.log('Loading normal file:', file.path) // DEBUG
-      const response = await fetch(`/content/${file.path}`)
+      const response = await fetch(`/api/get-content/${file.path}`)
       if (!response.ok) throw new Error(`File not found: ${response.status}`)
       
       const data = await response.json()

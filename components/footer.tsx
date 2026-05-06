@@ -21,7 +21,7 @@ export default function Footer() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/content/footer.json')
+    fetch('/api/get-content/footer.json')
       .then(res => res.json())
       .then(setData)
       .catch(err => console.error('Failed to load footer data:', err))

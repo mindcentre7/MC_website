@@ -28,7 +28,7 @@ export default function WhatsAppWidget() {
 
   useEffect(() => {
     // Load config from JSON
-    fetch('/content/whatsapp.json')
+    fetch('/api/get-content/whatsapp.json')
       .then(res => res.json())
       .then(data => {
         setConfig(data)

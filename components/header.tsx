@@ -100,13 +100,13 @@ export default function Header() {
 
   useEffect(() => {
     // Fetch header data
-    fetch('/content/header.json')
+    fetch('/api/get-content/header.json')
       .then(res => res.json())
       .then(setData)
       .catch(err => console.error('Failed to load header data:', err))
     
     // Fetch global settings
-    fetch('/content/global-settings.json')
+    fetch('/api/get-content/global-settings.json')
       .then(res => res.json())
       .then(setGlobalSettings)
       .catch(err => console.error('Failed to load global settings:', err))

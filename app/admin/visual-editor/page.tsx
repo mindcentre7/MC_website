@@ -341,7 +341,7 @@ export default function VisualEditorPage() {
     setIsLoading(true)
     setMessage(null)
     try {
-      const response = await fetch(`/content/${page.path}`)
+      const response = await fetch(`/api/get-content/${page.path}`)
       if (!response.ok) throw new Error(`Failed to load: ${response.status}`)
       
       const data = await response.json()
@@ -374,7 +374,7 @@ export default function VisualEditorPage() {
         global: 'global-settings.json'
       }
       
-      const response = await fetch(`/content/${paths[type]}`)
+      const response = await fetch(`/api/get-content/${paths[type]}`)
       if (!response.ok) throw new Error(`Failed to load: ${response.status}`)
       
       const data = await response.json()

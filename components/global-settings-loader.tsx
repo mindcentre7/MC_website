@@ -66,7 +66,7 @@ export default function GlobalSettingsLoader() {
     // Initial load
     const loadSettings = async () => {
       try {
-        const response = await fetch('/content/global-settings.json')
+        const response = await fetch('/api/get-content/global-settings.json')
         const data = await response.json()
         
         // Convert to string for comparison

@@ -25,7 +25,7 @@ export default function Navigation() {
 
   // Load navigation from header.json if present
   useEffect(() => {
-    fetch('/content/header.json')
+    fetch('/api/get-content/header.json')
       .then(res => res.json())
       .then(data => {
         if (data.navigation?.links) {
