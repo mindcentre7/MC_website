@@ -124,17 +124,23 @@ export default function Home() {
           </div>
 
           {/* Contact Info */}
-          <div className="mt-8 text-center text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
-            <p className="font-semibold text-xl mb-3">Contact us via WhatsApp and telephone:</p>
-            <p className="mb-4">
-              <strong>Mind Centre Serangoon</strong>, 4 minutes walk from Serangoon MRT station<br />
-              Tel: 9838 8821 (WhatsApp only), 9740 2024, 6285 5891
-            </p>
-            <p>
-              <strong>Mind Centre Bedok</strong>, 3 minutes walk from Bedok MRT station<br />
-              Tel: 9231 8709, 9665 9350
-            </p>
-          </div>
+          {trackRecord?.paragraph3 && (
+            <div className="mt-8 text-center text-base sm:text-lg leading-relaxed" style={{ color: trackRecord?.colors?.textColor || '#4b5563' }}>
+              {trackRecord.paragraph3.split('\n\n').map((block: string, idx: number) => {
+                const lines = block.split('\n')
+                return (
+                  <p key={idx} className={idx === 0 ? 'font-semibold text-xl mb-3' : 'mb-4'}>
+                    {lines.map((line: string, li: number) => (
+                      <span key={li}>
+                        {line}
+                        {li < lines.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                )
+              })}
+            </div>
+          )}
         </div>
       </section>
 

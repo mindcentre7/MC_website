@@ -2182,6 +2182,17 @@ export default function VisualEditorPage() {
                         />
                       </div>
                       
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Paragraph 3 (Contact Info — after video)</label>
+                        <textarea
+                          rows={5}
+                          value={pageData.trackRecord?.paragraph3 || ''}
+                          onChange={(e) => updateSectionData('trackRecord', 'paragraph3', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          placeholder="Contact info paragraph. Use blank lines to separate blocks."
+                        />
+                      </div>
+                      
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <ImageUploadField
@@ -2197,6 +2208,29 @@ export default function VisualEditorPage() {
                             value={pageData.trackRecord?.certificateAlt || ''}
                             onChange={(e) => updateSectionData('trackRecord', 'certificateAlt', e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4 mt-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Promo Video Source</label>
+                          <input
+                            type="text"
+                            value={pageData.trackRecord?.videoSrc || '/videos/intro.mp4'}
+                            onChange={(e) => updateSectionData('trackRecord', 'videoSrc', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                            placeholder="/videos/intro.mp4"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Video Poster Image</label>
+                          <input
+                            type="text"
+                            value={pageData.trackRecord?.videoPoster || '/images/logo.jpg'}
+                            onChange={(e) => updateSectionData('trackRecord', 'videoPoster', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                            placeholder="/images/logo.jpg"
                           />
                         </div>
                       </div>
