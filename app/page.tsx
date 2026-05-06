@@ -122,6 +122,19 @@ export default function Home() {
               />
             </div>
           </div>
+
+          {/* Contact Info */}
+          <div className="mt-8 text-center text-base sm:text-lg leading-relaxed" style={{ color: '#4b5563' }}>
+            <p className="font-semibold text-xl mb-3">Contact us via WhatsApp and telephone:</p>
+            <p className="mb-4">
+              <strong>Mind Centre Serangoon</strong>, 4 minutes walk from Serangoon MRT station<br />
+              Tel: 9838 8821 (WhatsApp only), 9740 2024, 6285 5891
+            </p>
+            <p>
+              <strong>Mind Centre Bedok</strong>, 3 minutes walk from Bedok MRT station<br />
+              Tel: 9231 8709, 9665 9350
+            </p>
+          </div>
         </div>
       </section>
 
