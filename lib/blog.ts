@@ -23,13 +23,25 @@ export interface BlogPost {
 }
 
 // Helper function to load blog data dynamically (server-side only)
-function loadBlogData(): BlogPost[] {
+async function loadBlogData(): Promise<BlogPost[]> {
   // This function is only called on the server side
   if (typeof window !== 'undefined') {
-    // If accidentally called on client, return empty array
     return []
   }
   
+  // Try Netlify Blobs first (production)
+  try {
+    const blobs = await import('@netlify/blobs')
+    const store = blobs.getStore('site-content')
+    const blob = await store.get('data/clean-blog-data.json', { type: 'json' })
+    if (blob) {
+      return blob as BlogPost[]
+    }
+  } catch {
+    // Blobs not available — fall through to filesystem
+  }
+
+  // Fallback: read from filesystem (local dev)
   try {
     const fs = require('fs')
     const path = require('path')
@@ -83,22 +95,27 @@ export function getVideoTitle(video: string | VideoInfo, index: number): string 
   return `Video ${index + 1}`
 }
 
-export function getAllPosts(): BlogPost[] {
-  return loadBlogData()
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const data = await loadBlogData()
+  return data
 }
 
-export function getLatestPosts(count: number = 6): BlogPost[] {
-  return getAllPosts().slice(0, count)
+export async function getLatestPosts(count: number = 6): Promise<BlogPost[]> {
+  const posts = await getAllPosts()
+  return posts.slice(0, count)
 }
 
-export function getRemainingPosts(skip: number = 6): BlogPost[] {
-  return getAllPosts().slice(skip)
+export async function getRemainingPosts(skip: number = 6): Promise<BlogPost[]> {
+  const posts = await getAllPosts()
+  return posts.slice(skip)
 }
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return getAllPosts().find(post => post.slug === slug)
+export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  const posts = await getAllPosts()
+  return posts.find(post => post.slug === slug)
 }
 
-export function getTotalPostsCount(): number {
-  return getAllPosts().length
+export async function getTotalPostsCount(): Promise<number> {
+  const posts = await getAllPosts()
+  return posts.length
 }

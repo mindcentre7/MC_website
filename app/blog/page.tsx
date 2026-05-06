@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import fs from 'fs';
-import path from 'path';
+import { getAllPosts } from '@/lib/blog';
 
 interface BlogPost {
   id: number;
@@ -17,9 +16,6 @@ interface BlogPost {
   url: string;
 }
 
-// Load all posts at build time (static, no fetch)
-let allPosts: BlogPost[] = [];
-
 // Helper to normalize dates - handle both ISO strings and plain "YYYY-MM-DD"
 const normalizeDate = (dateStr: string): number => {
   if (!dateStr) return 0;
@@ -27,25 +23,17 @@ const normalizeDate = (dateStr: string): number => {
   return isNaN(date.getTime()) ? 0 : date.getTime();
 };
 
-try {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
-  const jsonString = fs.readFileSync(filePath, 'utf8');
-  allPosts = JSON.parse(jsonString).sort(
-    (a: BlogPost, b: BlogPost) => normalizeDate(b.date) - normalizeDate(a.date)
-  );
-  console.log('Blog posts loaded from clean-blog-data.json:', allPosts.length);
-} catch (error) {
-  console.error('Error loading clean-blog-data.json:', error);
-  allPosts = []; // Fallback empty
-}
-
 export const metadata = {
   title: 'Tuition Blog & Education Articles | Mind Centre Singapore',
   description: 'Read the latest insights, study tips, and education news from Mind Centre for Learning. Covering PSLE, O-Level, and A-Level strategies.',
   keywords: ['singapore education blog', 'psle study tips', 'o level revision', 'tuition center news']
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const allPosts = await getAllPosts();
+  const sortedPosts = [...allPosts].sort(
+    (a, b) => normalizeDate(b.date) - normalizeDate(a.date)
+  );
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
@@ -54,7 +42,7 @@ export default function BlogPage() {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {allPosts.map((post) => (
+        {sortedPosts.map((post) => (
           <article
             key={post.id}
             className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow"
@@ -87,7 +75,7 @@ export default function BlogPage() {
         ))}
       </div>
 
-      {allPosts.length === 0 && (
+      {sortedPosts.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 text-lg">No blog posts available yet.</p>
         </div>

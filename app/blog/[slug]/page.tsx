@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link'
-import { Metadata } from 'next';
-import fs from 'fs';
-import path from 'path';
+import { getAllPosts } from '@/lib/blog';
 
 interface BlogPost {
   id: number;
@@ -19,27 +17,13 @@ interface BlogPost {
   url: string;
 }
 
-// Load all posts at build time (static, no fetch)
-let allPosts: BlogPost[] = [];
-try {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
-  const jsonString = fs.readFileSync(filePath, 'utf8');
-  allPosts = JSON.parse(jsonString);
-} catch (error) {
-  console.error('Error loading clean-blog-data.json:', error);
-  allPosts = []; // Fallback empty
-}
-
-function getBlogPost(slug: string): BlogPost | null {
-  return allPosts.find((p) => p.slug === slug) || null;
-}
-
 interface BlogPostPageProps {
   params: { slug: string };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const posts = await getAllPosts();
+  const post = posts.find((p) => p.slug === params.slug) || null;
 
   if (!post) {
     return (

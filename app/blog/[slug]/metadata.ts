@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/blog'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+  const post = await getPostBySlug(params.slug)
   
   if (!post) {
     return {
