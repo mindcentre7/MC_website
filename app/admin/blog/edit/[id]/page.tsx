@@ -67,7 +67,7 @@ export default function EditBlogPost() {
         try {
           setIsLoading(true);
           // ⚠️ NOTE: This relies on a static JSON file; in a real app, this would be an API call like `/api/posts/${postId}`
-          const response = await fetch('/data/clean-blog-data.json'); 
+          const response = await fetch('/api/blog-posts'); 
           if (!response.ok) throw new Error('Failed to fetch blog data');
           
           const allPosts: BlogPost[] = await response.json();
@@ -331,7 +331,7 @@ export default function EditBlogPost() {
       
       if (!isNew) {
         try {
-          const response = await fetch('/data/clean-blog-data.json');
+          const response = await fetch('/api/blog-posts');
           const allPosts = await response.json();
           const existingPost = allPosts.find((p: BlogPost) => p.id === Number(postId));
           if (existingPost) {

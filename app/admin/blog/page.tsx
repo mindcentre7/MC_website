@@ -33,7 +33,7 @@ export default function BlogManagement() {
   const loadPosts = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/data/clean-blog-data.json', {
+      const response = await fetch('/api/blog-posts', {
         cache: 'no-store',
       });
       if (!response.ok) throw new Error(`Failed to load posts: ${response.statusText}`);

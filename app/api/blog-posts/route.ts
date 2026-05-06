@@ -2,6 +2,30 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, readFile } from "fs/promises";
 import path from "path";
 
+export async function GET() {
+  try {
+    // Try Netlify Blobs first (production)
+    try {
+      const { getStore } = await import('@netlify/blobs');
+      const store = getStore('site-content');
+      const blob = await store.get('data/clean-blog-data.json', { type: 'json' });
+      if (blob) {
+        return NextResponse.json(blob);
+      }
+    } catch {
+      // Blobs not available — fall through to filesystem
+    }
+
+    // Fallback: read from filesystem
+    const filePath = path.join(process.cwd(), "public", "data", "clean-blog-data.json");
+    const fileContent = await readFile(filePath, "utf-8");
+    return NextResponse.json(JSON.parse(fileContent));
+  } catch (error) {
+    console.error("Read blog data error:", error);
+    return NextResponse.json({ error: "Failed to read blog data" }, { status: 500 });
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const post = await request.json();
@@ -30,7 +54,21 @@ export async function POST(request: NextRequest) {
       allPosts.unshift({ ...post, id: Number(post.id) });
     }
 
-    await writeFile(filePath, JSON.stringify(allPosts, null, 2), "utf-8");
+    // Try Netlify Blobs first (production)
+    let savedToBlobs = false;
+    try {
+      const { getStore } = await import('@netlify/blobs');
+      const store = getStore('site-content');
+      await store.setJSON('data/clean-blog-data.json', allPosts);
+      savedToBlobs = true;
+    } catch {
+      // Blobs not available — fall through to filesystem
+    }
+
+    // Fallback: write to filesystem (local dev)
+    if (!savedToBlobs) {
+      await writeFile(filePath, JSON.stringify(allPosts, null, 2), "utf-8");
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
