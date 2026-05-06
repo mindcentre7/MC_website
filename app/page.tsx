@@ -3,6 +3,9 @@ import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCirc
 import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
 
+// Revalidate every 60s to show Visual Editor changes
+export const revalidate = 60;
+
 // Icon mapping
 const iconMap: Record<string, any> = {
   'book-open': BookOpen,
@@ -18,13 +21,28 @@ export default async function Home() {
   // Fetch content from API (reads from Netlify Blobs in production, filesystem in dev)
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
   
-  const [dataRes, globalRes] = await Promise.all([
-    fetch(`${baseUrl}/api/get-content/content/home.json`, { next: { revalidate: 60 } }),
-    fetch(`${baseUrl}/api/get-content/content/global-settings.json`, { next: { revalidate: 60 } }),
-  ]);
+  let data: any = {};
+  let globalSettings: any = {};
   
-  const data = dataRes.ok ? await dataRes.json() : {};
-  const globalSettings = globalRes.ok ? await globalRes.json() : {};
+  try {
+    const [dataRes, globalRes] = await Promise.all([
+      fetch(`${baseUrl}/api/get-content/content/home.json`),
+      fetch(`${baseUrl}/api/get-content/content/global-settings.json`),
+    ]);
+    
+    data = dataRes.ok ? await dataRes.json() : {};
+    globalSettings = globalRes.ok ? await globalRes.json() : {};
+  } catch {
+    // API unavailable (build time or cold start) — fall back to filesystem
+    const { readFileSync } = await import('fs');
+    const { join } = await import('path');
+    try {
+      data = JSON.parse(readFileSync(join(process.cwd(), 'public', 'content', 'home.json'), 'utf-8'));
+      globalSettings = JSON.parse(readFileSync(join(process.cwd(), 'public', 'content', 'global-settings.json'), 'utf-8'));
+    } catch {
+      // Both API and filesystem failed — render with empty data
+    }
+  }
 
   const { trackRecord, subjectsOffered, methodology, testimonials, howYourChildWillLearn } = data
 
