@@ -18,7 +18,9 @@ export async function POST(request: NextRequest) {
     try {
       const { getStore } = await import('@netlify/blobs')
       const store = getStore('site-content')
-      await store.setJSON(filePath, content)
+      // Use set() instead of setJSON() — setJSON has an overwrite bug
+      // where it silently fails to update existing keys
+      await store.set(filePath, JSON.stringify(content))
       return NextResponse.json({ success: true, storage: 'blobs' })
     } catch {
       // Blobs not available (local dev) — fall back to filesystem
