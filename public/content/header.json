@@ -83,11 +83,5 @@
         "path": "/teachers"
       }
     ]
-  },
-  "ctaButtonText": "Sign up now for Buy 1 Get 1 Free trial classes!",
-  "ctaButtonLink": "/enroll",
-  "ctaButtonBgColor": "#FFD700",
-  "ctaButtonTextColor": "#000000",
-  "ctaButtonFontSize": 30,
-  "ctaButtonBold": true
+  }
 }

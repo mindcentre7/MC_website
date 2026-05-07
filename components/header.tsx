@@ -46,13 +46,6 @@ interface HeaderData {
   promoText3FontSize?: number
   promoText3Bold?: boolean
   promoText3Italic?: boolean
-  // CTA Button (replaces promoText2 as a standalone editable button)
-  ctaButtonText?: string
-  ctaButtonLink?: string
-  ctaButtonBgColor?: string
-  ctaButtonTextColor?: string
-  ctaButtonFontSize?: number
-  ctaButtonBold?: boolean
   facebookUrl: string
   twitterUrl: string
   instagramUrl: string
@@ -271,26 +264,7 @@ export default function Header() {
             </p>
           </div>
         )}
-        {/* CTA Button — editable via Visual Editor → Header Settings → CTA Button */}
-        {data?.ctaButtonText && (
-          <div className="mt-2 p-3 rounded-lg text-center" style={{
-            backgroundColor: data?.ctaButtonBgColor || '#FFD700',
-          }}>
-            <a
-              href={data?.ctaButtonLink || '/enroll'}
-              className="block font-bold transition-colors hover:opacity-90"
-              style={{ 
-                color: data?.ctaButtonTextColor || '#000000',
-                fontSize: data?.ctaButtonFontSize ? `${data.ctaButtonFontSize}px` : '30px',
-                lineHeight: 1.3,
-              }}
-            >
-              {data.ctaButtonText} →
-            </a>
-          </div>
-        )}
-        {/* Keep promoText2 as fallback if ctaButtonText is not set */}
-        {!data?.ctaButtonText && data?.promoText2 && (
+        {data?.promoText2 && (
           <div className="mt-2 p-2 bg-blue-50 border border-blue-100 rounded-lg">
             <a
               href="/enroll"
