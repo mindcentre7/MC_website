@@ -149,7 +149,7 @@ const pageDefinitions: PageDef[] = [
     id: 'about',
     name: 'About Us',
     path: 'content/about.json',
-    previewUrl: '/about-us',
+    previewUrl: '/about',
     sections: [
       { id: 'mission', name: 'Mission & Vision', description: 'Our purpose and goals' },
       { id: 'values', name: 'Core Values', description: 'What we stand for' },
@@ -190,7 +190,7 @@ const pageDefinitions: PageDef[] = [
     id: 'learning-system',
     name: 'Learning System',
     path: 'content/learning-system.json',
-    previewUrl: '/our-learning-system',
+    previewUrl: '/learning-system',
     sections: [
       { id: 'overview', name: 'System Overview', description: 'MIND system introduction' },
       { id: 'components', name: 'Components', description: 'System components' },
