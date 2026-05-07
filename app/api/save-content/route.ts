@@ -18,10 +18,34 @@ export async function POST(request: NextRequest) {
     try {
       const { getStore } = await import('@netlify/blobs')
       const store = getStore('site-content')
-      // Use set() instead of setJSON() — setJSON has an overwrite bug
-      // where it silently fails to update existing keys
-      await store.set(filePath, JSON.stringify(content))
-      return NextResponse.json({ success: true, storage: 'blobs' })
+      const payload = JSON.stringify(content)
+      
+      // Write to Blobs
+      await store.set(filePath, payload)
+      
+      // Verify write persists (Blobs has eventual consistency — up to 30s propagation)
+      // Retry read with backoff until data matches what we wrote
+      let verified = false
+      for (let attempt = 0; attempt < 8; attempt++) {
+        if (attempt > 0) {
+          await new Promise(resolve => setTimeout(resolve, Math.min(1000 * Math.pow(2, attempt), 10000)))
+        }
+        try {
+          const blob = await store.get(filePath, { type: 'text' })
+          if (blob === payload) {
+            verified = true
+            break
+          }
+        } catch {
+          // Retry on read errors
+        }
+      }
+      
+      return NextResponse.json({ 
+        success: true, 
+        storage: 'blobs',
+        verified 
+      })
     } catch {
       // Blobs not available (local dev) — fall back to filesystem
     }
