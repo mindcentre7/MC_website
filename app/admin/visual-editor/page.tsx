@@ -3518,7 +3518,7 @@ function TeachersEditor() {
     setIsLoading(true)
     try {
       // Add cache-busting timestamp to ensure we get fresh data
-      const response = await fetch(`/api/get-content/teachers.json`)
+      const response = await fetch(`/api/get-content/content/teachers.json`)
       const data = await response.json()
       setTeachers(data.teachers || [])
     } catch (error) {
@@ -3815,7 +3815,7 @@ function TestimonialsPageEditor() {
   const loadTestimonials = async () => {
     setIsLoading(true)
     try {
-      const response = await fetch(`/api/get-content/testimonials.json`)
+      const response = await fetch(`/api/get-content/content/testimonials.json`)
       const data = await response.json()
       setTestimonials(data.testimonials || [])
       setPageData({ pageTitle: data.pageTitle, pageSubtitle: data.pageSubtitle, callToAction: data.callToAction })

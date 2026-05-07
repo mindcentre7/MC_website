@@ -25,12 +25,28 @@ export const metadata: Metadata = {
   },
 }
 
-export default function EnrollPage() {
-  const filePath = path.join(process.cwd(), 'public', 'content', 'enroll.json')
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-  const data = JSON.parse(fileContents)
+export default async function EnrollPage() {
+  // Try Blobs API first (production — picks up visual editor changes)
+  let data: any = {}
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
+    const res = await fetch(`${baseUrl}/api/get-content/content/enroll.json`);
+    if (res.ok) data = await res.json();
+  } catch {
+    // API not available — fall back to filesystem
+  }
 
-  const { hero, benefits, uniquePoints, form, page } = data
+  // Fallback: read from static filesystem
+  if (!data.hero) {
+    try {
+      const filePath = path.join(process.cwd(), 'public', 'content', 'enroll.json');
+      data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch {
+      // Both failed — use defaults from the template
+    }
+  }
+
+  const { hero = {}, benefits = {}, uniquePoints = {}, form = {}, page = {} } = data
 
   return (
     <div

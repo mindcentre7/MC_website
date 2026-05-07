@@ -22,7 +22,7 @@ export default function SchedulesPage() {
   const [content, setContent] = useState<SchedulesContent | null>(null)
 
   useEffect(() => {
-    fetch('/api/get-content/schedules.json')
+    fetch('/api/get-content/content/schedules.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

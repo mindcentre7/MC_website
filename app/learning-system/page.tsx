@@ -57,7 +57,7 @@ export default function LearningSystemPage() {
   const [content, setContent] = useState<LearningSystemContent | null>(null)
 
   useEffect(() => {
-    fetch('/api/get-content/learning-system.json')
+    fetch('/api/get-content/content/learning-system.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

@@ -33,7 +33,7 @@ export default function ResultsPage() {
   const [content, setContent] = useState<ResultsContent | null>(null)
 
   useEffect(() => {
-    fetch('/api/get-content/results.json')
+    fetch('/api/get-content/content/results.json')
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

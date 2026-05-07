@@ -45,7 +45,7 @@ export default function TeachersPage() {
   const [content, setContent] = useState<TeachersContent | null>(null)
 
   useEffect(() => {
-    fetch(`/api/get-content/teachers.json`)
+    fetch(`/api/get-content/content/teachers.json`)
       .then((res) => res.json())
       .then((data) => setContent(data))
       .catch((err) => console.error('Error loading content:', err))

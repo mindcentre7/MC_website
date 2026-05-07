@@ -49,10 +49,23 @@ interface ContactData {
 }
 
 async function getContactData(): Promise<ContactData> {
+  // Try Blobs API first (production — picks up visual editor changes)
   try {
-    const filePath = path.join(process.cwd(), 'public', 'content', 'contact.json')
-    const fileContent = await fs.readFile(filePath, 'utf-8')
-    return JSON.parse(fileContent)
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
+    const res = await fetch(`${baseUrl}/api/get-content/content/contact.json`);
+    if (res.ok) {
+      const data = await res.json();
+      if (data.branches) return data;
+    }
+  } catch {
+    // API not available — fall through to filesystem
+  }
+
+  // Fallback: read from static filesystem
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'content', 'contact.json');
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(fileContent);
   } catch (error) {
     console.error('Error reading contact data:', error)
     // Return default data if file doesn't exist
