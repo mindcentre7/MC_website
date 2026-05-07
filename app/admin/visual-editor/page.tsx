@@ -437,9 +437,15 @@ export default function VisualEditorPage() {
 
       if (!response.ok) throw new Error('Failed to save')
 
+      const result = await response.json()
       setHasChanges(false)
-      setMessage({ type: 'success', text: 'Changes saved successfully!' })
-      setTimeout(() => setMessage(null), 3000)
+      
+      if (result.verified) {
+        setMessage({ type: 'success', text: 'Changes saved successfully!' })
+      } else {
+        setMessage({ type: 'success', text: 'Saved! May take 30s to appear after refresh.' })
+      }
+      setTimeout(() => setMessage(null), 5000)
     } catch (error) {
       setMessage({ type: 'error', text: 'Failed to save. Please try again.' })
     } finally {
@@ -3533,7 +3539,11 @@ function TeachersEditor() {
         }),
       })
       if (response.ok) {
-        alert('Teachers saved successfully!')
+        const result = await response.json()
+        const msg = result.verified 
+          ? 'Teachers saved successfully!' 
+          : 'Saved! May take 30s to appear after refresh.'
+        alert(msg)
         setHasChanges(false)
       } else {
         alert('Failed to save teachers')
@@ -3827,7 +3837,11 @@ function TestimonialsPageEditor() {
         }),
       })
       if (response.ok) {
-        alert('Testimonials saved successfully!')
+        const result = await response.json()
+        const msg = result.verified 
+          ? 'Testimonials saved successfully!' 
+          : 'Saved! May take 30s to appear after refresh.'
+        alert(msg)
         setHasChanges(false)
       } else {
         alert('Failed to save')
