@@ -247,6 +247,7 @@ const headerSettingsDef = {
   previewUrl: '/',
   sections: [
     { id: 'header', name: 'Header Configuration', description: 'Logo, title, tagline, promo texts' },
+    { id: 'ctaButton', name: 'CTA Button', description: 'Sign up button — text, colors, font size' },
   ]
 }
 
@@ -1370,6 +1371,91 @@ export default function VisualEditorPage() {
                   </div>
 
                   
+                </div>
+              )}
+
+              {/* CTA Button Editor */}
+              {selectedPage.id === 'header' && selectedSection === 'ctaButton' && headerData && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <Edit3 className="w-5 h-5 text-purple-600" />
+                      CTA Button Settings
+                    </h3>
+                    <p className="text-sm text-gray-500 mb-4">Configure the "Sign up now" button shown in the header</p>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Button Text</label>
+                        <input
+                          type="text"
+                          value={headerData.ctaButtonText || 'Sign up now for Buy 1 Get 1 Free trial classes!'}
+                          onChange={(e) => updateHeaderData('ctaButtonText', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Link URL</label>
+                        <input
+                          type="text"
+                          value={headerData.ctaButtonLink || '/enroll'}
+                          onChange={(e) => updateHeaderData('ctaButtonLink', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          placeholder="/enroll"
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Font Size (px)</label>
+                          <input
+                            type="number"
+                            min="12"
+                            max="120"
+                            value={headerData.ctaButtonFontSize || 30}
+                            onChange={(e) => updateHeaderData('ctaButtonFontSize', parseInt(e.target.value) || 30)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Font Color</label>
+                          <div className="flex gap-2">
+                            <input
+                              type="color"
+                              value={headerData.ctaButtonTextColor || '#000000'}
+                              onChange={(e) => updateHeaderData('ctaButtonTextColor', e.target.value)}
+                              className="w-10 h-10 rounded cursor-pointer border"
+                            />
+                            <input
+                              type="text"
+                              value={headerData.ctaButtonTextColor || '#000000'}
+                              onChange={(e) => updateHeaderData('ctaButtonTextColor', e.target.value)}
+                              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm font-mono"
+                              placeholder="#000000"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Button Background Color</label>
+                        <div className="flex gap-2">
+                          <input
+                            type="color"
+                            value={headerData.ctaButtonBgColor || '#FFD700'}
+                            onChange={(e) => updateHeaderData('ctaButtonBgColor', e.target.value)}
+                            className="w-10 h-10 rounded cursor-pointer border"
+                          />
+                          <input
+                            type="text"
+                            value={headerData.ctaButtonBgColor || '#FFD700'}
+                            onChange={(e) => updateHeaderData('ctaButtonBgColor', e.target.value)}
+                            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm font-mono"
+                            placeholder="#FFD700"
+                          />
+                        </div>
+                        <p className="text-xs text-gray-400 mt-1">Default: Gold (#FFD700)</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
 
