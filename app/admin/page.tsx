@@ -22,6 +22,8 @@ interface HeaderData {
   facebookUrl: string
   twitterUrl: string
   instagramUrl: string
+  youtubeUrl: string
+  tiktokUrl: string
 }
 
 const contentFiles: ContentFile[] = [
