@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 // Revalidate every 10 seconds to ensure fresh content
-export const dynamic = 'force-dynamic';
+export const revalidate = 10;
 
 export const metadata: Metadata = {
   title: 'About Us - Serangoon Tuition & Bedok Tuition Centre',

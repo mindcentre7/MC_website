@@ -8,9 +8,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-# Prevent edge/CDN caching for pages driven by visual editor content
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"

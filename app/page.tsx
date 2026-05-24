@@ -5,7 +5,7 @@ import PromoVideoPlayer from '@/components/promo-video-player'
 import FloatingCTA from '@/components/floating-cta'
 
 // Revalidate every 60s to show Visual Editor changes
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 // Icon mapping
 const iconMap: Record<string, any> = {
