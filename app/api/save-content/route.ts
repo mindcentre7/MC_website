@@ -1,5 +1,6 @@
 
 import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
         }
       }
       
-      // Purge CDN cache so the page reflects changes immediately
+      // Purge CDN cache + Next.js ISR cache so pages reflect changes immediately
       try {
         const siteId = process.env.NETLIFY_SITE_ID || '8aa0a17d-0f0d-469b-be6b-ee9d66dffc53'
         const authToken = process.env.NETLIFY_AUTH_TOKEN
@@ -52,6 +53,11 @@ export async function POST(request: NextRequest) {
             body: JSON.stringify({ paths: ['/'] })
           })
         }
+        // Also trigger Next.js on-demand ISR revalidation
+        revalidatePath('/', 'layout')
+        if (filePath === 'home.json') revalidatePath('/')
+        if (filePath === 'about.json') revalidatePath('/about')
+        if (filePath === 'contact.json') revalidatePath('/contact')
       } catch { /* non-critical */ }
       
       return NextResponse.json({ 
