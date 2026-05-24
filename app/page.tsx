@@ -4,8 +4,8 @@ import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
 import FloatingCTA from '@/components/floating-cta'
 
-// Revalidate every 60s to show Visual Editor changes
-export const revalidate = 60;
+// Always fetch fresh data from Netlify Blobs (ISR broken on Netlify)
+export const dynamic = 'force-dynamic';
 
 // Icon mapping
 const iconMap: Record<string, any> = {
