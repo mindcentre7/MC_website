@@ -41,6 +41,19 @@ export async function POST(request: NextRequest) {
         }
       }
       
+      // Purge CDN cache so the page reflects changes immediately
+      try {
+        const siteId = process.env.NETLIFY_SITE_ID || '8aa0a17d-0f0d-469b-be6b-ee9d66dffc53'
+        const authToken = process.env.NETLIFY_AUTH_TOKEN
+        if (authToken) {
+          await fetch(`https://api.netlify.com/api/v1/sites/${siteId}/purge`, {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${authToken}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ paths: ['/'] })
+          })
+        }
+      } catch { /* non-critical */ }
+      
       return NextResponse.json({ 
         success: true, 
         storage: 'blobs',
