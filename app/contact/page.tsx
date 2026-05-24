@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import ContactForm from '../../components/contact-form'
 
 // Revalidate every 10 seconds to ensure fresh content
-export const dynamic = 'force-dynamic'
+export const revalidate = 10
 
 export const metadata: Metadata = {
   title: 'Contact Us - Serangoon Tuition | Mind Centre',
