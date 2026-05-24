@@ -8,3 +8,19 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Disable CDN caching for pages that fetch from Blobs (visual editor content)
+[[headers]]
+  for = "/"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/about"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "no-cache"
