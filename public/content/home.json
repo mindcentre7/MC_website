@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Serangoon Tuition & Bedok Tuition Centre in Singapore",
-    "subtitle": "Mind Centre – Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore. Proven Fast & Systematic study methodologies.",
+    "subtitle": "Mind Centre \u2013 Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore. Proven Fast & Systematic study methodologies.",
     "ctaButton": {
       "text": "Explore Our Programs",
       "link": "/schedules"
@@ -24,7 +24,7 @@
     },
     "items": [
       {
-        "title": "🎉 SPECIAL PROMOTION",
+        "title": "\ud83c\udf89 SPECIAL PROMOTION",
         "description": "Are you struggling with your studies? Learn our proven **Fast & Systematic** study methodologies which have helped many students excel! Learn the \"secrets\" for success using unique methodologies backed by brain research and enjoy your studies!",
         "callToAction": "[Sign up here](/enroll) to secure our special promotion - **Buy 1 Get 1 class free** for a new subject!",
         "highlight": "RECOMMEND A FRIEND and BOTH OF YOU will get a Special **$10 discount** when he/she signs up for a term!"
@@ -53,12 +53,12 @@
     },
     "paragraph1": "The owners of Mind Centre, David & Violet Lim, together with their teacher team, have helped hundreds of Primary, Secondary & JC students achieve A's & multiple grade improvements in their examinations over the past 15 years.",
     "paragraph2": "Using our Fast & Systematic Learning Methodologies, we've had the joy of helping 5 of our past students enter Medical faculty and others enter Law, Pharmacology, Engineering, Accounting, Dentistry, Veterinary Medicine, Science and other University faculties!",
-    "certificateImage": "/images/cert.jpg",
-    "certificateAlt": "Mind Centre Trusted Enterprise Certificate and Achievement",
     "videoSrc": "/videos/intro.mp4",
     "videoPoster": "/images/logo.jpg",
     "paragraph3Title": "Contact us via WhatsApp and telephone:",
-    "paragraph3": "Mind Centre Serangoon, 4 minutes walk from Serangoon MRT station\nTel: 9838 8821 (WhatsApp only), 9740 2024, 6285 5891\n\nMind Centre Bedok, 3 minutes walk from Bedok MRT station\nTel: 9231 8709, 9665 9350"
+    "paragraph3": "Mind Centre Serangoon, 4 minutes walk from Serangoon MRT station\nTel: 9838 8821 (WhatsApp only), 9740 2024, 6285 5891\n\nMind Centre Bedok, 3 minutes walk from Bedok MRT station\nTel: 9231 8709, 9665 9350",
+    "certificateImage": "/images/cert.jpg",
+    "certificateAlt": "Mind Centre Trusted Enterprise Certificate and Achievement"
   },
   "howYourChildWillLearn": {
     "title": "Here's How Your Child Will Learn",
@@ -111,7 +111,7 @@
       {
         "icon": "award",
         "title": "Developing Critical Thinking & Growth Mindset",
-        "description": "Through engaging exercises and activities, your child will develop critical thinking skills, logical reasoning and analytical abilities. We encourage a growth mindset — discovering how to maintain a positive attitude towards challenges and mistakes, fostering a love for learning."
+        "description": "Through engaging exercises and activities, your child will develop critical thinking skills, logical reasoning and analytical abilities. We encourage a growth mindset \u2014 discovering how to maintain a positive attitude towards challenges and mistakes, fostering a love for learning."
       }
     ]
   },
@@ -348,7 +348,7 @@
       {
         "name": "Esther Ang",
         "title": "Improved greatly for her P4 Science SA2",
-        "content": "Thank you so much 😊. I would like to update u tat Esther has scored 74.5 for her Science paper. Thank you for your efforts in teaching her. Thank you for your patience and guidance in so short period, she has so much improvement in her science. Thank you🙏..",
+        "content": "Thank you so much \ud83d\ude0a. I would like to update u tat Esther has scored 74.5 for her Science paper. Thank you for your efforts in teaching her. Thank you for your patience and guidance in so short period, she has so much improvement in her science. Thank you\ud83d\ude4f..",
         "image": "/images/logo.jpg"
       },
       {
@@ -393,7 +393,7 @@
   },
   "watchOurClasses": {
     "title": "Watch Our Classes",
-    "subtitle": "See our Mind-focused teaching in action — class demos from Primary to Secondary level",
+    "subtitle": "See our Mind-focused teaching in action \u2014 class demos from Primary to Secondary level",
     "colors": {
       "backgroundColor": "#1e1b4b",
       "titleColor": "#ffffff",
@@ -404,42 +404,42 @@
     "videos": [
       {
         "src": "/images/migrated/video-pri-science-forces.mp4",
-        "title": "Primary Science — Forces",
+        "title": "Primary Science \u2014 Forces",
         "level": "Primary"
       },
       {
         "src": "/images/migrated/video-pri-science-water.mp4",
-        "title": "Primary Science — Water Cycle",
+        "title": "Primary Science \u2014 Water Cycle",
         "level": "Primary"
       },
       {
         "src": "/images/migrated/video-pri-science-mindmap.mp4",
-        "title": "Primary Science — Mind-Mapping",
+        "title": "Primary Science \u2014 Mind-Mapping",
         "level": "Primary"
       },
       {
         "src": "/images/migrated/video-pri-eng-compo.mp4",
-        "title": "Primary English — Composition Writing",
+        "title": "Primary English \u2014 Composition Writing",
         "level": "Primary"
       },
       {
         "src": "/images/migrated/video-eng-composition-1.mp4",
-        "title": "English Composition — Techniques 1",
+        "title": "English Composition \u2014 Techniques 1",
         "level": "Secondary"
       },
       {
         "src": "/images/migrated/video-eng-composition-2.mp4",
-        "title": "English Composition — Techniques 2",
+        "title": "English Composition \u2014 Techniques 2",
         "level": "Secondary"
       },
       {
         "src": "/images/migrated/video-lower-sec-atoms.mp4",
-        "title": "Lower Sec Science — Atoms",
+        "title": "Lower Sec Science \u2014 Atoms",
         "level": "Secondary"
       },
       {
         "src": "/images/migrated/video-sec-electricity.mp4",
-        "title": "Secondary Science — Electricity",
+        "title": "Secondary Science \u2014 Electricity",
         "level": "Secondary"
       }
     ]

@@ -23,7 +23,9 @@ export async function GET(
 
   // Fallback: read from static files
   try {
-    const fullPath = path.join(process.cwd(), 'public', 'content', filePath)
+    // Strip 'content/' prefix if present (URL convention carries it for Blobs key alignment)
+    const contentPath = filePath.startsWith('content/') ? filePath.replace('content/', '') : filePath
+    const fullPath = path.join(process.cwd(), 'public', 'content', contentPath)
     const data = fs.readFileSync(fullPath, 'utf-8')
     return NextResponse.json(JSON.parse(data))
   } catch (e) {

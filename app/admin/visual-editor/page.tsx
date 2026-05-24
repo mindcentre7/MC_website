@@ -6,7 +6,8 @@ import {
   ArrowRight, Lock, Eye, EyeOff, Edit3, Image as ImageIcon,
   ChevronRight, ChevronDown, Layout, Home, FileEdit, Layers,
   Palette, Type, Image as ImageIcon2, ToggleLeft, ToggleRight,
-  Plus, Trash2, User, Users, ArrowUp, ArrowDown, Upload
+  Plus, Trash2, User, Users, ArrowUp, ArrowDown, Upload,
+  MapPin, Menu, X
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -306,6 +307,9 @@ export default function VisualEditorPage() {
   const [whatsappData, setWhatsappData] = useState<any>(null)
   const [globalData, setGlobalData] = useState<any>(null)
 
+  // Mobile sidebar toggle
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
   useEffect(() => {
     const token = localStorage.getItem('admin-auth')
     if (token === process.env.NEXT_PUBLIC_ADMIN_TOKEN) {
@@ -349,6 +353,7 @@ export default function VisualEditorPage() {
       setSelectedPage(page)
       setSelectedSection(null)
       setHasChanges(false)
+      setSidebarOpen(false) // Close sidebar on mobile after selection
       
       // Auto-expand first section
       if (page.sections.length > 0) {
@@ -395,6 +400,7 @@ export default function VisualEditorPage() {
       
       setSelectedSection(type)
       setHasChanges(false)
+      setSidebarOpen(false) // Close sidebar on mobile after selection
     } catch (error: any) {
       setMessage({ type: 'error', text: `Failed to load settings: ${error.message}` })
     } finally {
@@ -532,7 +538,7 @@ export default function VisualEditorPage() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-indigo-600 flex items-center justify-center px-4">
-        <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 space-y-8">
+        <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-6 sm:p-8 space-y-6 sm:space-y-8">
           <div className="text-center">
             <div className="mx-auto w-24 h-24 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
               <Layout className="w-12 h-12 text-white" />
@@ -589,21 +595,29 @@ export default function VisualEditorPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Header */}
       <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="max-w-full mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Layout className="w-6 h-6 text-purple-600" />
-                <h1 className="text-xl font-bold text-gray-900">Mind Centre Visual Editor</h1>
+        <div className="max-w-full mx-auto px-2 sm:px-4 py-2 sm:py-3">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Mobile sidebar toggle */}
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="lg:hidden p-2 rounded-lg hover:bg-gray-100 text-gray-600 flex-shrink-0"
+                aria-label="Toggle sidebar"
+              >
+                <Menu className="w-5 h-5" />
+              </button>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <Layout className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
+                <h1 className="text-base sm:text-xl font-bold text-gray-900 truncate">Mind Centre Visual Editor</h1>
               </div>
               {selectedPage && (
-                <div className="flex items-center gap-2 text-sm text-gray-500">
+                <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500">
                   <ChevronRight className="w-4 h-4" />
-                  <span>{selectedPage.name}</span>
+                  <span className="truncate max-w-[120px]">{selectedPage.name}</span>
                   {selectedSection && (
                     <>
                       <ChevronRight className="w-4 h-4" />
-                      <span className="text-purple-600 font-medium">
+                      <span className="text-purple-600 font-medium truncate max-w-[120px]">
                         {selectedPage.sections.find(s => s.id === selectedSection)?.name || selectedSection || 'Section'}
                       </span>
                     </>
@@ -611,38 +625,39 @@ export default function VisualEditorPage() {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 sm:gap-3 flex-wrap">
               {selectedPage && (
                 <>
                   <button
                     onClick={() => window.open(selectedPage.previewUrl, '_blank')}
-                    className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
+                    className="px-2 sm:px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs sm:text-sm font-medium flex items-center gap-1 sm:gap-2 transition-all"
                   >
-                    <Eye className="w-4 h-4" />
-                    Preview
+                    <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">Preview</span>
                   </button>
                   <button
                     onClick={saveCurrentData}
                     disabled={isSaving || !hasChanges}
-                    className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-2 sm:px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs sm:text-sm font-medium flex items-center gap-1 sm:gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Save className="w-4 h-4" />
-                    {isSaving ? 'Saving...' : 'Save'}
+                    <Save className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">{isSaving ? 'Saving...' : 'Save'}</span>
                   </button>
                 </>
               )}
               <Link
                 href="/admin"
-                className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium flex items-center gap-2 transition-all"
+                className="px-2 sm:px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-xs sm:text-sm font-medium flex items-center gap-1 sm:gap-2 transition-all"
               >
-                <FileEdit className="w-4 h-4" />
-                JSON Editor
+                <FileEdit className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">JSON Editor</span>
               </Link>
               <button
                 onClick={handleLogout}
-                className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-all"
+                className="px-2 sm:px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs sm:text-sm font-medium transition-all"
               >
-                Logout
+                <span className="hidden sm:inline">Logout</span>
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 sm:hidden" />
               </button>
             </div>
           </div>
@@ -663,9 +678,32 @@ export default function VisualEditorPage() {
         )}
       </header>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Mobile sidebar overlay backdrop */}
+        {sidebarOpen && (
+          <div 
+            className="lg:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+        
         {/* Left Sidebar - Navigation */}
-        <aside className="w-80 bg-white border-r flex flex-col overflow-hidden">
+        {/* Desktop: static sidebar. Mobile: fixed overlay drawer */}
+        <aside className={`bg-white border-r flex flex-col overflow-hidden lg:relative lg:flex lg:w-80 ${
+          sidebarOpen 
+            ? 'fixed inset-y-0 left-0 z-50 w-[85vw] max-w-80 shadow-2xl animate-fadeInLeft' 
+            : 'hidden lg:flex lg:w-80'
+        }`}>
+          {/* Mobile close button */}
+          <div className="lg:hidden flex items-center justify-between px-3 py-2 border-b bg-purple-50">
+            <span className="text-sm font-semibold text-purple-700">Navigation</span>
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="p-1 rounded hover:bg-purple-100"
+            >
+              <X className="w-5 h-5 text-purple-700" />
+            </button>
+          </div>
           {/* Tab Switcher */}
           <div className="flex border-b">
             <button
@@ -815,7 +853,7 @@ export default function VisualEditorPage() {
               <div className="text-gray-500">Loading content...</div>
             </div>
           ) : selectedPage ? (
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {/* Header Editor */}
               {selectedPage.id === 'header' && headerData && (
                 <div className="space-y-6 max-w-4xl">
@@ -1247,44 +1285,8 @@ export default function VisualEditorPage() {
                       </div>
                       
                       <div className="border-t pt-4">
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Social Media Links</h4>
-                        <div className="space-y-3">
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Facebook</label>
-                            <input
-                              type="url"
-                              value={headerData.facebookUrl || ''}
-                              onChange={(e) => updateHeaderData('facebookUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Twitter/X</label>
-                            <input
-                              type="url"
-                              value={headerData.twitterUrl || ''}
-                              onChange={(e) => updateHeaderData('twitterUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Instagram</label>
-                            <input
-                              type="url"
-                              value={headerData.instagramUrl || ''}
-                              onChange={(e) => updateHeaderData('instagramUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Email</label>
-                            <input
-                              type="email"
-                              value={headerData.email || ''}
-                              onChange={(e) => updateHeaderData('email', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm"
-                            />
-                          </div>
+                        <div className="text-xs text-gray-500 italic p-2 bg-gray-50 rounded">
+                          Social media links are managed only in Footer Settings
                         </div>
                       </div>
                     </div>
@@ -1681,6 +1683,32 @@ export default function VisualEditorPage() {
                           value={footerData.instagramUrl || ''}
                           onChange={(e) => {
                             setFooterData({ ...footerData, instagramUrl: e.target.value })
+                            setHasChanges(true)
+                          }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">YouTube URL</label>
+                        <input
+                          type="text"
+                          value={footerData.youtubeUrl || ''}
+                          onChange={(e) => {
+                            setFooterData({ ...footerData, youtubeUrl: e.target.value })
+                            setHasChanges(true)
+                          }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">TikTok URL</label>
+                        <input
+                          type="text"
+                          value={footerData.tiktokUrl || ''}
+                          onChange={(e) => {
+                            setFooterData({ ...footerData, tiktokUrl: e.target.value })
                             setHasChanges(true)
                           }}
                           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
@@ -2211,21 +2239,26 @@ export default function VisualEditorPage() {
                         />
                       </div>
                       
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="border-t pt-4">
+                        <h4 className="text-sm font-semibold text-purple-700 mb-3">🖼️ Certificate Image</h4>
                         <div>
-                          <ImageUploadField
-                            label="Certificate Image"
-                            value={pageData.trackRecord?.certificateImage || ''}
-                            onChange={(value) => updateSectionData('trackRecord', 'certificateImage', value)}
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Certificate Image URL</label>
+                          <input
+                            type="text"
+                            value={pageData.trackRecord?.certificateImage || '/images/cert.jpg'}
+                            onChange={(e) => updateSectionData('trackRecord', 'certificateImage', e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                            placeholder="/images/cert.jpg"
                           />
                         </div>
-                        <div>
+                        <div className="mt-3">
                           <label className="block text-sm font-medium text-gray-700 mb-2">Certificate Alt Text</label>
                           <input
                             type="text"
-                            value={pageData.trackRecord?.certificateAlt || ''}
+                            value={pageData.trackRecord?.certificateAlt || 'Mind Centre Certificate'}
                             onChange={(e) => updateSectionData('trackRecord', 'certificateAlt', e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500"
+                            placeholder="Mind Centre Trusted Enterprise Certificate"
                           />
                         </div>
                       </div>
@@ -3124,8 +3157,94 @@ export default function VisualEditorPage() {
                 </div>
               )}
 
+              {/* Page Content Editor - Contact Page */}
+              {selectedPage.id === 'contact' && pageData && selectedSection === 'locations' && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <MapPin className="w-5 h-5 text-purple-600" />
+                      Branch Locations
+                    </h3>
+                    {pageData.branches?.map((branch: any, idx: number) => (
+                      <div key={idx} className="mb-6 p-4 bg-gray-50 rounded-lg border">
+                        <h4 className="font-semibold text-gray-800 mb-3">{branch.name}</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Centre Name</label>
+                            <input type="text" value={branch.name || ''}
+                              onChange={(e) => { const b = [...pageData.branches]; b[idx] = {...b[idx], name: e.target.value}; setPageData({...pageData, branches: b}); setHasChanges(true) }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" value={branch.address || ''}
+                              onChange={(e) => { const b = [...pageData.branches]; b[idx] = {...b[idx], address: e.target.value}; setPageData({...pageData, branches: b}); setHasChanges(true) }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="text" value={branch.phone || ''}
+                              onChange={(e) => { const b = [...pageData.branches]; b[idx] = {...b[idx], phone: e.target.value}; setPageData({...pageData, branches: b}); setHasChanges(true) }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                            <input type="text" value={branch.whatsapp || ''}
+                              onChange={(e) => { const b = [...pageData.branches]; b[idx] = {...b[idx], whatsapp: e.target.value}; setPageData({...pageData, branches: b}); setHasChanges(true) }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm" />
+                          </div>
+                          <div className="sm:col-span-2">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Google Maps Embed URL</label>
+                            <textarea rows={2} value={branch.mapEmbedUrl || ''}
+                              onChange={(e) => { const b = [...pageData.branches]; b[idx] = {...b[idx], mapEmbedUrl: e.target.value}; setPageData({...pageData, branches: b}); setHasChanges(true) }}
+                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-sm font-mono" 
+                              placeholder="https://www.google.com/maps/embed?..." />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {selectedPage.id === 'contact' && pageData && selectedSection === 'contactInfo' && (
+                <div className="space-y-6 max-w-4xl">
+                  <div className="bg-white rounded-lg shadow-sm border p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Information</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="text" value={pageData.email || ''}
+                          onChange={(e) => { setPageData({...pageData, email: e.target.value}); setHasChanges(true) }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <textarea rows={3} value={pageData.description || ''}
+                          onChange={(e) => { setPageData({...pageData, description: e.target.value}); setHasChanges(true) }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Weekday Hours</label>
+                          <input type="text" value={pageData.operatingHours?.weekdays || ''}
+                            onChange={(e) => { setPageData({...pageData, operatingHours: {...pageData.operatingHours, weekdays: e.target.value}}); setHasChanges(true) }}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Weekend Hours</label>
+                          <input type="text" value={pageData.operatingHours?.weekends || ''}
+                            onChange={(e) => { setPageData({...pageData, operatingHours: {...pageData.operatingHours, weekends: e.target.value}}); setHasChanges(true) }}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Other Pages - Coming Soon */}
-              {selectedPage.id !== 'home' && selectedPage.id !== 'header' && selectedPage.id !== 'footer' && selectedPage.id !== 'whatsapp' && selectedPage.id !== 'enroll' && selectedPage.id !== 'teachers' && selectedPage.id !== 'testimonials' && (
+              {selectedPage.id !== 'home' && selectedPage.id !== 'header' && selectedPage.id !== 'footer' && selectedPage.id !== 'whatsapp' && selectedPage.id !== 'enroll' && selectedPage.id !== 'teachers' && selectedPage.id !== 'testimonials' && selectedPage.id !== 'contact' && (
                 <div className="bg-white rounded-lg shadow-sm border p-6">
                   <div className="text-center py-12">
                     <FileEdit className="w-16 h-16 text-gray-300 mx-auto mb-4" />
@@ -3147,11 +3266,18 @@ export default function VisualEditorPage() {
               )}
             </div>
           ) : (
-            <div className="flex items-center justify-center h-full">
-              <div className="text-center">
-                <Layout className="w-20 h-20 text-gray-200 mx-auto mb-4" />
+            <div className="flex items-center justify-center h-full p-4">
+              <div className="text-center max-w-sm">
+                <Layout className="w-16 h-16 sm:w-20 sm:h-20 text-gray-200 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a page to edit</h3>
-                <p className="text-gray-500">Choose a page from the sidebar to start editing</p>
+                <p className="text-gray-500 text-sm mb-4">Choose a page from the sidebar to start editing</p>
+                <button
+                  onClick={() => setSidebarOpen(true)}
+                  className="lg:hidden inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-all"
+                >
+                  <Menu className="w-4 h-4" />
+                  Open Navigation
+                </button>
               </div>
             </div>
           )}

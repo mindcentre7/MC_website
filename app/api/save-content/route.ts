@@ -51,7 +51,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Fallback: write to filesystem (local dev)
-    const fullPath = path.join(process.cwd(), 'public', 'content', filePath)
+    // Strip 'content/' prefix if present (same convention as get-content)
+    const contentPath = filePath.startsWith('content/') ? filePath.replace('content/', '') : filePath
+    const fullPath = path.join(process.cwd(), 'public', 'content', contentPath)
     await fs.writeFile(fullPath, JSON.stringify(content, null, 2), 'utf-8')
     return NextResponse.json({ success: true, storage: 'filesystem' })
   } catch (error) {

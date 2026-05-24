@@ -52,7 +52,7 @@ export default function AdminPage() {
   const [isSaving, setIsSaving] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info', text: string } | null>(null)
   const [hasChanges, setHasChanges] = useState(false)
-  const [headerData, setHeaderData] = useState<HeaderData>({
+  const [footerData, setFooterData] = useState({}); const [headerData, setHeaderData] = useState<HeaderData>({
     logo: '/images/logo.jpg',
     title: 'Mind Centre for Learning',
     tagline: 'Go for A\'s and Multiple Grade Improvements!',
@@ -61,7 +61,9 @@ export default function AdminPage() {
     promoText3: 'RECOMMEND A FRIEND and BOTH OF YOU will get a Special $10 discount when he/she signs up for a term!',
     facebookUrl: 'https://www.facebook.com/mindcentre',
     twitterUrl: 'https://x.com/Mindcentre7',
-    instagramUrl: 'https://www.instagram.com/mindcentreforlearning/',
+    instagramUrl: 'https://www.instagram.com/mind.centre7',
+    youtubeUrl: 'https://youtu.be/V-QDxdQ1mEk',
+    tiktokUrl: 'https://www.tiktok.com/@mindcentre7',
   })
 
   useEffect(() => {
@@ -227,7 +229,9 @@ const loadFile = async (file: ContentFile) => {
         promoText3: 'RECOMMEND A FRIEND and BOTH OF YOU will get a Special $10 discount when he/she signs up for a term!',
         facebookUrl: 'https://www.facebook.com/mindcentre',
         twitterUrl: 'https://x.com/Mindcentre7',
-        instagramUrl: 'https://www.instagram.com/mindcentreforlearning/',
+        instagramUrl: 'https://www.instagram.com/mind.centre7',
+    youtubeUrl: 'https://youtu.be/V-QDxdQ1mEk',
+    tiktokUrl: 'https://www.tiktok.com/@mindcentre7',
       })
     } else {
       setContent(originalContent)
@@ -480,37 +484,8 @@ const loadFile = async (file: ContentFile) => {
                         />
                       </div>
 
-                      <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-3">Social Media Links</h4>
-                        <div className="space-y-2">
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Facebook URL</label>
-                            <input
-                              type="url"
-                              value={headerData.facebookUrl}
-                              onChange={(e) => handleHeaderChange('facebookUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-xs"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Twitter/X URL</label>
-                            <input
-                              type="url"
-                              value={headerData.twitterUrl}
-                              onChange={(e) => handleHeaderChange('twitterUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-xs"
-                            />
-                          </div>
-                          <div>
-                            <label className="block text-xs text-gray-600 mb-1">Instagram URL</label>
-                            <input
-                              type="url"
-                              value={headerData.instagramUrl}
-                              onChange={(e) => handleHeaderChange('instagramUrl', e.target.value)}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-xs"
-                            />
-                          </div>
-                        </div>
+                      <div className="text-xs text-gray-500 italic p-2 bg-gray-50 rounded">
+                        Social media links are now managed only in Footer Settings
                       </div>
                     </div>
                   ) : (

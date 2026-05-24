@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCircle, Mic } from 'lucide-react'
 import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
+import FloatingCTA from '@/components/floating-cta'
 
 // Revalidate every 60s to show Visual Editor changes
 export const revalidate = 60;
@@ -19,7 +20,7 @@ const iconMap: Record<string, any> = {
 
 export default async function Home() {
   // Fetch content from API (reads from Netlify Blobs in production, filesystem in dev)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://mindcentre.sg');
   
   let data: any = {};
   let globalSettings: any = {};
@@ -44,7 +45,7 @@ export default async function Home() {
     }
   }
 
-  const { trackRecord, subjectsOffered, methodology, testimonials, howYourChildWillLearn } = data
+  const { trackRecord, subjectsOffered, testimonials, howYourChildWillLearn } = data
 
   // Use global master background if set, otherwise use section colors
   const masterBg = globalSettings.masterBackground || '#ffffff'
@@ -52,10 +53,6 @@ export default async function Home() {
   // Get colors with fallback defaults
   const trackRecordColors = trackRecord?.colors || {}
   const trackRecordStyles = trackRecord?.styles || {}
-  const subjectsColors = subjectsOffered?.colors || {}
-  const subjectsStyles = subjectsOffered?.styles || {}
-  const methodologyColors = methodology?.colors || {}
-  const methodologyStyles = methodology?.styles || {}
   const testimonialsColors = testimonials?.colors || {}
   const testimonialsStyles = testimonials?.styles || {}
   const whyChooseUsColors = data?.whyChooseUs?.colors || {}
@@ -77,7 +74,7 @@ export default async function Home() {
 
   return (
     <div className="bg-gradient-to-b from-purple-50 via-white to-purple-50">
-      {/* Track Record Section */}
+      {/* ── Track Record Section ── */}
       <section 
         className="max-w-container px-4"
         style={{ 
@@ -168,7 +165,111 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* How Your Child Will Learn Section */}
+      {/* ── Subjects We Offer Section (themed like Track Record) ── */}
+      <section 
+        className="max-w-container px-4"
+        style={{ 
+          backgroundColor: trackRecordColors.useMasterBackground === true ? masterBg : (trackRecordColors.backgroundColor || masterBg),
+          minHeight: trackRecordStyles.minHeight ? `${trackRecordStyles.minHeight}px` : 'auto',
+          paddingTop: getPadding(trackRecordStyles.padding || 'medium'),
+          paddingBottom: getPadding(trackRecordStyles.padding || 'medium')
+        }}
+      >
+        <div className="bg-white rounded-xl shadow-xl p-4 sm:p-6 md:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <Users className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 animate-bounce" style={{ color: trackRecordColors.accentColor || '#7c3aed' }} />
+            <div className="text-center">
+              <h2 
+                className="mb-4"
+                style={{ 
+                  color: trackRecordColors.titleColor || '#1f2937',
+                  fontSize: trackRecordStyles.titleFontSize ? `${trackRecordStyles.titleFontSize}px` : '2rem',
+                  fontWeight: trackRecordStyles.titleFontWeight || 'bold'
+                }}
+              >
+                {subjectsOffered?.title}
+              </h2>
+              <p 
+                className="leading-relaxed w-full px-4"
+                style={{ 
+                  color: trackRecordColors.textColor || '#4b5563',
+                  fontSize: trackRecordStyles.textFontSize ? `${trackRecordStyles.textFontSize}px` : '1rem',
+                  fontStyle: trackRecordStyles.textFontStyle || 'normal'
+                }}
+              >
+                We offer <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>Primary, Secondary & JC classes</span> teaching our superior mind-focused techniques for <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>English, Chinese & General Paper</span> covering Composition, Comprehension & Summary writing skills. In addition, we teach <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>'Fast & Systematic'</span> learning and exam preparation methodologies for <span className="font-bold" style={{ color: trackRecordColors.accentColor || '#7c3aed' }}>Science, Math, Economics & Humanities</span> which help students achieve A's & multiple-grade improvement! (Coverage includes AEIS)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials Section ── */}
+      <section 
+        className="max-w-container px-4 py-12"
+        style={{ 
+          backgroundColor: testimonialsColors.useMasterBackground === true ? masterBg : (testimonialsColors.backgroundColor || masterBg),
+          paddingTop: getPadding(testimonialsStyles.padding || 'large'),
+          paddingBottom: getPadding(testimonialsStyles.padding || 'large')
+        }}
+      >
+        <div className="text-center mb-10">
+          <h2 
+            className="text-4xl font-bold mb-4 flex items-center justify-center gap-3"
+            style={{ 
+              color: testimonialsColors.titleColor || '#1f2937',
+              fontSize: testimonialsStyles.titleFontSize ? `${testimonialsStyles.titleFontSize}px` : '2.25rem',
+              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit'
+            }}
+          >
+            <Award className="w-10 h-10 animate-pulse" style={{ color: testimonialsColors.buttonColor || '#7c3aed' }} />
+            {testimonials?.title}
+          </h2>
+          <p 
+            className="text-lg"
+            style={{ 
+              color: testimonialsColors.subtitleColor || '#6b7280',
+              fontSize: testimonialsStyles.textFontSize ? `${testimonialsStyles.textFontSize}px` : '1rem',
+              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit',
+              fontStyle: testimonialsStyles.textFontStyle || 'normal'
+            }}
+          >
+            {testimonials?.subtitle}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials?.items?.map((testimonial: any, index: number) => (
+            <div 
+              key={index}
+              className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <TestimonialCard
+                name={testimonial?.name ?? ''}
+                title={testimonial?.title ?? ''}
+                content={testimonial?.content ?? ''}
+                image={testimonial?.image ?? ''}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a 
+            href={testimonials?.ctaButton?.link ?? '/results'}
+            className="inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-200"
+            style={{ 
+              backgroundColor: testimonialsColors.buttonColor || '#7c3aed',
+              color: testimonialsColors.buttonTextColor || '#ffffff'
+            }}
+          >
+            <CheckCircle className="w-5 h-5" />
+            {testimonials?.ctaButton?.text ?? 'View More Testimonials'}
+          </a>
+        </div>
+      </section>
+
+      {/* ── How Your Child Will Learn Section ── */}
       {howYourChildWillLearn && (
         <section
           className="max-w-container px-4"
@@ -248,183 +349,7 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Subjects Offered Section */}
-      <section 
-        className="max-w-container px-4 py-8 md:py-12"
-        style={{ backgroundColor: subjectsColors.useMasterBackground === true ? masterBg : (subjectsColors.backgroundColor || masterBg) }}
-      >
-        <div 
-          className="rounded-xl shadow-xl p-4 sm:p-6 md:p-8 text-white hover:shadow-2xl transition-all duration-300"
-          style={{ 
-            backgroundColor: subjectsColors.buttonColor || '#2563eb',
-            background: `linear-gradient(135deg, ${subjectsColors.buttonColor || '#2563eb'}, ${subjectsColors.buttonColor ? adjustColorBrightness(subjectsColors.buttonColor, -20) : '#1d4ed8'})`
-          }}
-        >
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 mb-6">
-            <Users className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 animate-bounce" />
-            <h2 
-              className="text-2xl sm:text-3xl font-bold text-center sm:text-left"
-              style={{ 
-                color: subjectsColors.titleColor || '#ffffff',
-                fontSize: subjectsStyles.titleFontSize ? `${subjectsStyles.titleFontSize}px` : '2rem',
-                fontFamily: subjectsStyles.fontFamily && subjectsStyles.fontFamily !== 'inherit' ? subjectsStyles.fontFamily : 'inherit'
-              }}
-            >
-              {subjectsOffered?.title}
-            </h2>
-          </div>
-          <p 
-            className="text-base sm:text-lg leading-relaxed"
-            style={{ 
-              color: subjectsColors.textColor || '#ffffff',
-              fontSize: subjectsStyles.textFontSize ? `${subjectsStyles.textFontSize}px` : '1rem',
-              fontFamily: subjectsStyles.fontFamily && subjectsStyles.fontFamily !== 'inherit' ? subjectsStyles.fontFamily : 'inherit',
-              fontStyle: subjectsStyles.textFontStyle || 'normal'
-            }}
-          >
-            We offer <span className="font-bold text-yellow-300">Primary, Secondary & JC classes</span> teaching our superior mind-focused techniques for <span className="font-bold">English, Chinese & General Paper</span> covering Composition, Comprehension & Summary writing skills. In addition, we teach <span className="font-bold text-yellow-300">'Fast & Systematic'</span> learning and exam preparation methodologies for <span className="font-bold">Science, Math, Economics & Humanities</span> which help students achieve A's & multiple-grade improvement! (Coverage includes AEIS)
-          </p>
-        </div>
-      </section>
-
-      {/* Our Methodology Section */}
-      <section 
-        className="max-w-container px-4 py-8 md:py-12"
-        style={{ backgroundColor: methodologyColors.useMasterBackground === true ? masterBg : (methodologyColors.backgroundColor || masterBg) }}
-      >
-        <div className="text-center mb-8 md:mb-10">
-          <h2 
-            className="text-3xl sm:text-4xl font-bold mb-4 flex flex-col sm:flex-row items-center justify-center gap-3"
-            style={{ 
-              color: methodologyColors.titleColor || '#166534',
-              fontSize: methodologyStyles.titleFontSize ? `${methodologyStyles.titleFontSize}px` : '2.25rem',
-              fontFamily: methodologyStyles.fontFamily && methodologyStyles.fontFamily !== 'inherit' ? methodologyStyles.fontFamily : 'inherit'
-            }}
-          >
-            <Brain className="w-8 h-8 sm:w-10 sm:h-10 animate-pulse" style={{ color: methodologyColors.buttonColor || '#16a34a' }} />
-            <span>{methodology?.title}</span>
-          </h2>
-          <p 
-            className="text-base sm:text-lg max-w-4xl mx-auto leading-relaxed"
-            style={{ 
-              color: methodologyColors.textColor || '#15803d',
-              fontSize: methodologyStyles.textFontSize ? `${methodologyStyles.textFontSize}px` : '1rem',
-              fontFamily: methodologyStyles.fontFamily && methodologyStyles.fontFamily !== 'inherit' ? methodologyStyles.fontFamily : 'inherit',
-              fontStyle: methodologyStyles.textFontStyle || 'normal'
-            }}
-          >
-            {methodology?.description}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {methodology?.methods?.map((method: any, index: number) => {
-            const IconComponent = iconMap[method?.icon] || Brain
-            return (
-              <div 
-                key={index}
-                className="rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 p-6 hover:-translate-y-1"
-                style={{ 
-                  backgroundColor: methodologyColors.cardBackgroundColor || '#ffffff',
-                  borderColor: methodologyColors.buttonColor || '#16a34a',
-                  borderWidth: '1px',
-                  borderStyle: 'solid'
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <div 
-                    className="p-3 rounded-lg group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: `${methodologyColors.buttonColor || '#16a34a'}20`, color: methodologyColors.buttonColor || '#16a34a' }}
-                  >
-                    <IconComponent className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 
-                      className="font-bold text-lg mb-2"
-                      style={{ color: methodologyColors.titleColor || '#166534' }}
-                    >
-                      {method?.title}
-                    </h3>
-                    <p 
-                      className="text-sm leading-relaxed"
-                      style={{ color: methodologyColors.textColor || '#15803d' }}
-                    >
-                      {method?.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section 
-        className="max-w-container px-4 py-12"
-        style={{ 
-          backgroundColor: testimonialsColors.useMasterBackground === true ? masterBg : (testimonialsColors.backgroundColor || masterBg),
-          paddingTop: getPadding(testimonialsStyles.padding || 'large'),
-          paddingBottom: getPadding(testimonialsStyles.padding || 'large')
-        }}
-      >
-        <div className="text-center mb-10">
-          <h2 
-            className="text-4xl font-bold mb-4 flex items-center justify-center gap-3"
-            style={{ 
-              color: testimonialsColors.titleColor || '#1f2937',
-              fontSize: testimonialsStyles.titleFontSize ? `${testimonialsStyles.titleFontSize}px` : '2.25rem',
-              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit'
-            }}
-          >
-            <Award className="w-10 h-10 animate-pulse" style={{ color: testimonialsColors.buttonColor || '#7c3aed' }} />
-            {testimonials?.title}
-          </h2>
-          <p 
-            className="text-lg"
-            style={{ 
-              color: testimonialsColors.subtitleColor || '#6b7280',
-              fontSize: testimonialsStyles.textFontSize ? `${testimonialsStyles.textFontSize}px` : '1rem',
-              fontFamily: testimonialsStyles.fontFamily && testimonialsStyles.fontFamily !== 'inherit' ? testimonialsStyles.fontFamily : 'inherit',
-              fontStyle: testimonialsStyles.textFontStyle || 'normal'
-            }}
-          >
-            {testimonials?.subtitle}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials?.items?.map((testimonial: any, index: number) => (
-            <div 
-              key={index}
-              className="hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <TestimonialCard
-                name={testimonial?.name ?? ''}
-                title={testimonial?.title ?? ''}
-                content={testimonial?.content ?? ''}
-                image={testimonial?.image ?? ''}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <a 
-            href={testimonials?.ctaButton?.link ?? '/results'}
-            className="inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-200"
-            style={{ 
-              backgroundColor: testimonialsColors.buttonColor || '#7c3aed',
-              color: testimonialsColors.buttonTextColor || '#ffffff'
-            }}
-          >
-            <CheckCircle className="w-5 h-5" />
-            {testimonials?.ctaButton?.text ?? 'View More Testimonials'}
-          </a>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
+      {/* ── Why Choose Us Section ── */}
       {data?.whyChooseUs && (
         <section 
           className="max-w-container px-4 py-12"
@@ -489,7 +414,7 @@ export default async function Home() {
         </section>
       )}
 
-      {/* Watch Our Classes Section */}
+      {/* ── Watch Our Classes Section ── */}
       {data?.watchOurClasses && (
         <section
           className="max-w-container px-4 py-12"
@@ -554,41 +479,9 @@ export default async function Home() {
         </section>
       )}
 
-      {/* CTA Banner - Mindset/Motivation/Method/Mentor */}
-      {data.ctaBanner && (
-        <section className="bg-purple-700 py-16">
-          <div className="max-w-container px-4 text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">{data.ctaBanner.title}</h2>
-            <p className="text-purple-200 text-lg mb-2">{data.ctaBanner.subtitle}</p>
-            <p className="text-yellow-300 text-xl font-bold mb-8">{data.ctaBanner.tagline}</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-8">
-              {data.ctaBanner.images?.map((img: any, i: number) => (
-                <div key={i} className="bg-white rounded-xl p-4 shadow-lg">
-                  <img src={img.src} alt={img.alt} className="w-full h-32 object-contain" />
-                </div>
-              ))}
-            </div>
-            {data.ctaBanner.ctaButton && (
-              <a
-                href={data.ctaBanner.ctaButton.link}
-                className="inline-block px-8 py-4 bg-yellow-400 hover:bg-yellow-500 text-purple-900 font-bold rounded-lg text-lg transition-colors"
-              >
-                {data.ctaBanner.ctaButton.text}
-              </a>
-            )}
-          </div>
-        </section>
-      )}
+      {/* Floating CTA Button */}
+      <FloatingCTA />
     </div>
   )
 }
 
-// Helper function to adjust color brightness
-function adjustColorBrightness(hex: string, percent: number): string {
-  const num = parseInt(hex.replace('#', ''), 16)
-  const amt = Math.round(2.55 * percent)
-  const R = Math.min(255, Math.max(0, (num >> 16) + amt))
-  const G = Math.min(255, Math.max(0, ((num >> 8) & 0x00ff) + amt))
-  const B = Math.min(255, Math.max(0, (num & 0x0000ff) + amt))
-  return `#${(0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1)}`
-}

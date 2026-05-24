@@ -42,11 +42,11 @@ export default async function EnrollPage() {
       const filePath = path.join(process.cwd(), 'public', 'content', 'enroll.json');
       data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     } catch {
-      // Both failed — use defaults from the template
+      // Both failed — use defaults
     }
   }
 
-  const { hero = {}, benefits = {}, uniquePoints = {}, form = {}, page = {} } = data
+  const { hero = {}, form = {}, page = {} } = data
 
   return (
     <div
@@ -88,80 +88,10 @@ export default async function EnrollPage() {
         </div>
       </section>
 
-      {/* Key Benefits */}
+      {/* Enrollment Form — directly after title description */}
       <section className="max-w-4xl mx-auto px-4 py-10">
-        <div className="grid sm:grid-cols-3 gap-6 text-center mb-10">
-          {benefits?.items?.map((item: any, i: number) => (
-            <div
-              key={i}
-              className="rounded-xl shadow-lg p-6 border"
-              style={{
-                backgroundColor: benefits?.colors?.cardBackgroundColor || '#ffffff',
-                borderColor: `${benefits?.colors?.accentColor || '#d97706'}30`
-              }}
-            >
-              <div className="text-3xl mb-3">{item.icon}</div>
-              <h3
-                className="font-bold mb-2"
-                style={{ color: benefits?.colors?.titleColor || '#92400e' }}
-              >
-                {item.title}
-              </h3>
-              <p
-                className="text-sm"
-                style={{ color: benefits?.colors?.textColor || '#4b5563' }}
-              >
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* What Makes Us Unique */}
         <div
-          className="rounded-xl shadow-lg p-6 sm:p-8 border"
-          style={{
-            backgroundColor: uniquePoints?.colors?.backgroundColor || '#ffffff',
-            borderColor: `${uniquePoints?.colors?.accentColor || '#d97706'}30`
-          }}
-        >
-          <h2
-            className="text-2xl font-bold mb-6 text-center"
-            style={{ color: uniquePoints?.colors?.titleColor || '#92400e' }}
-          >
-            {uniquePoints?.title || 'What Makes Us Unique?'}
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-4">
-            {uniquePoints?.items?.map((item: any, i: number) => (
-              <div key={i} className="flex gap-3">
-                <span
-                  className="text-xl flex-shrink-0"
-                  style={{ color: uniquePoints?.colors?.accentColor || '#d97706' }}
-                >
-                  ✓
-                </span>
-                <div>
-                  <h4
-                    className="font-semibold text-sm"
-                    style={{ color: uniquePoints?.colors?.titleColor || '#92400e' }}
-                  >
-                    {item.title}
-                  </h4>
-                  <p
-                    className="text-xs"
-                    style={{ color: uniquePoints?.colors?.textColor || '#451a03' }}
-                  >
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Enrollment Form */}
-        <div
-          className="rounded-xl shadow-xl p-6 sm:p-8 border-2 mt-10"
+          className="rounded-xl shadow-xl p-6 sm:p-8 border-2"
           style={{
             backgroundColor: form?.colors?.backgroundColor || '#ffffff',
             borderColor: `${form?.colors?.buttonColor || '#d97706'}60`

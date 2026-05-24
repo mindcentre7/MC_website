@@ -32,13 +32,13 @@ interface ContactData {
   branches: Array<{
     name: string
     address: string
-    unit: string
     postalCode: string
     phone: string
     whatsapp: string
     color: string
     nearbyLandmarks: string[]
     image?: string
+    mapEmbedUrl?: string
   }>
   operatingHours: {
     weekdays: string
@@ -51,7 +51,7 @@ interface ContactData {
 async function getContactData(): Promise<ContactData> {
   // Try Blobs API first (production — picks up visual editor changes)
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || 'https://mindcentre.sg';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://mindcentre.sg');
     const res = await fetch(`${baseUrl}/api/get-content/content/contact.json`);
     if (res.ok) {
       const data = await res.json();
@@ -73,8 +73,7 @@ async function getContactData(): Promise<ContactData> {
       branches: [
         {
           name: "Serangoon Centre",
-          address: "265 Serangoon Central Drive",
-          unit: "#04-267",
+          address: "265 Serangoon Central Drive #04-267",
           postalCode: "Singapore 550265",
           phone: "+65-6634-3411",
           whatsapp: "+65-9815-6827",
@@ -89,8 +88,7 @@ async function getContactData(): Promise<ContactData> {
         },
         {
           name: "Bedok Centre",
-          address: "209 New Upper Changi Road",
-          unit: "#03-651",
+          address: "209 New Upper Changi Road #03-651",
           postalCode: "Singapore 460209",
           phone: "+65-6634-3411",
           whatsapp: "+65-9815-6827",
@@ -138,11 +136,23 @@ export default async function ContactPage() {
                 }`}>
                   {branch.name}
                 </h3>
-                {branch.image && (
+                {branch.mapEmbedUrl ? (
+                  <div className="w-full h-48 rounded-lg overflow-hidden mb-4">
+                    <iframe
+                      src={branch.mapEmbedUrl}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0, minHeight: '192px' }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`${branch.name} location`}
+                    />
+                  </div>
+                ) : branch.image && (
                   <img src={branch.image} alt={`${branch.name} photo`} className="w-full h-48 object-cover rounded-lg mb-4" />
                 )}
                 <p className="text-gray-700">{branch.address}</p>
-                <p className="text-gray-700">{branch.unit}</p>
                 <p className="text-gray-700">{branch.postalCode}</p>
                 <p className={`font-semibold mt-2 ${
                   branch.color === 'purple' ? 'text-purple-600' : 'text-blue-600'
@@ -201,10 +211,23 @@ export default async function ContactPage() {
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">{(contactData as any).gallery.title}</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             {(contactData as any).gallery.images?.map((img: any, i: number) => (
               <div key={i} className="rounded-xl overflow-hidden shadow-lg">
-                <img src={img.src} alt={img.alt} className="w-full h-48 object-cover" />
+                {img.isMap ? (
+                  <iframe
+                    src={img.src}
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title={img.alt}
+                  />
+                ) : (
+                  <img src={img.src} alt={img.alt} className="w-full h-48 object-cover" />
+                )}
               </div>
             ))}
           </div>
