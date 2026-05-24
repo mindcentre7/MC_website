@@ -27,8 +27,8 @@ export default async function Home() {
   try {
     const store = getStore('site-content');
     const [homeRaw, globalRaw] = await Promise.all([
-      store.get('content/home.json', { type: 'text' }),
-      store.get('content/global-settings.json', { type: 'text' }),
+      store.get('home.json', { type: 'text' }),
+      store.get('global-settings.json', { type: 'text' }),
     ]);
     
     data = homeRaw ? JSON.parse(homeRaw) : {};
