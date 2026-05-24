@@ -3,8 +3,9 @@ import { BookOpen, Brain, Target, TrendingUp, Users, Award, Lightbulb, CheckCirc
 import TestimonialCard from '@/components/testimonial-card'
 import PromoVideoPlayer from '@/components/promo-video-player'
 import FloatingCTA from '@/components/floating-cta'
+import { getStore } from '@netlify/blobs'
 
-// Always fetch fresh data from Netlify Blobs (ISR broken on Netlify)
+// Always fetch fresh data from Netlify Blobs
 export const dynamic = 'force-dynamic';
 
 // Icon mapping
@@ -19,29 +20,28 @@ const iconMap: Record<string, any> = {
 }
 
 export default async function Home() {
-  // Fetch content from API (reads from Netlify Blobs in production, filesystem in dev)
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://mindcentre.sg');
-  
+  // Read directly from Netlify Blobs (no HTTP fetch — avoids self-call issues)
   let data: any = {};
   let globalSettings: any = {};
-  
+
   try {
-    const [dataRes, globalRes] = await Promise.all([
-      fetch(`${baseUrl}/api/get-content/content/home.json`),
-      fetch(`${baseUrl}/api/get-content/content/global-settings.json`),
+    const store = getStore('site-content');
+    const [homeRaw, globalRaw] = await Promise.all([
+      store.get('content/home.json', { type: 'text' }),
+      store.get('content/global-settings.json', { type: 'text' }),
     ]);
     
-    data = dataRes.ok ? await dataRes.json() : {};
-    globalSettings = globalRes.ok ? await globalRes.json() : {};
+    data = homeRaw ? JSON.parse(homeRaw) : {};
+    globalSettings = globalRaw ? JSON.parse(globalRaw) : {};
   } catch {
-    // API unavailable (build time or cold start) — fall back to filesystem
+    // Blobs unavailable (build time) — fall back to filesystem
     const { readFileSync } = await import('fs');
     const { join } = await import('path');
     try {
       data = JSON.parse(readFileSync(join(process.cwd(), 'public', 'content', 'home.json'), 'utf-8'));
       globalSettings = JSON.parse(readFileSync(join(process.cwd(), 'public', 'content', 'global-settings.json'), 'utf-8'));
     } catch {
-      // Both API and filesystem failed — render with empty data
+      // Both failed — render with empty data
     }
   }
 
