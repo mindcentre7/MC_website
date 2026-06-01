@@ -1,5 +1,20 @@
 [
   {
+    "id": 200,
+    "slug": "teaching-a-growth-mindset-carol-dweck-at-stanford",
+    "title": "Teaching a Growth Mindset: Carol Dweck at Stanford",
+    "date": "2026-05-26",
+    "date_display": "May 26, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Developing Critical Thinking & Growth Mindset</p><p>Carol Dweck, the Stanford psychologist who coined the term 'growth mindset,' explains how believing in the brain's ability to grow transforms student achievement. Students with a growth mindset embrace challenges, learn from mistakes, and persist through difficulties. Mind Centre's Powerful Motivation methodology builds growth mindset in every student, helping them believe they can improve and achieve their academic goals.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/isHM1rEd3GE/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=isHM1rEd3GE"
+    ],
+    "channel": "Stanford"
+  },
+  {
     "id": 199,
     "slug": "the-power-of-reading-out-loud-benefits-for-all-ages",
     "title": "The Power of Reading Out Loud: Benefits for All Ages",
@@ -394,7 +409,7 @@
   {
     "id": 74,
     "slug": "come-and-learn-the-secrets-for-achieving-success-using-mind-focused-methodologies-backed-by-s",
-    "title": "\u200b\u200b\u200b\u200b\u200bCome and learn the \"Secrets\" for achieving success using mind-focused methodologies backed by Scientific research! \u00a0\u200b\u200b",
+    "title": "Mind-Focused Methodologies: Scientific Secrets to Academic Success",
     "date": "2025-03-06",
     "date_display": "March 06, 2025",
     "author": "",
