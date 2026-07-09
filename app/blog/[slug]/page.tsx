@@ -31,8 +31,19 @@ async function getAllPostsApi(): Promise<BlogPost[]> {
       process.env.NEXT_PUBLIC_SITE_URL ||
       'https://mindcentre.sg';
     const res = await fetch(`${baseUrl}/api/blog-posts`, { cache: 'no-store' });
-    if (!res.ok) return [];
-    const data = await res.json();
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) return data;
+    }
+  } catch {
+    // fall through
+  }
+  try {
+    const { readFile } = await import('fs/promises');
+    const path = await import('path');
+    const filePath = path.join(process.cwd(), 'public', 'data', 'clean-blog-data.json');
+    const fileContent = await readFile(filePath, 'utf-8');
+    const data = JSON.parse(fileContent);
     return Array.isArray(data) ? data : [];
   } catch {
     return [];
