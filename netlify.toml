@@ -1,10 +1,12 @@
 [build]
+  # Use node path so Windows local CLI can build; cloud installs deps via npm install
   command = "node ./node_modules/next/dist/bin/next build"
-  publish = ".next"
-  functions = ".next/serverless"
+  # Do NOT set publish=.next or functions=.next/serverless with @netlify/plugin-nextjs v5 —
+  # the plugin publishes the correct OpenNext/server-handler bundle. Wrong paths caused 502s.
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
