@@ -22,12 +22,21 @@ const normalizeDate = (dateStr: string): number => {
   return isNaN(date.getTime()) ? 0 : date.getTime();
 };
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getAllPostsApi(): Promise<BlogPost[]> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mindcentre.sg';
-    const res = await fetch(`${baseUrl}/api/blog-posts`, { next: { revalidate: 60 } });
+    // Prefer Netlify runtime URL; avoid stale ISR cache of empty arrays
+    const baseUrl =
+      process.env.URL ||
+      process.env.DEPLOY_PRIME_URL ||
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      'https://mindcentre.sg';
+    const res = await fetch(`${baseUrl}/api/blog-posts`, { cache: 'no-store' });
     if (!res.ok) return [];
-    return await res.json();
+    const data = await res.json();
+    return Array.isArray(data) ? data : [];
   } catch {
     return [];
   }
