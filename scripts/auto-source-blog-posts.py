@@ -12,7 +12,7 @@ import os
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-BASE = Path("/home/dhhl24/.hermes/MC_website-8Apr26h")
+BASE = Path(__file__).resolve().parent.parent
 QUEUE_PATH = BASE / "public" / "data" / "mindcentre-blog-posts.json"
 CLEAN_PATH = BASE / "public" / "data" / "clean-blog-data.json"
 

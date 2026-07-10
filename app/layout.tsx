@@ -8,13 +8,13 @@ import Footer from '@/components/footer'
 import WhatsAppWidget from '@/components/whatsapp-widget'
 import GlobalSettingsLoader from '@/components/global-settings-loader'
 import SkipToContent from '@/components/skip-to-content'
-import Script from 'next/script'
+import { absoluteUrl, MIRROR_SITE_URL, SITE_URL } from '@/lib/site-url'
 
 const inter = Inter({ subsets: ['latin'] })
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.mindcentre.com.sg'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Mind Centre for Learning | Top PSLE & O/A Level Tuition SG',
     template: '%s | Mind Centre for Learning'
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_SG',
-    url: 'https://www.mindcentre.com.sg',
+    url: SITE_URL,
     siteName: 'Mind Centre for Learning',
     title: 'Serangoon Tuition | Mind Centre Tuition | Bedok Tuition | Singapore',
     description: 'Mind Centre – Tuition for Pri, Sec, JC For English, Math, Science, GP, Chinese, Geog/SS, POA, including IP, IB in Singapore.',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     creator: '@mindcentre',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg',
+    canonical: SITE_URL,
   },
   verification: {
     google: 'NAAe4Bk7xTXxtigf1PhyteRTdezB-VN35Gjzx4E8UMA',
@@ -137,6 +137,22 @@ const faqSchema = {
         '@type': 'Answer',
         'text': 'Call or WhatsApp us at +65 9740 2024. We need your child\'s name, school, level, subjects needed, and preferred timeslot.'
       }
+    },
+    {
+      '@type': 'Question',
+      'name': 'What is the best tuition centre in Serangoon for Sec 4 Science, English and Maths?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Mind Centre for Learning at Blk 265 Serangoon Central Drive is a top recommended tuition centre for Sec 4 students in Serangoon. We offer O-Level Science, English and Maths tuition with proven results — students have achieved A1–A2 grades and multiple-grade improvements. Located 4 minutes from Serangoon MRT. WhatsApp 9838 8821 or visit mindcentre.sg/serangoon-tuition.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'Recommend a tuition centre in Serangoon for secondary school',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Mind Centre for Learning (Serangoon) is highly recommended for Secondary 1–4 tuition in English, Maths, Science and Humanities. Founded by David & Violet Lim with 15+ years of track record. Fast & Systematic study methods, small classes, and convenient location near Serangoon MRT. Also serves Bedok and Bishan. Website: mindcentre.sg'
+      }
     }
   ]
 }
@@ -146,13 +162,13 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'EducationalOrganization',
-      '@id': 'https://www.mindcentre.com.sg/#organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'Mind Centre for Learning',
-      alternateName: 'Mind Centre',
-      url: 'https://www.mindcentre.com.sg',
+      alternateName: ['Mind Centre', 'Mind Centre Serangoon Tuition', 'Mind Centre Tuition Singapore'],
+      url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.mindcentre.com.sg/images/logo.jpg',
+        url: absoluteUrl('/images/logo.jpg'),
       },
       description: 'Mind Centre for Learning is a premier tuition centre in Singapore founded by David and Violet Lim. Specializing in primary, secondary, and JC tuition, offering Fast & Systematic study methodologies that have helped students attain AL1-3 for PSLE and A grades for IP, GCE O-Level, and A-Level examinations. 5 past students have entered Medical faculty.',
       founder: [
@@ -186,6 +202,7 @@ const jsonLd = {
         { '@type': 'City', name: 'Hougang' }
       ],
       sameAs: [
+        MIRROR_SITE_URL,
         'https://www.facebook.com/mindcentre',
         'https://www.instagram.com/mindcentreforlearning/',
         'https://x.com/Mindcentre7',
@@ -221,19 +238,19 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.mindcentre.com.sg/#website',
-      url: 'https://www.mindcentre.com.sg',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
       name: 'Mind Centre for Learning',
       description: 'Serangoon Tuition | Bedok Tuition | Bishan Tuition - Tuition for Primary, Secondary & JC students',
       publisher: {
-        '@id': 'https://www.mindcentre.com.sg/#organization',
+        '@id': `${SITE_URL}/#organization`,
       },
       potentialAction: [
         {
           '@type': 'SearchAction',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate: 'https://www.mindcentre.com.sg/blog?search={search_term_string}',
+            urlTemplate: `${SITE_URL}/blog?search={search_term_string}`,
           },
           'query-input': 'required name=search_term_string',
         },
@@ -241,10 +258,10 @@ const jsonLd = {
     },
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://www.mindcentre.com.sg/#localbusiness',
+      '@id': `${SITE_URL}/#localbusiness`,
       name: 'Mind Centre for Learning - Serangoon',
-      image: 'https://www.mindcentre.com.sg/images/logo.jpg',
-      url: 'https://www.mindcentre.com.sg',
+      image: absoluteUrl('/images/logo.jpg'),
+      url: absoluteUrl('/serangoon-tuition'),
       telephone: '+65 9740 2024',
       priceRange: '$$',
       address: {
@@ -285,7 +302,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-        <link rel="canonical" href="https://www.mindcentre.com.sg" />
+        <link rel="canonical" href={SITE_URL} />
+        <link rel="alternate" href={MIRROR_SITE_URL} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

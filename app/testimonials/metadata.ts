@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Testimonials - Mind Centre for Learning',
     description: 'Read testimonials from our students who achieved excellent results.',
-    url: 'https://www.mindcentre.com.sg/testimonials',
+    url: 'https://www.mindcentre.sg/testimonials',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/testimonials',
+    canonical: 'https://www.mindcentre.sg/testimonials',
   },
 }

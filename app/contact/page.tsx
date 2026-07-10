@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Mind Centre for Learning - Serangoon Tuition',
     description: 'Get in touch with Mind Centre for Learning in Serangoon, Singapore.',
-    url: 'https://www.mindcentre.com.sg/contact',
+    url: 'https://www.mindcentre.sg/contact',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/contact',
+    canonical: 'https://www.mindcentre.sg/contact',
   },
 }
 

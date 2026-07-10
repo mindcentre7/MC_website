@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Our Teachers - Mind Centre for Learning',
     description: 'Meet our experienced and dedicated teachers at Mind Centre.',
-    url: 'https://www.mindcentre.com.sg/teachers',
+    url: 'https://www.mindcentre.sg/teachers',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/teachers',
+    canonical: 'https://www.mindcentre.sg/teachers',
   },
 }

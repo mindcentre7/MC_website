@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site-url'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -37,6 +38,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://www.mindcentre.com.sg/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   }
 }

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link'
+import { absoluteUrl } from '@/lib/site-url'
 
 interface BlogPost {
   id: number;
@@ -113,19 +114,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 '@type': 'Organization',
                 name: post.author || 'Mind Centre for Learning',
               },
-              image: post.featured_image || 'https://www.mindcentre.com.sg/images/og-default.jpg',
-              url: `https://www.mindcentre.com.sg/blog/${post.slug}`,
+              image: post.featured_image?.startsWith('http')
+                ? post.featured_image
+                : absoluteUrl(post.featured_image || '/images/logo.jpg'),
+              url: absoluteUrl(`/blog/${post.slug}`),
               publisher: {
                 '@type': 'Organization',
                 name: 'Mind Centre for Learning',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://www.mindcentre.com.sg/images/logo.png',
+                  url: absoluteUrl('/images/logo.jpg'),
                 },
               },
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': `https://www.mindcentre.com.sg/blog/${post.slug}`,
+                '@id': absoluteUrl(`/blog/${post.slug}`),
               },
             }),
           }}

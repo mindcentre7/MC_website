@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Our Learning System - Mind Centre for Learning',
     description: 'Discover Mind Centre\'s proven Fast & Systematic Learning Methodologies.',
-    url: 'https://www.mindcentre.com.sg/learning-system',
+    url: 'https://www.mindcentre.sg/learning-system',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/learning-system',
+    canonical: 'https://www.mindcentre.sg/learning-system',
   },
 }

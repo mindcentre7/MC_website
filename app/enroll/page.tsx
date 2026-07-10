@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Enroll Now - Buy 1 Get 1 Free Trial Classes | Mind Centre',
     description: 'Sign up for Buy 1 Get 1 Free trial Science or English/GP classes at Mind Centre. Serangoon & Bedok centres.',
-    url: 'https://www.mindcentre.com.sg/enroll',
+    url: 'https://www.mindcentre.sg/enroll',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/enroll',
+    canonical: 'https://www.mindcentre.sg/enroll',
   },
 }
 

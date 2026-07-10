@@ -1,6 +1,6 @@
-
 import { Metadata } from 'next'
 import { getPostBySlug } from '@/lib/blog'
+import { absoluteUrl } from '@/lib/site-url'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug)
@@ -14,8 +14,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   const title = post.title
   const description = post.content.replace(/<[^>]*>/g, '').substring(0, 155) + '...'
-  const url = `https://www.mindcentre.com.sg/blog/${post.slug}`
-  const imageUrl = post.featured_image || 'https://www.mindcentre.com.sg/images/og-default.jpg'
+  const url = absoluteUrl(`/blog/${post.slug}`)
+  const imageUrl = post.featured_image?.startsWith('http')
+    ? post.featured_image
+    : absoluteUrl(post.featured_image || '/images/logo.jpg')
 
   return {
     title,

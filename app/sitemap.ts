@@ -1,27 +1,30 @@
 import { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
+import { SITE_URL } from '@/lib/site-url'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.mindcentre.com.sg'
+  const baseUrl = SITE_URL
   
   // Base routes
   const routes = [
-    '',
-    '/about',
-    '/teachers',
-    '/testimonials',
-    '/results',
-    '/learning-system',
-    '/schedules',
-    '/franchising',
-    '/contact',
-    '/blog',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    { path: '', priority: 1 as const },
+    { path: '/serangoon-tuition', priority: 0.95 as const },
+    { path: '/about', priority: 0.8 as const },
+    { path: '/teachers', priority: 0.8 as const },
+    { path: '/testimonials', priority: 0.8 as const },
+    { path: '/results', priority: 0.8 as const },
+    { path: '/learning-system', priority: 0.8 as const },
+    { path: '/schedules', priority: 0.8 as const },
+    { path: '/enroll', priority: 0.85 as const },
+    { path: '/franchising', priority: 0.8 as const },
+    { path: '/contact', priority: 0.8 as const },
+    { path: '/blog', priority: 0.8 as const },
+  ].map(({ path, priority }) => ({
+    url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority,
   }))
 
   // Blog posts — try Blobs first, then filesystem

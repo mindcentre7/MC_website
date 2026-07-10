@@ -19,10 +19,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Mind Centre for Learning - Serangoon Tuition',
     description: 'Learn about Mind Centre for Learning, a trusted tuition centre in Serangoon and Bedok, Singapore.',
-    url: 'https://www.mindcentre.com.sg/about',
+    url: 'https://www.mindcentre.sg/about',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/about',
+    canonical: 'https://www.mindcentre.sg/about',
   },
 };
 

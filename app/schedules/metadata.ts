@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Class Schedules - Mind Centre for Learning',
     description: 'View our class schedules for Primary, Secondary, and JC tuition.',
-    url: 'https://www.mindcentre.com.sg/schedules',
+    url: 'https://www.mindcentre.sg/schedules',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/schedules',
+    canonical: 'https://www.mindcentre.sg/schedules',
   },
 }

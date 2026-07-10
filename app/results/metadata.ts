@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Student Results - Mind Centre for Learning',
     description: 'View our students\' outstanding results in PSLE, O Level, A Level, IP, and IB examinations.',
-    url: 'https://www.mindcentre.com.sg/results',
+    url: 'https://www.mindcentre.sg/results',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/results',
+    canonical: 'https://www.mindcentre.sg/results',
   },
 }

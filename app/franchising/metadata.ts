@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Franchising - Mind Centre for Learning',
     description: 'Learn about franchising opportunities with Mind Centre for Learning.',
-    url: 'https://www.mindcentre.com.sg/franchising',
+    url: 'https://www.mindcentre.sg/franchising',
   },
   alternates: {
-    canonical: 'https://www.mindcentre.com.sg/franchising',
+    canonical: 'https://www.mindcentre.sg/franchising',
   },
 }
