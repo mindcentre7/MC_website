@@ -1,5 +1,20 @@
 [
   {
+    "id": 209,
+    "slug": "developing-a-growth-mindset-with-carol-dweck",
+    "title": "Developing a Growth Mindset with Carol Dweck",
+    "date": "2026-07-21",
+    "date_display": "July 21, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Developing Critical Thinking & Growth Mindset</p><p>In this Stanford Alumni talk, Carol Dweck shares practical strategies for developing a growth mindset in students. She explains the difference between fixed and growth mindsets, and how teachers and parents can foster resilience and love of learning. Mind Centre's teachers are trained to praise effort and strategy rather than innate ability, creating a classroom culture where every student feels empowered to improve.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/hiiEeMN7vbQ/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=hiiEeMN7vbQ"
+    ],
+    "channel": "Stanford Alumni"
+  },
+  {
     "id": 208,
     "slug": "6-keys-to-rapid-learning-jim-kwiks-expert-system",
     "title": "6 Keys to Rapid Learning: Jim Kwik's Expert System",
