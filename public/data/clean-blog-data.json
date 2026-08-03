@@ -1,5 +1,20 @@
 [
   {
+    "id": 210,
+    "slug": "my-best-test-taking-strategies-to-ace-any-exam",
+    "title": "My Best Test-Taking Strategies to Ace Any Exam",
+    "date": "2026-07-28",
+    "date_display": "July 28, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Testing and Exam Methodologies</p><p>A top student shares her proven test-taking strategies, from time management during exams to eliminating wrong answers and handling difficult questions. These practical tips complement the content knowledge students gain in class. Mind Centre's Testing and Exam Methodologies go beyond content review to teach students the art of exam performance, including strategic question selection and stress management techniques.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/Es29mH7sN_w/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=Es29mH7sN_w"
+    ],
+    "channel": "Amy Wang"
+  },
+  {
     "id": 209,
     "slug": "developing-a-growth-mindset-with-carol-dweck",
     "title": "Developing a Growth Mindset with Carol Dweck",
