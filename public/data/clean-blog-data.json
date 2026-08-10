@@ -1,5 +1,20 @@
 [
   {
+    "id": 211,
+    "slug": "science-education-for-life-and-work",
+    "title": "Science Education for Life and Work",
+    "date": "2026-08-04",
+    "date_display": "August 04, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>The National Academies of Sciences explain why Science education must go beyond textbooks to prepare students for real-world challenges. This video demonstrates how applied Science learning develops critical thinking, problem-solving, and adaptability. Mind Centre aligns with this philosophy, teaching students to apply Scientific principles to everyday situations and develop a lifelong love of learning.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/hCO4FMYEUDM/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=hCO4FMYEUDM"
+    ],
+    "channel": "National Academies"
+  },
+  {
     "id": 210,
     "slug": "my-best-test-taking-strategies-to-ace-any-exam",
     "title": "My Best Test-Taking Strategies to Ace Any Exam",
