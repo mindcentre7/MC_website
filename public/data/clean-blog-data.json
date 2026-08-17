@@ -1,5 +1,20 @@
 [
   {
+    "id": 212,
+    "slug": "learning-how-to-learn-barbara-oakley-at-google",
+    "title": "Learning How to Learn: Barbara Oakley at Google",
+    "date": "2026-08-11",
+    "date_display": "August 11, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Critical Mind-focused Learning</p><p>Barbara Oakley visits Google to discuss the neuroscience of learning, including how to overcome procrastination, build effective study habits, and use metaphors to understand complex concepts. Her insights align perfectly with Mind Centre's approach to teaching, where we help students understand not just what to learn, but how to learn. This meta-learning skill is the foundation of our Rapid Application Flooding technique.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/vd2dtkMINIw/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=vd2dtkMINIw"
+    ],
+    "channel": "Talks at Google"
+  },
+  {
     "id": 211,
     "slug": "science-education-for-life-and-work",
     "title": "Science Education for Life and Work",
