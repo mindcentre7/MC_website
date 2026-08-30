@@ -8,8 +8,9 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('submitting')
-    
-    const formData = new FormData(e.currentTarget)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const data = Object.fromEntries(formData.entries())
 
     // Simulating form submission (replace with your actual backend endpoint)
@@ -22,7 +23,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus('error')
       }

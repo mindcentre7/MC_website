@@ -25,7 +25,10 @@ export default function EnrollForm({
     e.preventDefault()
     setStatus('submitting')
 
-    const formData = new FormData(e.currentTarget)
+    // Capture the form before any await — React nulls e.currentTarget after the
+    // synthetic event is pooled, so reset() later throws and shows a false error.
+    const form = e.currentTarget
+    const formData = new FormData(form)
     const data = {
       parentName: formData.get('parentName'),
       whatsapp: formData.get('whatsapp'),
@@ -43,7 +46,7 @@ export default function EnrollForm({
 
       if (response.ok) {
         setStatus('success')
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setStatus('error')
       }
