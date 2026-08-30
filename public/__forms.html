@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mind Centre form endpoint</title>
+  </head>
+  <body>
+    <!-- Detected by Netlify at deploy so enrollment POSTs can email all@mindcentre.sg -->
+    <form
+      name="enrollment"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="enrollment" />
+      <input name="bot-field" />
+      <input name="parentName" />
+      <input name="whatsapp" />
+      <input name="studentName" />
+      <input name="email" type="email" />
+      <input name="level" />
+      <input name="timestamp" />
+    </form>
+  </body>
+</html>
