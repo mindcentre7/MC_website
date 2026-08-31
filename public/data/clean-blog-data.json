@@ -1,5 +1,35 @@
 [
   {
+    "slug": "mind-mapping",
+    "title": "Mind Mapping",
+    "date": "2026-08-31",
+    "date_display": "August 31, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Mind-Mapping</p><p>At Mind Centre, we teach our students mind-mapping as a core study technique. This powerful visual method helps organise complex concepts for PSLE, O-Level, and A-Level subjects, making revision faster and more effective. Watch this video to learn more!</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/xCyjFipytRE/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=xCyjFipytRE"
+    ],
+    "channel": "Teachings in Education",
+    "id": 215
+  },
+  {
+    "id": 214,
+    "slug": "how-to-learn-so-fast-its-almost-unfair",
+    "title": "How to Learn So Fast It's Almost Unfair",
+    "date": "2026-08-25",
+    "date_display": "August 25, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Rapid Application Flooding</p><p>Discover rapid learning techniques used by top performers at MIT and other elite institutions. This video covers the Pareto principle in learning, active experimentation, and the power of teaching others. Mind Centre applies similar accelerated learning strategies through our Rapid Application Flooding approach, where students engage in intensive, focused practice that builds mastery in record time.</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/npQ2IORdlvU/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=npQ2IORdlvU"
+    ],
+    "channel": "theMITmonk"
+  },
+  {
     "id": 213,
     "slug": "committed-the-most-powerful-motivational-speech-for-students",
     "title": "Committed: The Most Powerful Motivational Speech for Students",
