@@ -1,5 +1,20 @@
 [
   {
+    "slug": "science-of-everyday-life",
+    "title": "Science of Everyday Life",
+    "date": "2026-10-05",
+    "date_display": "October 05, 2026",
+    "author": "Mind Centre",
+    "content": "<p><strong>Topic:</strong> Applying Science in Real Life</p><p>Science isn't just for textbooks — it's everywhere. We bring Science to life for our students by connecting concepts to real-world applications, making Physics, Chemistry, and Biology engaging, relevant, and unforgettable. Watch this video to learn more!</p><p>Video content available</p>",
+    "featured_image": "https://img.youtube.com/vi/YCWmEmBMU1g/hqdefault.jpg",
+    "content_images": [],
+    "videos": [
+      "https://www.youtube.com/watch?v=YCWmEmBMU1g"
+    ],
+    "channel": "BIO5Institute",
+    "id": 220
+  },
+  {
     "slug": "how-i-cram-for-exams-quick-efficient-study-methods-for-getting-all-as-that-actua",
     "title": "how i cram for exams: quick + efficient study methods for getting all A's that ACTUALLY work",
     "date": "2026-09-28",
